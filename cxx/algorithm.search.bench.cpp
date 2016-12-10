@@ -1,4 +1,5 @@
 #include<algorithm>
+#include<list>
 #include<set>
 #include<vector>
 
@@ -14,21 +15,21 @@ class BM_vector_search {
     std::vector<int> v;
 };
 
-template<typename T>
-void fillVector(std::vector<T> &v) {
+template <template <class, class> class Container, class value_type>
+void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
   //state.PauseTiming();
   // initialize.
-  const unsigned N = v.size();
-  for (int j = 0; j < N; ++j) {
-    v[j] = j;
-  }
+  unsigned j = 0;
+  for (auto &e : v)
+    e = j++;
   //state.ResumeTiming();
 }
 
+template<typename V>
 void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
-  std::vector<int> v(N);
-  fillVector(v);
+  V v(N);
+  fillSeq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i)
@@ -37,10 +38,11 @@ void BM_search_linear(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+template<typename V>
 void BM_search_binary(benchmark::State& state) {
   const unsigned N = state.range(0);
-  std::vector<int> v(N);
-  fillVector(v);
+  V v(N);
+  fillSeq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i)
@@ -49,7 +51,9 @@ void BM_search_binary(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-COMPLEXITY_BENCHMARK_TEST(BM_search_linear);
-COMPLEXITY_BENCHMARK_TEST(BM_search_binary);
+COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<int>);
+COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<int>);
+COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<int>);
+COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<int>);
 
 BENCHMARK_MAIN()

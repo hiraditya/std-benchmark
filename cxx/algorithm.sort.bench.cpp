@@ -34,8 +34,8 @@ void BM_sort_stable(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-COMPLEXITY_BENCHMARK_TEST(BM_sort_std);
-COMPLEXITY_BENCHMARK_TEST(BM_sort_stable);
+COMPLEXITY_BENCHMARK(BM_sort_std);
+COMPLEXITY_BENCHMARK(BM_sort_stable);
 
 BENCHMARK_MAIN()
 
