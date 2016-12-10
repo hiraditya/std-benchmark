@@ -1,5 +1,6 @@
 #include<algorithm>
 #include<set>
+#include<vector>
 
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
