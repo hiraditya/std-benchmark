@@ -2,11 +2,7 @@
 #include<set>
 
 #include "benchmark/benchmark_api.h"
-
-#define BASIC_BENCHMARK_TEST(x) BENCHMARK(x)->Arg(2<<5)->Arg(2<<10)\
-                                ->Arg(2<<20)->Arg(2<<30)
-
-#define COMPLEXITY_BENCHMARK_TEST(x) BENCHMARK(x)->RangeMultiplier(2)->Range(1<<10, 1<<16)->Complexity();
+#include "test_configs.h"
 
 class BM_vector_search {
   public:
@@ -27,7 +23,6 @@ void BM_search(benchmark::State& state) {
   state.SetComplexityN(state.range(0));
 }
 
-//BASIC_BENCHMARK_TEST(BM_search);
 COMPLEXITY_BENCHMARK_TEST(BM_search);
 
 BENCHMARK_MAIN()
