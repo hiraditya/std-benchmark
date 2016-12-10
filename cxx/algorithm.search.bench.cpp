@@ -5,25 +5,7 @@
 
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
-
-// TODO: Create a template class such that all the
-// APIs of STL containers can be exercised in a concise way.
-class BM_vector_search {
-  public:
-    BM_vector_search() {}
-  private:
-    std::vector<int> v;
-};
-
-template <template <class, class> class Container, class value_type>
-void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
-  //state.PauseTiming();
-  // initialize.
-  unsigned j = 0;
-  for (auto &e : v)
-    e = j++;
-  //state.ResumeTiming();
-}
+#include "test_utils.h"
 
 template<typename V>
 void BM_search_linear(benchmark::State& state) {
