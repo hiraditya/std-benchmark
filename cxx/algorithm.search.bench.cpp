@@ -5,6 +5,8 @@
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
 
+// TODO: Create a template class such that all the
+// APIs of STL containers can be exercised in a concise way.
 class BM_vector_search {
   public:
     BM_vector_search() {}
