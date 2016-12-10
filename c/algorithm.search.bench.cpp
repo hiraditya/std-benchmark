@@ -1,19 +1,28 @@
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
 
-void BM_search(benchmark::State& state) {
+void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
   int a[N];
   while (state.KeepRunning()) {
-    //state.PauseTiming(); state.ResumeTiming();
+    state.PauseTiming();
+    // initialize.
     for (int j = 0; j < N; ++j) {
       a[j] = j;
       //benchmark::DoNotOptimize(a[j] = j);
     }
+    state.ResumeTiming();
+    // searching for all the elements.
+    for (int i = 0; i < N; ++i) {
+      for (int j = 0; j < N; ++j) {
+        if (a[j] == i)
+          break; // found!
+      }
+    }
   }
-  state.SetComplexityN(state.range(0));
+  state.SetComplexityN(N);
 }
 
-COMPLEXITY_BENCHMARK_TEST(BM_search);
+COMPLEXITY_BENCHMARK_TEST(BM_search_linear);
 
 BENCHMARK_MAIN()
