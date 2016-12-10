@@ -3,6 +3,7 @@ set(src
 
 set(target algorithm.search.bench.out)
 
-add_executable(${target} EXCLUDE_FROM_ALL ${src})
+#EXCLUDE_FROM_ALL
+add_executable(${target} ${src})
 
 target_link_libraries(${target} -lbenchmark -pthread)
