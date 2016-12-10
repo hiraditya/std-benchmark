@@ -3,3 +3,4 @@ project(std_benchmark)
 
 add_subdirectory(benchmark)
 add_subdirectory(cxx)
+add_subdirectory(c)
