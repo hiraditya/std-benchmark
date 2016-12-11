@@ -1,24 +1,18 @@
+#include <iterator>
+#include <algorithm>
+
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
+#include "test_utils.h"
 
 void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
   int a[N];
+  fillSeq(a, a+N);
   while (state.KeepRunning()) {
-    state.PauseTiming();
-    // initialize.
-    for (int j = 0; j < N; ++j) {
-      a[j] = j;
-      //benchmark::DoNotOptimize(a[j] = j);
-    }
-    state.ResumeTiming();
     // searching for all the elements.
-    for (int i = 0; i < N; ++i) {
-      for (int j = 0; j < N; ++j) {
-        if (a[j] == i)
-          break; // found!
-      }
-    }
+    for (int i = 0; i < N; ++i)
+      benchmark::DoNotOptimize(std::find(a, a+N, i));
   }
   state.SetComplexityN(N);
 }

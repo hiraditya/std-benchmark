@@ -24,5 +24,15 @@ void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
   //state.ResumeTiming();
 }
 
+template <typename T>
+void fillSeq(T begin, T end) {
+  //state.PauseTiming();
+  // initialize.
+  unsigned j = 0;
+  for (auto it = begin; it != end; ++it)
+    *it = j++;
+  //state.ResumeTiming();
+}
+
 #endif // TEST_UTILS_H
 
