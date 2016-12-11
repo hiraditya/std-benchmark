@@ -23,6 +23,6 @@ void BM_search_linear(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-COMPLEXITY_BENCHMARK(BM_search_linear);
+COMPLEXITY_BENCHMARK(BM_search_linear, L1);
 
 BENCHMARK_MAIN()

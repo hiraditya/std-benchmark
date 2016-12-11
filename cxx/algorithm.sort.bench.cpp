@@ -29,8 +29,10 @@ void BM_sort_stable(benchmark::State& state) {
 }
 
 
-COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>);
-COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>);
+//COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, L1);
+//COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, L1);
+COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, L2);
+COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, L2);
 
 BENCHMARK_MAIN()
 
