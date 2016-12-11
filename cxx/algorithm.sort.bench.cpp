@@ -1,10 +1,10 @@
-#include<algorithm>
-#include<list>
-#include<vector>
-
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
 #include "test_utils.h"
+
+#include<algorithm>
+#include<list>
+#include<vector>
 
 template<typename V>
 void BM_sort_std(benchmark::State& state) {

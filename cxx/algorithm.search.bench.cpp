@@ -1,11 +1,10 @@
-#include<algorithm>
-#include<list>
-#include<set>
-#include<vector>
-
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
 #include "test_utils.h"
+
+#include<algorithm>
+#include<list>
+#include<vector>
 
 template<typename V>
 void BM_search_linear(benchmark::State& state) {
