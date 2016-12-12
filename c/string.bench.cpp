@@ -76,6 +76,20 @@ void BM_strcpy(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+void BM_strlen(benchmark::State& state) {
+  const unsigned N = state.range(0);
+  char s1[N];
+  char s2[N/16];
+  fillRandomChars(s1, s1+N);
+  fillRandomChars(s2, s2+N/16);
+  unsigned i = 0;
+  while (state.KeepRunning()) {
+    // strclen at varying positions.
+    benchmark::DoNotOptimize(strlen(s1+i++));
+  }
+  state.SetComplexityN(N);
+}
+
 /*strcat - concatenate two strings
 strchr - string scanning operation
 strcmp - compare two strings
@@ -91,5 +105,6 @@ COMPLEXITY_BENCHMARK(BM_strcat, L1);
 COMPLEXITY_BENCHMARK(BM_strchr, L1);
 COMPLEXITY_BENCHMARK(BM_strcmp, L1);
 COMPLEXITY_BENCHMARK(BM_strcpy, L1);
+COMPLEXITY_BENCHMARK(BM_strlen, L1);
 BENCHMARK_MAIN()
 
