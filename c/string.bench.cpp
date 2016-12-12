@@ -9,7 +9,7 @@ void BM_strstr(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
-  fillRandomChars(s1, s1+N);
+  fillRandomChars(s1, s1+N, true);
   fillRandomChars(s2, s2+N/16, false);
   while (state.KeepRunning()) {
     // searching for all the elements.
@@ -23,7 +23,7 @@ void BM_strcat(benchmark::State& state) {
   const unsigned s2_sz = N/16;
   char s1[N];
   char s2[s2_sz];
-  fillRandomChars(s1, s1+N/2);
+  fillRandomChars(s1, s1+N/2, true);
   fillRandomChars(s2, s2+s2_sz, false);
   while (state.KeepRunning()) {
     // searching for all the elements.
@@ -39,7 +39,7 @@ void BM_strchr(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2 = '1';
-  fillRandomChars(s1, s1+N);
+  fillRandomChars(s1, s1+N, true);
   while (state.KeepRunning()) {
     // searching for all the elements.
     benchmark::DoNotOptimize(strchr(s1, s2));
@@ -51,8 +51,8 @@ void BM_strcmp(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
-  fillRandomChars(s1, s1+N);
-  fillRandomChars(s2, s2+N/16);
+  fillRandomChars(s1, s1+N, true);
+  fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
   while (state.KeepRunning()) {
     // strcmp at varying positions
@@ -65,8 +65,8 @@ void BM_strcpy(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
-  fillRandomChars(s1, s1+N);
-  fillRandomChars(s2, s2+N/16);
+  fillRandomChars(s1, s1+N, true);
+  fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
   while (state.KeepRunning()) {
     // strcpy at varying positions.
@@ -80,8 +80,8 @@ void BM_strlen(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
-  fillRandomChars(s1, s1+N);
-  fillRandomChars(s2, s2+N/16);
+  fillRandomChars(s1, s1+N, true);
+  fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
   while (state.KeepRunning()) {
     // strlen at varying positions.

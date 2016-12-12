@@ -40,7 +40,7 @@ void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
     *it = rand() % max;
 }
 
-void fillRandomChars(char * begin, char * end, bool upper = true) {
+void fillRandomChars(char *begin, char *end, bool upper) {
   // initialize.
   char max = upper ? 'Z' : 'z';
   char min = upper ? 'A' : 'a';

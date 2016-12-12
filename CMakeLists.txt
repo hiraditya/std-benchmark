@@ -6,7 +6,7 @@ set(BENCHMARK_SRC ${CMAKE_SOURCE_DIR}/benchmark)
 set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)
 
 set(COMPILE_FLAGS
-  "-std=c++14 -O3 -I${BENCHMARK_SRC}/include -I${CMAKE_SOURCE_DIR}/include"
+  "-std=c++14 -O0 -g -I${BENCHMARK_SRC}/include -I${CMAKE_SOURCE_DIR}/include"
 )
 
 set(LINK_FLAGS
