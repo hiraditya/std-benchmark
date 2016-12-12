@@ -84,7 +84,7 @@ void BM_strlen(benchmark::State& state) {
   fillRandomChars(s2, s2+N/16);
   unsigned i = 0;
   while (state.KeepRunning()) {
-    // strclen at varying positions.
+    // strlen at varying positions.
     benchmark::DoNotOptimize(strlen(s1+i++));
   }
   state.SetComplexityN(N);
