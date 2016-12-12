@@ -43,7 +43,7 @@ void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
 void fillRandomChars(char * begin, char * end, bool upper = true) {
   // initialize.
   char max = upper ? 'Z' : 'z';
-  char min = upper ? 'a' : 'a';
+  char min = upper ? 'A' : 'a';
   auto it = begin;
   for (; it != end -1; ++it)
     *it = rand() % (max - min + 1) + min;
