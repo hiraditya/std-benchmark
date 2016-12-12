@@ -18,16 +18,16 @@ void BM_strstr(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-// Linear search on a sequence
-void BM_strcmp(benchmark::State& state) {
+void BM_strcat(benchmark::State& state) {
   const unsigned N = state.range(0);
+  const int s2_sz = N/16;
   char s1[N];
-  char s2[N/16];
-  fillRandomChars(s1, s1+N);
-  fillRandomChars(s2, s2+N/16);
+  char s2[s2_sz];
+  fillRandomChars(s1, s1+N/2);
+  fillRandomChars(s2, s2+s2_sz, false);
   while (state.KeepRunning()) {
     // searching for all the elements.
-    benchmark::DoNotOptimize(strcmp(s1, s2));
+    benchmark::DoNotOptimize(strcat(s1, s2));
   }
   state.SetComplexityN(N);
 }
@@ -44,6 +44,30 @@ void BM_strchr(benchmark::State& state) {
   }
   state.SetComplexityN(N);
 }
+
+// Linear search on a sequence
+void BM_strcmp(benchmark::State& state) {
+  const unsigned N = state.range(0);
+  char s1[N];
+  char s2[N/16];
+  fillRandomChars(s1, s1+N);
+  fillRandomChars(s2, s2+N/16);
+  while (state.KeepRunning()) {
+    // searching for all the elements.
+    benchmark::DoNotOptimize(strcmp(s1, s2));
+  }
+  state.SetComplexityN(N);
+}
+
+/*strcat - concatenate two strings
+strchr - string scanning operation
+strcmp - compare two strings
+strcpy - copy a string
+strlen - get string length
+strncat - concatenate one string with part of another
+strncmp - compare parts of two strings
+strncpy - copy part of a string
+strrchr - string scanning operation*/
 
 COMPLEXITY_BENCHMARK(BM_strstr, L1);
 COMPLEXITY_BENCHMARK(BM_strcmp, L1);

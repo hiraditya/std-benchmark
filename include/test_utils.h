@@ -44,8 +44,10 @@ void fillRandomChars(char * begin, char * end, bool upper = true) {
   // initialize.
   char max = upper ? 'Z' : 'z';
   char min = upper ? 'a' : 'a';
-  for (auto it = begin; it != end; ++it)
+  auto it = begin;
+  for (; it != end -1; ++it)
     *it = rand() % (max - min + 1) + min;
+  *it = '\0';
 }
 
 #endif // TEST_UTILS_H
