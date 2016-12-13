@@ -18,7 +18,7 @@ SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINK_FLAGS}")
 
 # Google benchmark is build as Debug by default.
-SET(CMAKE_BUILD_TYPE  "Release")
+SET(CMAKE_BUILD_TYPE "Release")
 
 add_subdirectory(benchmark)
 

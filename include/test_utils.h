@@ -40,7 +40,9 @@ void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
     *it = rand() % max;
 }
 
-void fillRandomChars(char *begin, char *end, bool upper) {
+// It can work with char* or std::string.
+template<typename T>
+void fillRandomChars(T begin, T end, bool upper) {
   // initialize.
   char max = upper ? 'Z' : 'z';
   char min = upper ? 'A' : 'a';
