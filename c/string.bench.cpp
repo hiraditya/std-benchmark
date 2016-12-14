@@ -18,18 +18,24 @@ void BM_strstr(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+// FIXME: Set a limit on the max number of iterations.
 void BM_strcat(benchmark::State& state) {
   const unsigned N = state.range(0);
-  const unsigned s2_sz = N/16;
+  const unsigned s2_sz = 2;
   char s1[N];
   char s2[s2_sz];
-  fillRandomChars(s1, s1+N/2, true);
+  fillRandomChars(s1, s1+1, true);
   fillRandomChars(s2, s2+s2_sz, false);
+  unsigned s1_sz = 1;
   while (state.KeepRunning()) {
     // searching for all the elements.
     // FIXME: strcat is tricky because it keeps concatenating
     // until the timer stops, that corrupts memory.
-    //benchmark::DoNotOptimize(strcat(s1, s2));
+    benchmark::DoNotOptimize(strcat(s1, s2));
+    s1_sz += s2_sz;
+    if (s1_sz >= N) {
+      state.SkipWithError("Memory corruption");
+    }
   }
   state.SetComplexityN(N);
 }
@@ -101,7 +107,7 @@ strncpy - copy part of a string
 strrchr - string scanning operation*/
 
 COMPLEXITY_BENCHMARK(BM_strstr, L1);
-COMPLEXITY_BENCHMARK(BM_strcat, L1);
+COMPLEXITY_BENCHMARK(BM_strcat, L3);
 COMPLEXITY_BENCHMARK(BM_strchr, L1);
 COMPLEXITY_BENCHMARK(BM_strcmp, L1);
 COMPLEXITY_BENCHMARK(BM_strcpy, L1);

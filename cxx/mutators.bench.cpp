@@ -64,7 +64,7 @@ void BM_insert_last(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-//std::forward_list<int> does not have push_back, push_back :(
+//std::forward_list<int> does not have push_back :(
 COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<int>, L2);
 COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<int>, L2);
 COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<int>, L2);
