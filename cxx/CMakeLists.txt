@@ -4,5 +4,7 @@ foreach(test_path ${BENCHMARK_TESTS})
   set(target ${test_file}.out)
   #EXCLUDE_FROM_ALL
   add_executable(${target} ${test_file})
-  target_link_libraries(${target} -lbenchmark -pthread)
+  # shlwapi for MSVC
+  #target_link_libraries(${target} benchmark -pthread shlwapi)
+  target_link_libraries(${target} benchmark -pthread)
 endforeach()
