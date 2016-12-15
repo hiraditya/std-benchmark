@@ -1,0 +1,105 @@
+\documentclass{sig-alternate}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{graphviz}
+\usepackage{auto-pst-pdf}
+\usepackage{etoolbox}
+\usepackage{flushend}
+\usepackage{needspace}
+
+\makeatletter
+\preto{\@verbatim}{\topsep=1pt \partopsep=0pt}
+\makeatother
+
+\pagenumbering{arabic}
+
+\begin{document}
+\def \GCC {GCC}
+\def \LLVM {LLVM}
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\title{Std-benchmarking}
+
+\toappear{
+   \hrule \vspace{5pt}
+   Some conf
+}
+\numberofauthors{3}
+
+\author{
+\alignauthor
+Aditya Kumar\\
+       \affaddr{Samsung Austin R\&D Center}\\
+       \email{aditya.k7@samsung.com}
+\alignauthor
+Brian\\
+       \affaddr{Samsung Austin R\&D Center}\\
+       \email{ancd}
+\and
+\alignauthor
+Sebastian\\
+       \affaddr{Samsung Austin R\&D Center}\\
+       \email{ancd}
+%\and
+%\alignauthor
+%Daniel Berlin\\
+%       \affaddr{Google Inc.}\\
+%       \email{dberlin@dberlin.org}
+}
+
+\maketitle
+\begin{abstract}
+We present a systematic analysis of C and C++ standard libraries. The goal
+here is to enable each programmer make informed decision about the functionality
+one is using and not just rely on common wisdom. We make is very easy to know
+the internals of the standard libraries. There are benchmark analyses available
+online but those are in bits and pieces. We present a comprehensize infrastructure
+where a large set of standard library is covered. This also enables someone
+to run their own configuration of test by adding just few lines of code. This also
+allows the programmer to compare which compiler toolchain generates better code
+in terms of performance, code-size etc. such that they can chose the right
+toolchain for their application.
+\end{abstract}
+
+\section{Introduction}
+Why a systematic analysis is important.
+
+The main contributions of this paper are:
+\begin{itemize}
+\item a benchmark suite for standard library
+\item ability to compare compiler performance for standard libraries
+\end{itemize}
+
+\section{Related Work}
+Several bits and pieces of benchmarking available online.
+Bjarne's channel9 talk \cite{stroustrup2012}.
+clrs \cite{clrs}
+
+\newpage
+
+\subsection{Layout of the project}
+Structure
+
+\subsection{Illustrative Example} \label{subsec:example}
+How to add a single benchmark
+\newpage
+
+\section{Experimental Results and discussion}
+We present the results we got on x86-64 as well as aarch64 machines.
+
+\section{Timing and Limitations}
+Timing and Limitations
+
+\section{Conclusion and Future Work}
+
+\bibliographystyle{abbrv}
+{\small
+\bibliography{Bibliography}
+}
+\end{document}
