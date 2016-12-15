@@ -68,8 +68,11 @@ Why a systematic analysis is important.
 
 The main contributions of this paper are:
 \begin{itemize}
-\item a benchmark suite for standard library
+\item a benchmark suite for C/C++ standard library
 \item ability to compare compiler performance for standard libraries
+\item identifying slower implementation in standard library
+\item investigating whether C++11/14 really makes your code faster (for
+standard libraries) at -O0, -O3
 \end{itemize}
 
 \section{Related Work}
@@ -83,7 +86,7 @@ clrs \cite{clrs}
 Structure
 
 \subsection{Illustrative Example} \label{subsec:example}
-How to add a single benchmark
+How to add a single benchmark \cite{googlebench}
 \newpage
 
 \section{Experimental Results and discussion}
