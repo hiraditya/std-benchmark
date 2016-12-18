@@ -15,20 +15,6 @@ static inline void BM_find_util(benchmark::State& state, const std::string &s1,
   assert (pos == ex);
 }
 
-// Linear search on a sequence
-static void BM_find_nomatch(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned ss2_sz = N/16;
-  char ss1[N];
-  char ss2[ss2_sz];
-  fillRandomChars(ss1, ss1+N, true);
-  fillRandomChars(ss2, ss2+ss2_sz, false);
-  std::string s1(ss1, N);
-  std::string s2(ss2, ss2_sz);
-  BM_find_util(state, s1, s2, std::string::npos);
-  state.SetComplexityN(N);
-}
-
 static void BM_find(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned ss2_sz = N/16;
@@ -79,10 +65,30 @@ static void BM_find_match2(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-COMPLEXITY_BENCHMARK(BM_find_nomatch, L2);
-COMPLEXITY_BENCHMARK(BM_find, L2);
-COMPLEXITY_BENCHMARK(BM_find_all_match, L2);
-COMPLEXITY_BENCHMARK(BM_find_match1, L2);
-COMPLEXITY_BENCHMARK(BM_find_match2, L2);
+static void BM_strcat(benchmark::State& state) {
+  const unsigned N = state.range(0);
+  const unsigned s2_sz = N/16;
+  std::string s1(N, 0);
+  std::string s2(s2_sz, 0);
+  fillRandomChars(s1.begin(), s1.end(), true);
+  fillRandomChars(s2.begin(), s2.end(), false);
+  unsigned s1_sz = 1;
+  while (state.KeepRunning()) {
+    benchmark::DoNotOptimize(s1.append(s2));
+    s1_sz += s2_sz;
+    if (s1_sz >= N) {
+      //
+    }
+  }
+  state.SetComplexityN(N);
+}
+
+static const int MemorySize = L2;
+COMPLEXITY_BENCHMARK(BM_find, MemorySize);
+COMPLEXITY_BENCHMARK(BM_find_no_match, MemorySize);
+COMPLEXITY_BENCHMARK(BM_find_all_match, MemorySize);
+COMPLEXITY_BENCHMARK(BM_find_match1, MemorySize);
+COMPLEXITY_BENCHMARK(BM_find_match2, MemorySize);
+COMPLEXITY_BENCHMARK(BM_strcat, MemorySize);
 BENCHMARK_MAIN()
 
