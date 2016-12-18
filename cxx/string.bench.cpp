@@ -16,7 +16,7 @@ static inline void BM_find_util(benchmark::State& state, const std::string &s1,
 }
 
 // Linear search on a sequence
-void BM_find_nomatch(benchmark::State& state) {
+static void BM_find_nomatch(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned ss2_sz = N/16;
   char ss1[N];
@@ -29,7 +29,7 @@ void BM_find_nomatch(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-void BM_find(benchmark::State& state) {
+static void BM_find(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned ss2_sz = N/16;
   std::string s1(N, 0);

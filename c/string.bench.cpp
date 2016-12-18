@@ -5,7 +5,7 @@
 #include "test_utils.h"
 
 // Linear search on a sequence
-void BM_strstr(benchmark::State& state) {
+static void BM_strstr(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
@@ -19,7 +19,7 @@ void BM_strstr(benchmark::State& state) {
 }
 
 // FIXME: Set a limit on the max number of iterations.
-void BM_strcat(benchmark::State& state) {
+static void BM_strcat(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned s2_sz = 2;
   char s1[N];
@@ -41,7 +41,7 @@ void BM_strcat(benchmark::State& state) {
 }
 
 // Linear search on a sequence
-void BM_strchr(benchmark::State& state) {
+static void BM_strchr(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2 = '1';
@@ -53,7 +53,7 @@ void BM_strchr(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-void BM_strcmp(benchmark::State& state) {
+static void BM_strcmp(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
@@ -67,7 +67,7 @@ void BM_strcmp(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-void BM_strcpy(benchmark::State& state) {
+static void BM_strcpy(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
@@ -82,7 +82,7 @@ void BM_strcpy(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-void BM_strlen(benchmark::State& state) {
+static void BM_strlen(benchmark::State& state) {
   const unsigned N = state.range(0);
   char s1[N];
   char s2[N/16];
@@ -113,4 +113,3 @@ COMPLEXITY_BENCHMARK(BM_strcmp, L1);
 COMPLEXITY_BENCHMARK(BM_strcpy, L1);
 COMPLEXITY_BENCHMARK(BM_strlen, L1);
 BENCHMARK_MAIN()
-
