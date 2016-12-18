@@ -83,12 +83,12 @@ static void BM_strcat(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MemorySize = L2;
-COMPLEXITY_BENCHMARK(BM_find, MemorySize);
-COMPLEXITY_BENCHMARK(BM_find_no_match, MemorySize);
-COMPLEXITY_BENCHMARK(BM_find_all_match, MemorySize);
-COMPLEXITY_BENCHMARK(BM_find_match1, MemorySize);
-COMPLEXITY_BENCHMARK(BM_find_match2, MemorySize);
-COMPLEXITY_BENCHMARK(BM_strcat, MemorySize);
+static const int MSize = L2;
+COMPLEXITY_BENCHMARK(BM_find, MSize);
+COMPLEXITY_BENCHMARK(BM_find_no_match, MSize);
+COMPLEXITY_BENCHMARK(BM_find_all_match, MSize);
+COMPLEXITY_BENCHMARK(BM_find_match1, MSize);
+COMPLEXITY_BENCHMARK(BM_find_match2, MSize);
+COMPLEXITY_BENCHMARK(BM_strcat, MSize);
 BENCHMARK_MAIN()
 

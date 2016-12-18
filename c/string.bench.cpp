@@ -106,10 +106,11 @@ strncmp - compare parts of two strings
 strncpy - copy part of a string
 strrchr - string scanning operation*/
 
-COMPLEXITY_BENCHMARK(BM_strstr, L1);
-COMPLEXITY_BENCHMARK(BM_strcat, L3);
-COMPLEXITY_BENCHMARK(BM_strchr, L1);
-COMPLEXITY_BENCHMARK(BM_strcmp, L1);
-COMPLEXITY_BENCHMARK(BM_strcpy, L1);
-COMPLEXITY_BENCHMARK(BM_strlen, L1);
+static const int MSize = L2;
+COMPLEXITY_BENCHMARK(BM_strstr, MSize);
+COMPLEXITY_BENCHMARK(BM_strcat, MSize);
+COMPLEXITY_BENCHMARK(BM_strchr, MSize);
+COMPLEXITY_BENCHMARK(BM_strcmp, MSize);
+COMPLEXITY_BENCHMARK(BM_strcpy, MSize);
+COMPLEXITY_BENCHMARK(BM_strlen, MSize);
 BENCHMARK_MAIN()

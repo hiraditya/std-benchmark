@@ -65,17 +65,18 @@ void BM_insert_last(benchmark::State& state) {
 }
 
 //std::forward_list<int> does not have push_back :(
-COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::vector<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::list<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::deque<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_push_back_vector_reserve, std::vector<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert, std::vector<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert, std::list<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert, std::deque<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::vector<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::list<int>, L2);
-COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::deque<int>, L2);
+static const int MSize = L2;
+COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::deque<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_push_back_vector_reserve, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert, std::deque<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::deque<int>, MSize);
 BENCHMARK_MAIN()
