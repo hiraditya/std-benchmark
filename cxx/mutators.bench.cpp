@@ -5,6 +5,7 @@
 #include<algorithm>
 #include<deque>
 #include<list>
+#include<map>
 #include<set>
 #include<vector>
 
@@ -68,7 +69,8 @@ void BM_insert_last(benchmark::State& state) {
 template<typename V>
 void BM_assoc_insert_random(benchmark::State& state) {
   const unsigned N = state.range(0);
-  using VT = typename V::value_type;
+  using CVT = typename V::value_type;
+  using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
   fillRandom(temp);
   V v;
@@ -85,7 +87,8 @@ void BM_assoc_insert_random(benchmark::State& state) {
 template<typename V>
 void BM_assoc_insert_seq(benchmark::State& state) {
   const unsigned N = state.range(0);
-  using VT = typename V::value_type;
+  using CVT = typename V::value_type;
+  using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
   fillSeq(temp);
   V v;
@@ -102,7 +105,8 @@ void BM_assoc_insert_seq(benchmark::State& state) {
 template<typename V>
 void BM_assoc_insert(benchmark::State& state) {
   const unsigned N = state.range(0);
-  using VT = typename V::value_type;
+  using CVT = typename V::value_type;
+  using VT = typename remove_const<CVT>::type;
   VT temp = getRand<VT>(N);
   V v;
   while (state.KeepRunning()) {
@@ -132,4 +136,7 @@ COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, std::set<int>, MSize);
 
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, SINGLE_ARG(std::map<int, int>), MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, SINGLE_ARG(std::map<int, int>), MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, SINGLE_ARG(std::map<int, int>), MSize);
 BENCHMARK_MAIN()

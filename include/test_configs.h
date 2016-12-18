@@ -20,6 +20,8 @@
 #define MEMORY (12 GB)
 #endif
 
+#define SINGLE_ARG(...) __VA_ARGS__
+
 #define BASIC_BENCHMARK_TEST(x) BENCHMARK(x)->Arg(2<<5)->Arg(2<<10)\
                                 ->Arg(2<<20)->Arg(2<<30)
 
