@@ -68,7 +68,8 @@ void BM_insert_last(benchmark::State& state) {
 template<typename V>
 void BM_assoc_insert_random(benchmark::State& state) {
   const unsigned N = state.range(0);
-  std::vector<int> temp(N);
+  using VT = typename V::value_type;
+  std::vector<VT> temp(N);
   fillRandom(temp);
   V v;
   auto it = temp.begin();
@@ -84,7 +85,8 @@ void BM_assoc_insert_random(benchmark::State& state) {
 template<typename V>
 void BM_assoc_insert_seq(benchmark::State& state) {
   const unsigned N = state.range(0);
-  std::vector<int> temp(N);
+  using VT = typename V::value_type;
+  std::vector<VT> temp(N);
   fillSeq(temp);
   V v;
   auto it = temp.begin();

@@ -1,14 +1,26 @@
 #ifndef TEST_UTILS_H
 #define TEST_UTILS_H
 
+template<typename T>
+T getRand(int max) {
+  return T(0) % max;
+}
+
+template<>
+int getRand<int>(int max) {
+  return rand() % max;
+}
+
+template<>
+std::pair<int, int> getRand<std::pair<int, int>>(int max) {
+  return std::make_pair(rand() % max, rand() % max);
+}
+
 template <template <class, class> class Container, class value_type>
 void fillRandom(Container<value_type, std::allocator<value_type>> &v,
                 unsigned max = RAND_MAX) {
-  //state.PauseTiming();
-  // initialize.
   for (auto &e : v)
-    e = rand() % max;
-  //state.ResumeTiming();
+    e = getRand<value_type>(max);
 }
 
 // TODO: Create a template class such that all the
@@ -19,7 +31,6 @@ void fillRandom(Container<value_type, std::allocator<value_type>> &v,
 
 template <template <class, class> class Container, class value_type>
 void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
-  // initialize.
   unsigned j = 0;
   for (auto &e : v)
     e = j++;
@@ -27,7 +38,6 @@ void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
 
 template <typename T>
 void fillSeq(T begin, T end) {
-  // initialize.
   unsigned j = 0;
   for (auto it = begin; it != end; ++it)
     *it = j++;
@@ -35,7 +45,6 @@ void fillSeq(T begin, T end) {
 
 template <typename T>
 void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
-  // initialize.
   for (auto it = begin; it != end; ++it)
     *it = rand() % max;
 }
@@ -43,23 +52,12 @@ void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
 // It can work with char* or std::string.
 template<typename T>
 void fillRandomChars(T begin, T end, bool upper) {
-  // initialize.
   char max = upper ? 'Z' : 'z';
   char min = upper ? 'A' : 'a';
   auto it = begin;
   for (; it != end -1; ++it)
     *it = rand() % (max - min + 1) + min;
   *it = '\0';
-}
-
-template<typename T>
-T getRand(T max) {
-  return T(0) % max;
-}
-
-template<>
-int getRand<int>(int max) {
-  return rand() % max;
 }
 
 #endif // TEST_UTILS_H
