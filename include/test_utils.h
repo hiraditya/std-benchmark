@@ -52,5 +52,15 @@ void fillRandomChars(T begin, T end, bool upper) {
   *it = '\0';
 }
 
+template<typename T>
+T getRand(T max) {
+  return T(0) % max;
+}
+
+template<>
+int getRand<int>(int max) {
+  return rand() % max;
+}
+
 #endif // TEST_UTILS_H
 
