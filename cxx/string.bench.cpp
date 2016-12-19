@@ -20,8 +20,8 @@ static void BM_find(benchmark::State& state) {
   const unsigned ss2_sz = N/16;
   std::string s1(N, 0);
   std::string s2(ss2_sz, 0);
-  fillRandomChars(s1.begin(), s1.end(), true);
-  fillRandomChars(s2.begin(), s2.end(), false);
+  fill_random_chars(s1.begin(), s1.end(), true);
+  fill_random_chars(s2.begin(), s2.end(), false);
   BM_find_util(state, s1, s2, std::string::npos);
   state.SetComplexityN(N);
 }
@@ -70,8 +70,8 @@ static void BM_strcat(benchmark::State& state) {
   const unsigned s2_sz = N/16;
   std::string s1(N, 0);
   std::string s2(s2_sz, 0);
-  fillRandomChars(s1.begin(), s1.end(), true);
-  fillRandomChars(s2.begin(), s2.end(), false);
+  fill_random_chars(s1.begin(), s1.end(), true);
+  fill_random_chars(s2.begin(), s2.end(), false);
   unsigned s1_sz = 1;
   while (state.KeepRunning()) {
     benchmark::DoNotOptimize(s1.append(s2));
