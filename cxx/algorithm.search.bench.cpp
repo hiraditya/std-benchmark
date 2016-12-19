@@ -41,7 +41,5 @@ void BM_search_binary(benchmark::State& state) {
 static const int MSize = L2;
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<int>, MSize);
 
 BENCHMARK_MAIN()
