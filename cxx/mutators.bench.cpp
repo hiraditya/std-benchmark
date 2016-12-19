@@ -115,6 +115,28 @@ void BM_assoc_insert(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+/*/ Base case.
+template <typename T>
+void
+check ()
+{
+}
+
+template <typename T, typename container, typename... containers>
+void
+check ()
+{
+  COMPLEXITY_BENCHMARK_GEN(T, container, MSize);
+  // Check rest of the properties.
+  check<T, containers...>();
+}
+
+// All the sequence testing functors which take one argument.
+#define CONTAINERS  std::vector<int>, std::list<int>
+
+check<BM_push_back, CONTAINERS > ();*/
+
+
 //std::forward_list<int> does not have push_back :(
 static const int MSize = L2;
 COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<int>, MSize);
