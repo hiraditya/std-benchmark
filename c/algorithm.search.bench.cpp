@@ -1,8 +1,9 @@
-#include <cstdlib>
-
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
 #include "test_utils.h"
+
+#include <cstdlib>
+#include <type_traits>
 
 // Linear search on a sequence
 void BM_search_linear(benchmark::State& state) {
@@ -24,9 +25,11 @@ void BM_search_linear(benchmark::State& state) {
   free(a);
 }
 
-static int compareints(const void * a, const void * b)
+template<typename T>
+static int compare(const void * a, const void * b)
 {
-  return ( *(int*)a - *(int*)b );
+  static_assert(std::is_integral<T>::value, "Not an integral type.");
+  return (*(T*)a - *(T*)b);
 }
 
 // Binary search on a sequence
@@ -37,7 +40,7 @@ void BM_search_binary(benchmark::State& state) {
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
-      int *p = (int*) bsearch(&i, a, N, sizeof (int), compareints);
+      int *p = (int*) bsearch(&i, a, N, sizeof (int), compare<int>);
       benchmark::DoNotOptimize(p);
       assert(*p == i); // j is the i-th element in a
     }
