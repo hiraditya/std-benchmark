@@ -7,14 +7,16 @@
 // Linear search on a sequence
 static void BM_strstr(benchmark::State& state) {
   const unsigned N = state.range(0);
-  char s1[N];
-  char s2[N/16];
+  char *s1 = (char*) malloc(N*sizeof(char));
+  char *s2 = (char*) malloc(N/16*sizeof(char));
   fillRandomChars(s1, s1+N, true);
   fillRandomChars(s2, s2+N/16, false);
   while (state.KeepRunning()) {
     // searching for all the elements.
     benchmark::DoNotOptimize(strstr(s1, s2));
   }
+  free(s1);
+  free(s2);
   state.SetComplexityN(N);
 }
 
@@ -22,8 +24,8 @@ static void BM_strstr(benchmark::State& state) {
 static void BM_strcat(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned s2_sz = 2;
-  char s1[N];
-  char s2[s2_sz];
+  char *s1 = (char*) malloc(N*sizeof(char));
+  char *s2 = (char*) malloc(s2_sz*sizeof(char));
   fillRandomChars(s1, s1+1, true);
   fillRandomChars(s2, s2+s2_sz, false);
   unsigned s1_sz = 1;
@@ -37,6 +39,8 @@ static void BM_strcat(benchmark::State& state) {
       state.SkipWithError("Memory corruption");
     }
   }
+  free(s1);
+  free(s2);
   state.SetComplexityN(N);
 }
 
@@ -55,8 +59,8 @@ static void BM_strchr(benchmark::State& state) {
 
 static void BM_strcmp(benchmark::State& state) {
   const unsigned N = state.range(0);
-  char s1[N];
-  char s2[N/16];
+  char *s1 = (char*) malloc(N*sizeof(char));
+  char *s2 = (char*) malloc(N/16*sizeof(char));
   fillRandomChars(s1, s1+N, true);
   fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
@@ -64,13 +68,15 @@ static void BM_strcmp(benchmark::State& state) {
     // strcmp at varying positions
     benchmark::DoNotOptimize(strcmp(s1+(i++%N), s2));
   }
+  free(s1);
+  free(s2);
   state.SetComplexityN(N);
 }
 
 static void BM_strcpy(benchmark::State& state) {
   const unsigned N = state.range(0);
-  char s1[N];
-  char s2[N/16];
+  char *s1 = (char*) malloc(N*sizeof(char));
+  char *s2 = (char*) malloc(N/16*sizeof(char));
   fillRandomChars(s1, s1+N, true);
   fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
@@ -79,13 +85,15 @@ static void BM_strcpy(benchmark::State& state) {
     const unsigned offset = (i++%N)/2;
     benchmark::DoNotOptimize(strcpy(s1 + offset, s2));
   }
+  free(s1);
+  free(s2);
   state.SetComplexityN(N);
 }
 
 static void BM_strlen(benchmark::State& state) {
   const unsigned N = state.range(0);
-  char s1[N];
-  char s2[N/16];
+  char *s1 = (char*) malloc(N*sizeof(char));
+  char *s2 = (char*) malloc(N/16*sizeof(char));
   fillRandomChars(s1, s1+N, true);
   fillRandomChars(s2, s2+N/16, true);
   unsigned i = 0;
@@ -93,18 +101,10 @@ static void BM_strlen(benchmark::State& state) {
     // strlen at varying positions.
     benchmark::DoNotOptimize(strlen(s1+i++));
   }
+  free(s1);
+  free(s2);
   state.SetComplexityN(N);
 }
-
-/*strcat - concatenate two strings
-strchr - string scanning operation
-strcmp - compare two strings
-strcpy - copy a string
-strlen - get string length
-strncat - concatenate one string with part of another
-strncmp - compare parts of two strings
-strncpy - copy part of a string
-strrchr - string scanning operation*/
 
 static const int MSize = L2;
 COMPLEXITY_BENCHMARK(BM_strstr, MSize);
