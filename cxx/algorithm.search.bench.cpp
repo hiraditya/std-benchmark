@@ -13,8 +13,11 @@ void BM_search_linear(benchmark::State& state) {
   fillSeq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
-    for (int i = 0; i < N; ++i)
-      benchmark::DoNotOptimize(std::find(v.begin(), v.end(), i));
+    for (int i = 0; i < N; ++i) {
+      int j = *std::find(v.begin(), v.end(), i);
+      benchmark::DoNotOptimize(j);
+      assert(j == i); // j is the i-th element in v
+    }
   }
   state.SetComplexityN(N);
 }
@@ -26,8 +29,11 @@ void BM_search_binary(benchmark::State& state) {
   fillSeq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
-    for (int i = 0; i < N; ++i)
-      benchmark::DoNotOptimize(std::lower_bound(v.begin(), v.end(), i));
+    for (int i = 0; i < N; ++i) {
+      int j = *std::lower_bound(v.begin(), v.end(), i);
+      benchmark::DoNotOptimize(j);
+      assert(j == i); // j is the i-th element in v
+    }
   }
   state.SetComplexityN(N);
 }
