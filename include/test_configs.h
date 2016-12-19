@@ -26,9 +26,9 @@
                                 ->Arg(2<<20)->Arg(2<<30)
 
 #define COMPLEXITY_BENCHMARK(x, CACHE_TYPE) BENCHMARK(x)->RangeMultiplier(2)\
-                                ->Range(1<<5, CACHE_TYPE)->Complexity();
+                                ->Range(1<<5, CACHE_TYPE)->Complexity()
 
 #define COMPLEXITY_BENCHMARK_GEN(x, y, CACHE_TYPE) BENCHMARK_TEMPLATE(x, y)\
                                 ->RangeMultiplier(2)->Range(1<<5, CACHE_TYPE)\
-                                ->Complexity();
+                                ->Complexity()
 #endif // TEST_CONFIGS_H

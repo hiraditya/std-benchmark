@@ -2,11 +2,12 @@ cmake_minimum_required(VERSION 2.8)
 project(std_benchmark)
 
 
-set(BENCHMARK_SRC ${CMAKE_SOURCE_DIR}/benchmark)
+set(GOOGLE_BENCHMARK_SRC ${CMAKE_SOURCE_DIR}/benchmark)
 set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)
+set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
 set(COMPILE_FLAGS
-  "-std=c++14 -O0 -g -I${BENCHMARK_SRC}/include -I${CMAKE_SOURCE_DIR}/include"
+  "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}"
 )
 
 set(LINK_FLAGS
@@ -20,6 +21,7 @@ SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINK_FLAGS}")
 # Google benchmark is build as Debug by default.
 SET(CMAKE_BUILD_TYPE "Release")
 
+include_directories(${PROJECT_SOURCE_DIR}/include)
 add_subdirectory(benchmark)
 
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)
