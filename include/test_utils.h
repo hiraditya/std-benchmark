@@ -109,5 +109,20 @@ static int compare(const void * a, const void * b)
   return (*(T*)a - *(T*)b);
 }
 
+// Custom allocator to manage memory yet keep C like semantics
+// for building C standard library benchmarks.
+template<typename T>
+class c_alloc {
+  public:
+    c_alloc(int N) : p((T*)malloc(N*sizeof(T))) {}
+    ~c_alloc() { free(p); }
+    // Dangerous but simple if used properly.
+    T* get() { return p; }
+    const T& operator[] (int N) const { return p[N]; }
+    T& operator[] (int N) { return p[N]; }
+  private:
+    T* p;
+};
+
 #endif // TEST_UTILS_H
 

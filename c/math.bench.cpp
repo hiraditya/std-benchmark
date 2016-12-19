@@ -9,8 +9,8 @@
 template<typename T>
 void BM_sin(benchmark::State& state) {
   const unsigned N = state.range(0);
-  T *a = (T*) malloc(N*sizeof(T));
-  fill_seq(a, a+N);
+  c_alloc<T> a(N);
+  fill_seq(a.get(), a.get()+N);
   while (state.KeepRunning()) {
     for (int i = 0; i < N; ++i) {
       T p = sin(a[i]);
@@ -18,7 +18,6 @@ void BM_sin(benchmark::State& state) {
     }
   }
   state.SetComplexityN(N);
-  free(a);
 }
 
 static const int MSize = L2;
