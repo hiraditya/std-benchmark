@@ -8,8 +8,8 @@
 // Linear search on a sequence
 void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
-  int *a = (int*) malloc(N*sizeof(int));
-  fill_seq(a, a+N);
+  c_alloc<int> a(N);
+  fill_seq<int*>(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
@@ -22,14 +22,13 @@ void BM_search_linear(benchmark::State& state) {
     }
   }
   state.SetComplexityN(N);
-  free(a);
 }
 
 // Binary search on a sequence
 void BM_search_binary(benchmark::State& state) {
   const unsigned N = state.range(0);
-  int *a = (int*) malloc(N*sizeof(int));
-  fill_seq(a, a+N);
+  c_alloc<int> a(N);
+  fill_seq<int*>(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
@@ -39,7 +38,6 @@ void BM_search_binary(benchmark::State& state) {
     }
   }
   state.SetComplexityN(N);
-  free(a);
 }
 
 static const int MSize = L1;
