@@ -72,7 +72,7 @@ void BM_assoc_insert_random(benchmark::State& state) {
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
-  fillRandom(temp);
+  fill_random(temp);
   V v;
   auto it = temp.begin();
   while (state.KeepRunning()) {
@@ -90,7 +90,7 @@ void BM_assoc_insert_seq(benchmark::State& state) {
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
-  fillSeq(temp);
+  fill_seq(temp);
   V v;
   auto it = temp.begin();
   while (state.KeepRunning()) {
@@ -107,7 +107,7 @@ void BM_assoc_insert(benchmark::State& state) {
   const unsigned N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
-  VT temp = getRand<VT>(N);
+  VT temp = get_rand<VT>(N);
   V v;
   while (state.KeepRunning()) {
     v.insert(temp);

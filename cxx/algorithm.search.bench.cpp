@@ -10,7 +10,7 @@ template<typename V>
 void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
   V v(N);
-  fillSeq(v);
+  fill_seq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
@@ -26,7 +26,7 @@ template<typename V>
 void BM_search_binary(benchmark::State& state) {
   const unsigned N = state.range(0);
   V v(N);
-  fillSeq(v);
+  fill_seq(v);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {

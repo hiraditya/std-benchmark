@@ -10,7 +10,7 @@ template<typename V>
 void BM_sort_std(benchmark::State& state) {
   const unsigned N = state.range(0);
   V v(N);
-  fillRandom(v);
+  fill_random(v);
   while (state.KeepRunning()) {
     std::sort(v.begin(), v.end());
   }
@@ -21,7 +21,7 @@ template<typename V>
 void BM_sort_stable(benchmark::State& state) {
   const unsigned N = state.range(0);
   V v(N);
-  fillRandom(v);
+  fill_random(v);
   while (state.KeepRunning()) {
     std::stable_sort(v.begin(), v.end());
   }

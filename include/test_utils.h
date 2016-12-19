@@ -9,17 +9,17 @@ template<typename T>
 struct remove_const<std::pair<const T, T>> { typedef std::pair<T, T> type; };
 
 template<typename T>
-T getRand(int max) {
+T get_rand(int max) {
   return T(0) % max;
 }
 
 template<>
-int getRand<int>(int max) {
+int get_rand<int>(int max) {
   return rand() % max;
 }
 
 template<>
-std::pair<int, int> getRand<std::pair<int, int>>(int max) {
+std::pair<int, int> get_rand<std::pair<int, int>>(int max) {
   return std::make_pair(rand() % max, rand() % max);
 }
 
@@ -41,10 +41,10 @@ std::pair<int, int> increment<std::pair<int, int>>(std::pair<int, int> &i) {
 }
 
 template <template <class, class> class Container, class value_type>
-void fillRandom(Container<value_type, std::allocator<value_type>> &v,
+void fill_random(Container<value_type, std::allocator<value_type>> &v,
                 unsigned max = RAND_MAX) {
   for (auto &e : v)
-    e = getRand<value_type>(max);
+    e = get_rand<value_type>(max);
 }
 
 // TODO: Create a template class such that all the
@@ -54,22 +54,22 @@ void fillRandom(Container<value_type, std::allocator<value_type>> &v,
 // TODO: Benchmark memory allocated on heap vs. stack.
 
 template <template <class, class> class Container, class value_type>
-void fillSeq(Container<value_type, std::allocator<value_type>> &v) {
-  value_type j = getRand<value_type>(RAND_MAX);
+void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
+  value_type j = get_rand<value_type>(RAND_MAX);
   for (auto &e : v)
     e = increment(j);
 }
 
 template <typename T>
-void fillSeq(T begin, T end) {
+void fill_seq(T begin, T end) {
   typedef typename std::iterator_traits<T>::value_type value_type;
-  value_type j = getRand<value_type>(RAND_MAX);
+  value_type j = get_rand<value_type>(RAND_MAX);
   for (auto it = begin; it != end; ++it)
     *it = increment(j);
 }
 
 template <typename T>
-void fillRandom(T begin, T end, unsigned max = RAND_MAX) {
+void fill_random(T begin, T end, unsigned max = RAND_MAX) {
   for (auto it = begin; it != end; ++it)
     *it = rand() % max;
 }
@@ -83,6 +83,14 @@ void fillRandomChars(T begin, T end, bool upper) {
   for (; it != end -1; ++it)
     *it = rand() % (max - min + 1) + min;
   *it = '\0';
+}
+
+// c-style comparator for integral types.
+template<typename T>
+static int compare(const void * a, const void * b)
+{
+  static_assert(std::is_integral<T>::value, "Not an integral type.");
+  return (*(T*)a - *(T*)b);
 }
 
 #endif // TEST_UTILS_H

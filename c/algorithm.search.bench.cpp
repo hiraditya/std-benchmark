@@ -9,7 +9,7 @@
 void BM_search_linear(benchmark::State& state) {
   const unsigned N = state.range(0);
   int *a = (int*) malloc(N*sizeof(int));
-  fillSeq(a, a+N);
+  fill_seq(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
@@ -25,18 +25,11 @@ void BM_search_linear(benchmark::State& state) {
   free(a);
 }
 
-template<typename T>
-static int compare(const void * a, const void * b)
-{
-  static_assert(std::is_integral<T>::value, "Not an integral type.");
-  return (*(T*)a - *(T*)b);
-}
-
 // Binary search on a sequence
 void BM_search_binary(benchmark::State& state) {
   const unsigned N = state.range(0);
   int *a = (int*) malloc(N*sizeof(int));
-  fillSeq(a, a+N);
+  fill_seq(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
