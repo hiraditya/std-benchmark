@@ -20,7 +20,7 @@ void BM_sin(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L2;
+static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_sin, float, MSize);
 
 BENCHMARK_MAIN()

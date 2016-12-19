@@ -7,16 +7,14 @@
 // Linear search on a sequence
 static void BM_strstr(benchmark::State& state) {
   const unsigned N = state.range(0);
-  char *s1 = (char*) malloc(N*sizeof(char));
-  char *s2 = (char*) malloc(N/16*sizeof(char));
-  fill_random_chars(s1, s1+N, true);
-  fill_random_chars(s2, s2+N/16, false);
+  c_alloc<char> s1(N);
+  c_alloc<char> s2(N/16);
+  fill_random_chars<char*>(s1, s1+N, true);
+  fill_random_chars<char*>(s2, s2+N/16, false);
   while (state.KeepRunning()) {
     // searching for all the elements.
     benchmark::DoNotOptimize(strstr(s1, s2));
   }
-  free(s1);
-  free(s2);
   state.SetComplexityN(N);
 }
 

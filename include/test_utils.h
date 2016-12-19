@@ -118,6 +118,9 @@ class c_alloc {
     ~c_alloc() { free(p); }
     // Dangerous but simple if used properly.
     T* get() { return p; }
+    operator T*() { return p; }
+    T* operator+(int N) { return p+N; }
+    const T* operator+(int N) const { return p+N; }
     const T& operator[] (int N) const { return p[N]; }
     T& operator[] (int N) { return p[N]; }
   private:
