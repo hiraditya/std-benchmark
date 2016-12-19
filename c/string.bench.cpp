@@ -100,6 +100,8 @@ static void BM_strlen(benchmark::State& state) {
   while (state.KeepRunning()) {
     // strlen at varying positions.
     benchmark::DoNotOptimize(strlen(s1+i++));
+    if (i == N) // Reinitialize to avoid segfault.
+      i = 0;
   }
   free(s1);
   free(s2);
