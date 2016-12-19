@@ -28,9 +28,7 @@ void BM_sort_stable(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L2;
-//COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, L1);
-//COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, L1);
+static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, MSize);
 

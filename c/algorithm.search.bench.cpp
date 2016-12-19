@@ -46,8 +46,6 @@ void BM_search_binary(benchmark::State& state) {
   free(a);
 }
 
-// qsort
-
 static const int MSize = L1;
 COMPLEXITY_BENCHMARK(BM_search_linear, MSize);
 COMPLEXITY_BENCHMARK(BM_search_binary, MSize);
