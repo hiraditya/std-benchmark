@@ -11,7 +11,7 @@
 #include<unordered_set>
 #include<vector>
 
-// TODO: get, operator[], find, count, equal_range, erase
+// TODO: get, operator[], find, count, equal_range, erase, lower_bound, upper_bound
 
 template<typename V>
 void BM_advance(benchmark::State& state) {
@@ -23,6 +23,21 @@ void BM_advance(benchmark::State& state) {
       auto it = v.begin();
       std::advance(it, i);
       benchmark::DoNotOptimize(it);
+    }
+  }
+  state.SetComplexityN(N);
+}
+
+template<typename V>
+void BM_access(benchmark::State& state) {
+  const unsigned N = state.range(0);
+  V v;
+  fill_seq(v);
+  while (state.KeepRunning()) {
+    for (unsigned i = 0; i < N; ++i) {
+      auto it = v.begin();
+      std::advance(it, i);
+      benchmark::DoNotOptimize(*it);
     }
   }
   state.SetComplexityN(N);
@@ -85,7 +100,11 @@ static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::list<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::deque<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_access, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_access, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_access, std::deque<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_at, std::vector<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_at, std::deque<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::unordered_set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, SINGLE_ARG(std::map<int, int>), MSize);
