@@ -3,6 +3,7 @@
 #include "test_utils.h"
 
 #include<algorithm>
+#include<deque>
 #include<list>
 #include<vector>
 
@@ -67,8 +68,10 @@ void BM_search_binary(benchmark::State& state) {
 static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::deque<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::deque<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, MSize);
 
