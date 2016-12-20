@@ -59,6 +59,28 @@ void BM_assoc_find_random(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+template<typename V>
+void BM_assoc_find_seq(benchmark::State& state) {
+  const unsigned N = state.range(0);
+  using CVT = typename V::value_type;
+  using VT = typename remove_const<CVT>::type;
+  using KT = typename std::remove_const<typename V::key_type>::type;
+  std::vector<VT> temp(N);
+  fill_seq(temp);
+  V v;
+  for (unsigned i = 0; i < N; ++i)
+    v.insert(temp[i]);
+  while (state.KeepRunning()) {
+    for (unsigned i = 0; i < N; ++i) {
+      auto it = v.find(i);
+      benchmark::DoNotOptimize(it);
+      assert (it != v.end());
+    }
+  }
+  state.SetComplexityN(N);
+}
+
+
 static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::list<int>, MSize);
@@ -68,4 +90,8 @@ COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::unordered_set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, SINGLE_ARG(std::map<int, int>), MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, SINGLE_ARG(std::unordered_map<int, int>), MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::set<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::unordered_set<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, SINGLE_ARG(std::map<int, int>), MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, SINGLE_ARG(std::unordered_map<int, int>), MSize);
 BENCHMARK_MAIN()
