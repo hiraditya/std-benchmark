@@ -10,6 +10,8 @@ set(COMPILE_FLAGS
   "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}"
 )
 
+# -fno-omit-frame-pointer
+
 set(LINK_FLAGS
   # -nodefaultlibs
     "-L${BENCHMARK_INSTALL}/src/"
