@@ -6,6 +6,7 @@
 #include<list>
 #include<vector>
 
+// TODO: get, operator[], find, count, equal_range
 
 //COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, MSize);
 
