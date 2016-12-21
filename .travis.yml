@@ -14,7 +14,7 @@ before_script:
 
 script:
     - make
-    - ctest -L c -L cxx
+    - ctest -L c -L cxx --verbose
 
 compiler:
   - gcc

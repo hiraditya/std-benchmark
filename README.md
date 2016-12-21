@@ -1,5 +1,8 @@
 A benchmark for c/c++ standard library.
 
+[![Build
+Status](https://travis-ci.org/hiraditya/std-benchmark.svg?branch=master)](https://travis-ci.org/hiraditya/std-benchmark)
+
 **DEPENDENCIES**
 - CMake 2.8 or higher
 - Since this is a standard library benchmark, you need a compiler toolchain to benchmark.
