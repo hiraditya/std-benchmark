@@ -38,6 +38,7 @@ To test the project run ctest. Running ctest will run the google-benchmark harne
 as well, so if you are only interested in runningthe c and cxx std-benchmark tests use:
 
 ```sh
-ctest -L c
-ctest -L cxx
+ctest -L c --verbose
+ctest -L cxx --verbose
 ```
+
