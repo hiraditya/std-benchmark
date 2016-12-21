@@ -11,7 +11,7 @@
 #include<unordered_set>
 #include<vector>
 
-// TODO: get, operator[], find, count, equal_range, erase, lower_bound, upper_bound
+// TODO: get, operator[], count, equal_range, erase, lower_bound, upper_bound
 
 template<typename V>
 void BM_advance(benchmark::State& state) {
@@ -95,7 +95,6 @@ void BM_assoc_find_seq(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-
 static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_advance, std::list<int>, MSize);
@@ -107,10 +106,14 @@ COMPLEXITY_BENCHMARK_GEN(BM_at, std::vector<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_at, std::deque<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::unordered_set<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, SINGLE_ARG(std::map<int, int>), MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, SINGLE_ARG(std::unordered_map<int, int>), MSize);
+
+#define BENCH_STD_MAP SINGLE_ARG(std::map<int, int>)
+#define BENCH_STD_UNORDERED_MAP SINGLE_ARG(std::unordered_map<int, int>)
+
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_MAP, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_UNORDERED_MAP, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::set<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::unordered_set<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, SINGLE_ARG(std::map<int, int>), MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, SINGLE_ARG(std::unordered_map<int, int>), MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_MAP, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_UNORDERED_MAP, MSize);
 BENCHMARK_MAIN()
