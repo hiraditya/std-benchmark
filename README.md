@@ -1,5 +1,4 @@
 A benchmark for c/c++ standard library algorithms.
-Please contact me if you would like to contribute to this project.
 
 **DEPENDENCIES**
 - CMake 2.8 or higher
@@ -10,16 +9,18 @@ Please contact me if you would like to contribute to this project.
         `git submodule update --recursive --remote`
 
 **BUILDING ON LINUX, MAC**
-mkdir $SRC/build
+```mkdir $SRC/build
 cd $SRC/build
 cmake ..
 cmake --build .
-
+```
 **BUILDING WITH VISUAL STUDIO**
-Install CMake
-cd build
+```mkdir $SRC/build
+cd $SRC/build
 cmake ..
 cmake --build .
+```
+
 If there are errors then build the project by opening the visual studio IDE (devenv)
 and then try to build one component at a time.
 All the c benchmark do not compile with MSVC for now because of compiler incompatibilities,
@@ -28,6 +29,7 @@ but all the cxx benchmarks do compile. I need to fix c benchmarks for MSVC.
 **TESTING**
 To test the project run ctest. Running ctest will run the google-benchmark harness tests
 as well, so if you are only interested in runningthe c and cxx std-benchmark tests use:
-ctest -L c
-ctest -L cxx
 
+```ctest -L c
+ctest -L cxx
+```
