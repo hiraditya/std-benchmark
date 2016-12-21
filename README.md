@@ -1,4 +1,4 @@
-A benchmark for c/c++ standard library algorithms.
+A benchmark for c/c++ standard library.
 
 **DEPENDENCIES**
 - CMake 2.8 or higher
@@ -30,6 +30,7 @@ All the c benchmark do not compile with MSVC for now because of compiler incompa
 but all the cxx benchmarks do compile. I need to fix c benchmarks for MSVC.
 
 **TESTING**
+
 To test the project run ctest. Running ctest will run the google-benchmark harness tests
 as well, so if you are only interested in runningthe c and cxx std-benchmark tests use:
 
