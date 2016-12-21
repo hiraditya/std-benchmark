@@ -11,15 +11,13 @@ set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)
 set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
 set(COMPILE_FLAGS
-  "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}"
-)
+  "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 
 # -fno-omit-frame-pointer
 
 set(LINK_FLAGS
   # -nodefaultlibs
-    "-L${BENCHMARK_INSTALL}/src/"
-)
+    "-L${BENCHMARK_INSTALL}/src/")
 
 SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
 SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINK_FLAGS}")
@@ -33,6 +31,8 @@ add_subdirectory(benchmark)
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)
 option(ENABLE_CXX_BENCHMARKS "Compile C++ benchmarks" ON)
 
+enable_testing()
+
 if(ENABLE_C_BENCHMARKS)
   add_subdirectory(c)
 endif()
@@ -40,3 +40,4 @@ endif()
 if(ENABLE_CXX_BENCHMARKS)
   add_subdirectory(cxx)
 endif()
+

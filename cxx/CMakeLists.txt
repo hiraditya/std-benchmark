@@ -7,4 +7,7 @@ foreach(test_path ${BENCHMARK_TESTS})
   # shlwapi for MSVC
   #target_link_libraries(${target} benchmark -pthread shlwapi)
   target_link_libraries(${target} benchmark -pthread)
+  # TODO: Rename test targets different from executables.
+  add_test (NAME ${target} COMMAND ${target})
+  set_tests_properties(${target} PROPERTIES LABELS "cxx")
 endforeach()
