@@ -9,13 +9,16 @@ A benchmark for c/c++ standard library algorithms.
         `git submodule update --recursive --remote`
 
 **BUILDING ON LINUX, MAC**
-```mkdir $SRC/build
+```sh
+mkdir $SRC/build
 cd $SRC/build
 cmake ..
 cmake --build .
 ```
+
 **BUILDING WITH VISUAL STUDIO**
-```mkdir $SRC/build
+```sh
+mkdir $SRC/build
 cd $SRC/build
 cmake ..
 cmake --build .
@@ -30,6 +33,7 @@ but all the cxx benchmarks do compile. I need to fix c benchmarks for MSVC.
 To test the project run ctest. Running ctest will run the google-benchmark harness tests
 as well, so if you are only interested in runningthe c and cxx std-benchmark tests use:
 
-```ctest -L c
+```sh
+ctest -L c
 ctest -L cxx
 ```
