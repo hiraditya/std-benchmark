@@ -7,31 +7,32 @@ branches:
   - master
 
 before_script:
+  - source .travis-cmake-install.sh
   - mkdir build
   - cd build
-  - cmake --version
-  - cmake -DCMAKE_VERBOSE_MAKEFILE=ON ..
+  - cmake -DCMAKE_C_COMPILER=${C_COMPILER} -DCMAKE_CXX_COMPILER=${COMPILER} -DCMAKE_VERBOSE_MAKEFILE=ON ..
 
-script: make && ctest -L c -L cxx
+script:
+    - make
+    - ctest -L c -L cxx
 
 compiler:
   - gcc
-  - clang
 
 cache:
   apt: true
 
-install:
-- if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
-
-addons:
-  apt:
-    sources:
-    - ubuntu-toolchain-r-test
-    packages:
-    - gcc-5
-    - g++-5
-    - clang
+matrix:
+        include:
+                - compiler: gcc
+                  addons:
+                        apt:
+                              sources:
+                                - ubuntu-toolchain-r-test
+                              packages:
+                                - g++-6
+                  env:
+                        - COMPILER=g++-6 C_COMPILER=gcc-6 BUILD_TYPE=Release
 
 #  matrix:
 #    include:
