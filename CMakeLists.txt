@@ -1,6 +1,10 @@
 cmake_minimum_required(VERSION 2.8)
 project(std_benchmark)
 
+if(CMAKE_SOURCE_DIR STREQUAL CMAKE_BINARY_DIR AND NOT MSVC_IDE)
+  message(FATAL_ERROR "In-source builds are not allowed.
+  Please remove/comment this line to build in-source")
+endif()
 
 set(GOOGLE_BENCHMARK_SRC ${CMAKE_SOURCE_DIR}/benchmark)
 set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)

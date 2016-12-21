@@ -7,6 +7,9 @@ Since this is a standard library benchmark, you need a compiler toolchain to ben
 A C++ compiler with C++11 support
 google-benchmark (added as a submodule)
 
+To download the google-benchmark submodule run the following command in the project root.
+git submodule update --recursive --remote
+
 
 How to build on Windows with MSVC
 Install CMake
