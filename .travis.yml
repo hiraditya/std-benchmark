@@ -7,7 +7,7 @@ branches:
   - master
 
 before_script:
-  - cat /cpu/procinfo
+  - cat /proc/cpuinfo
   - set -x
   - source .travis-cmake-install.sh
   - mkdir build
