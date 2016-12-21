@@ -1,0 +1,65 @@
+language: generic 
+sudo: false
+dist: trusty
+
+branches:
+  only:
+  - master
+
+before_script:
+  - mkdir build
+  - cd build
+  - cmake --version
+  - cmake -DCMAKE_VERBOSE_MAKEFILE=ON ..
+
+script: make && ctest -L c -L cxx
+
+compiler:
+  - gcc
+  - clang
+
+cache:
+  apt: true
+
+install:
+- if [ "$CXX" = "g++" ]; then export CXX="g++-5" CC="gcc-5"; fi
+
+addons:
+  apt:
+    sources:
+    - ubuntu-toolchain-r-test
+    packages:
+    - gcc-5
+    - g++-5
+    - clang
+
+#  matrix:
+#    include:
+#      - env: CXX=g++-5 CC=gcc-5
+#        addons:
+#          apt:
+#            packages:
+#              - g++-5
+#            sources: &sources
+#              - ubuntu-toolchain-r-test
+#              - llvm-toolchain-precise
+#      - env: CXX=g++-4.9 CC=gcc-4.9
+#        addons:
+#          apt:
+#            packages:
+#              - g++-4.9
+#            sources: *sources
+#      - env: CXX=clang++-3.8 CC=clang-3.8
+#        addons:
+#          apt:
+#            packages:
+#              - clang-3.8
+#            sources: *sources
+#  sources: *sources
+
+
+# http://stackoverflow.com/a/35113462 
+# *sources is a "backreference" to the previous &sources at line 44 --
+# the whole tree from under the property marked by &sources is
+# copied under the property marked by *sources
+
