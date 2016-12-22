@@ -18,24 +18,25 @@ static void BM_strstr(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-// FIXME: Set a limit on the max number of iterations.
+// catenate a character to a string
 static void BM_strcat(benchmark::State& state) {
   const unsigned N = state.range(0);
   const unsigned s2_sz = 2;
+  if (N < s2_sz)
+    return; // invalid test configuration
   c_alloc<char> s1(N);
   c_alloc<char> s2(s2_sz);
-  fill_random_chars<char*>(s1, s1+1, true);
+  s1[0] = '\0';
+  unsigned s1_sz = 0;
   fill_random_chars<char*>(s2, s2+s2_sz, false);
-  unsigned s1_sz = 1;
   while (state.KeepRunning()) {
-    // searching for all the elements.
-    // FIXME: strcat is tricky because it keeps concatenating
-    // until the timer stops, that corrupts memory.
+    if ((s1_sz + s2_sz) >= N) {
+      // reset s1 to prevent memory corruption
+      s1[0] = '\0';
+      s1_sz = 0;
+    }
     benchmark::DoNotOptimize(strcat(s1, s2));
     s1_sz += s2_sz;
-    if (s1_sz >= N) {
-      state.SkipWithError("Memory corruption");
-    }
   }
   state.SetComplexityN(N);
 }
