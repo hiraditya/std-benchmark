@@ -5,8 +5,7 @@ template<typename T>
 void test_rand(random_device &r, T min, T max, int iter = 100) {
   for (int i = 0; i < iter; i++) {
     auto v = r.get_rand<T>(min, max);
-    assert(v < max && v > min);
-    assert(v != max && v != min);
+    assert(v <= max && v >= min);
   }
 }
 
@@ -22,4 +21,5 @@ int main() {
   random_device r;
   rand_tests<float>(r);
   rand_tests<double>(r);
+  rand_tests<int>(r);
 }

@@ -1,4 +1,5 @@
 SET(CMAKE_BUILD_TYPE "Debug")
+SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -g3 -O0")
 
 file(GLOB BENCHMARK_TESTS "*.cpp")
 foreach(test_path ${BENCHMARK_TESTS})
