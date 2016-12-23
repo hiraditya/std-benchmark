@@ -6,8 +6,16 @@ template<typename T> struct uniform_distribution {
   typedef void type; // error
 };
 
+template<> struct uniform_distribution<char> {
+   typedef std::uniform_int_distribution<char> type;
+};
+
 template<> struct uniform_distribution<int> {
    typedef std::uniform_int_distribution<int> type;
+};
+
+template<> struct uniform_distribution<unsigned> {
+   typedef std::uniform_int_distribution<unsigned> type;
 };
 
 template<> struct uniform_distribution<float> {
