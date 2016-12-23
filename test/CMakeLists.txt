@@ -1,0 +1,10 @@
+SET(CMAKE_BUILD_TYPE "Debug")
+
+file(GLOB BENCHMARK_TESTS "*.cpp")
+foreach(test_path ${BENCHMARK_TESTS})
+  get_filename_component(test_file "${test_path}" NAME)
+  set(target ${test_file}.test.out)
+  add_executable(${target} ${test_file})
+  add_test (NAME ${target} COMMAND ${target})
+  set_tests_properties(${target} PROPERTIES LABELS "test")
+endforeach()
