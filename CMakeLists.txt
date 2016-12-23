@@ -41,3 +41,5 @@ if(ENABLE_CXX_BENCHMARKS)
   add_subdirectory(cxx)
 endif()
 
+# Only for testing utility functions written for the std-benchmark.
+add_subdirectory(test EXCLUDE_FROM_ALL)
