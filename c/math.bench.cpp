@@ -5,36 +5,6 @@
 #include "test_configs.h"
 #include "test_utils.h"
 
-// Call a unary function for N real numbers
-#define BM_unary_real(Name) template<typename T> \
-void BM_##Name(benchmark::State& state) {\
-  const unsigned N = state.range(0);\
-  c_alloc<T> a(N);\
-  fill_random(a.get(), a.get()+N);\
-  while (state.KeepRunning()) {\
-    for (int i = 0; i < N; ++i) {\
-      T p = Name(a[i]);\
-      benchmark::DoNotOptimize(p);\
-    }\
-  }\
-  state.SetComplexityN(N);\
-}
-
-// Call a binary function for N real numbers
-#define BM_binary_real(Name) template<typename T> \
-void BM_##Name(benchmark::State& state) {\
-  const unsigned N = state.range(0);\
-  c_alloc<T> a(N);\
-  fill_random(a.get(), a.get()+N);\
-  while (state.KeepRunning()) {\
-    for (int i = 0; i < N; ++i) {\
-      T p = Name(a[i], get_rand<int>(RAND_MAX));\
-      benchmark::DoNotOptimize(p);\
-    }\
-  }\
-  state.SetComplexityN(N);\
-}
-
 // Values between -1 and +1
 #define BM_atrig(Name) template<typename T> \
 void BM_##Name(benchmark::State& state) {\
