@@ -38,6 +38,7 @@ public:
   }
 
 private:
+  // TODO: Fix the seed to a constant.
   std::random_device rd; // obtain a random number from hardware
 };
 

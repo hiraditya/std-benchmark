@@ -13,27 +13,12 @@ struct remove_const<std::pair<const T, T>> { typedef std::pair<T, T> type; };
 
 template<typename T>
 T get_rand(random_device &r, int max) {
-  return T(0) % max;
-}
-
-template<>
-int get_rand<int>(random_device &r, int max) {
-  return rand() % max;
-}
-
-template<>
-float get_rand<float>(random_device &r, int max) {
-  return (float)(rand() % max);
-}
-
-template<>
-double get_rand<double>(random_device &r, int max) {
-  return (double)(rand() % max);
+  return r.get_rand(T(0), T(max));
 }
 
 template<>
 std::pair<int, int> get_rand<std::pair<int, int>>(random_device &r, int max) {
-  return std::make_pair(rand() % max, rand() % max);
+  return std::make_pair(r.get_rand(0, max), r.get_rand(0, max));
 }
 
 template<typename T>
