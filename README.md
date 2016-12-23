@@ -42,3 +42,5 @@ ctest -L c --verbose
 ctest -L cxx --verbose
 ```
 
+NB: To test both `c` and `cxx` tests use `ctest -L c -L cxx --verbose`
+
