@@ -109,7 +109,8 @@ void BM_assoc_insert(benchmark::State& state) {
   int N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
-  VT temp = get_rand<VT>(N);
+  random_device r;
+  VT temp = get_rand<VT>(r, N);
   V v;
   while (state.KeepRunning()) {
     v.insert(temp);

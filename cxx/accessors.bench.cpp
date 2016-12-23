@@ -65,8 +65,9 @@ void BM_assoc_find_random(benchmark::State& state) {
   std::vector<KT> temp(N);
   fill_random(temp, N);
   V v;
+  random_device r;
   for (int i = 0; i < N; ++i)
-    v.insert(get_rand<VT>(RAND_MAX));
+    v.insert(get_rand<VT>(r, RAND_MAX));
   while (state.KeepRunning()) {
     for (int i = 0; i < N; ++i)
       benchmark::DoNotOptimize(v.find(temp[i]));

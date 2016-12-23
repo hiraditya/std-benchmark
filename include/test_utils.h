@@ -1,5 +1,7 @@
 #ifndef TEST_UTILS_H
 #define TEST_UTILS_H
+
+#include "rng_utils.h"
 #include <cstdlib>
 
 template<typename T>
@@ -10,27 +12,27 @@ template<typename T>
 struct remove_const<std::pair<const T, T>> { typedef std::pair<T, T> type; };
 
 template<typename T>
-T get_rand(int max) {
+T get_rand(random_device &r, int max) {
   return T(0) % max;
 }
 
 template<>
-int get_rand<int>(int max) {
+int get_rand<int>(random_device &r, int max) {
   return rand() % max;
 }
 
 template<>
-float get_rand<float>(int max) {
+float get_rand<float>(random_device &r, int max) {
   return (float)(rand() % max);
 }
 
 template<>
-double get_rand<double>(int max) {
+double get_rand<double>(random_device &r, int max) {
   return (double)(rand() % max);
 }
 
 template<>
-std::pair<int, int> get_rand<std::pair<int, int>>(int max) {
+std::pair<int, int> get_rand<std::pair<int, int>>(random_device &r, int max) {
   return std::make_pair(rand() % max, rand() % max);
 }
 
@@ -55,15 +57,17 @@ std::pair<int, int> increment<std::pair<int, int>>(std::pair<int, int> &i) {
 template <template <class, class> class Container, class value_type>
 void fill_random(Container<value_type, std::allocator<value_type>> &v,
                 int max = RAND_MAX) {
+  random_device r;
   for (auto &e : v)
-    e = get_rand<value_type>(max);
+    e = get_rand<value_type>(r, max);
 }
 
 template <typename T>
 void fill_random(T begin, T end, int max = RAND_MAX) {
   typedef typename std::iterator_traits<T>::value_type value_type;
+  random_device r;
   for (auto it = begin; it != end; ++it)
-    *it = get_rand<value_type>(max);
+    *it = get_rand<value_type>(r, max);
 }
 
 // It can work with char* or std::string.
@@ -73,8 +77,9 @@ void fill_random_chars(T begin, T end, bool upper) {
   char min = upper ? 'A' : 'a';
   auto it = begin;
   typedef typename std::iterator_traits<T>::value_type value_type;
+  random_device r;
   for (; it != end -1; ++it) {
-    *it = get_rand<value_type>(max) * (max - min) + min;
+    *it = get_rand<value_type>(r, max) * (max - min) + min;
     assert(*it >= min);
     assert(*it <= max);
   }
@@ -89,7 +94,8 @@ void fill_random_chars(T begin, T end, bool upper) {
 
 template <template <class, class> class Container, class value_type>
 void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
-  value_type j = get_rand<value_type>(RAND_MAX);
+  random_device r;
+  value_type j = get_rand<value_type>(r, RAND_MAX);
   for (auto &e : v)
     e = increment(j);
 }
@@ -97,7 +103,8 @@ void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
 template <typename T>
 void fill_seq(T begin, T end) {
   typedef typename std::iterator_traits<T>::value_type value_type;
-  value_type j = get_rand<value_type>(RAND_MAX);
+  random_device r;
+  value_type j = get_rand<value_type>(r, RAND_MAX);
   for (auto it = begin; it != end; ++it)
     *it = increment(j);
 }
@@ -149,9 +156,10 @@ void BM_##Name(benchmark::State& state) {\
   int N = state.range(0);\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N);\
+  random_device r;\
   while (state.KeepRunning()) {\
     for (int i = 0; i < N; ++i) {\
-      T p = Name(a[i], get_rand<int>(RAND_MAX));\
+      T p = Name(a[i], get_rand<int>(r, RAND_MAX));\
       benchmark::DoNotOptimize(p);\
     }\
   }\
