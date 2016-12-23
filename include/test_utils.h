@@ -54,13 +54,13 @@ std::pair<int, int> increment<std::pair<int, int>>(std::pair<int, int> &i) {
 
 template <template <class, class> class Container, class value_type>
 void fill_random(Container<value_type, std::allocator<value_type>> &v,
-                unsigned max = RAND_MAX) {
+                int max = RAND_MAX) {
   for (auto &e : v)
     e = get_rand<value_type>(max);
 }
 
 template <typename T>
-void fill_random(T begin, T end, unsigned max = RAND_MAX) {
+void fill_random(T begin, T end, int max = RAND_MAX) {
   typedef typename std::iterator_traits<T>::value_type value_type;
   for (auto it = begin; it != end; ++it)
     *it = get_rand<value_type>(max);
@@ -131,7 +131,7 @@ class c_alloc {
 // Call a unary function for N real numbers
 #define BM_unary_real(Name) template<typename T> \
 void BM_##Name(benchmark::State& state) {\
-  const unsigned N = state.range(0);\
+  int N = state.range(0);\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N);\
   while (state.KeepRunning()) {\
@@ -146,7 +146,7 @@ void BM_##Name(benchmark::State& state) {\
 // Call a binary function for N real numbers
 #define BM_binary_real(Name) template<typename T> \
 void BM_##Name(benchmark::State& state) {\
-  const unsigned N = state.range(0);\
+  int N = state.range(0);\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N);\
   while (state.KeepRunning()) {\

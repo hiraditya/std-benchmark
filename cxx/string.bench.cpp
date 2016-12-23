@@ -16,8 +16,8 @@ static inline void BM_find_util(benchmark::State& state, const std::string &s1,
 }
 
 static void BM_find(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned ss2_sz = N/16;
+  int N = state.range(0);
+  int ss2_sz = N/16;
   std::string s1(N, 0);
   std::string s2(ss2_sz, 0);
   fill_random_chars(s1.begin(), s1.end(), true);
@@ -28,7 +28,7 @@ static void BM_find(benchmark::State& state) {
 
 // Benchmark when there is no match.
 static void BM_find_no_match(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   std::string s1(N, '-');
   std::string s2(N/8, '*');
   BM_find_util(state, s1, s2, std::string::npos);
@@ -37,7 +37,7 @@ static void BM_find_no_match(benchmark::State& state) {
 
 // Benchmark when the string matches first time.
 static void BM_find_all_match(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   std::string s1(N, '-');
   std::string s2(N, '-');
   BM_find_util(state, s1, s2, 0);
@@ -46,7 +46,7 @@ static void BM_find_all_match(benchmark::State& state) {
 
 // Benchmark when the string matches somewhere in the end.
 static void BM_find_match1(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   std::string s1(N, '*');
   s1 += std::string(N/4, '-');
   std::string s2(N/4, '-');
@@ -56,7 +56,7 @@ static void BM_find_match1(benchmark::State& state) {
 
 // Benchmark when the string matches somewhere from middle to the end.
 static void BM_find_match2(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   std::string s1(N, '*');
   s1 += std::string(N/2, '-');
   s1 += std::string(N/2, '*');
@@ -66,13 +66,13 @@ static void BM_find_match2(benchmark::State& state) {
 }
 
 static void BM_strcat(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned s2_sz = N/16;
+  int N = state.range(0);
+  int s2_sz = N/16;
   std::string s1(N, 0);
   std::string s2(s2_sz, 0);
   fill_random_chars(s1.begin(), s1.end(), true);
   fill_random_chars(s2.begin(), s2.end(), false);
-  unsigned s1_sz = 1;
+  int s1_sz = 1;
   while (state.KeepRunning()) {
     benchmark::DoNotOptimize(s1.append(s2));
     s1_sz += s2_sz;

@@ -8,7 +8,7 @@
 // Values between -1 and +1
 #define BM_atrig(Name) template<typename T> \
 void BM_##Name(benchmark::State& state) {\
-  const unsigned N = state.range(0);\
+  int N = state.range(0);\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N, RAND_MAX);\
   while (state.KeepRunning()) {\

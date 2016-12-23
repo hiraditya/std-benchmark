@@ -6,7 +6,7 @@
 
 // Linear search on a sequence
 static void BM_strstr(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   c_alloc<char> s1(N);
   c_alloc<char> s2(N/16);
   fill_random_chars<char*>(s1, s1+N, true);
@@ -20,14 +20,14 @@ static void BM_strstr(benchmark::State& state) {
 
 // catenate a character to a string
 static void BM_strcat(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned s2_sz = 2;
+  int N = state.range(0);
+  int s2_sz = 2;
   if (N < s2_sz)
     return; // invalid test configuration
   c_alloc<char> s1(N);
   c_alloc<char> s2(s2_sz);
   s1[0] = '\0';
-  unsigned s1_sz = 0;
+  int s1_sz = 0;
   fill_random_chars<char*>(s2, s2+s2_sz, false);
   while (state.KeepRunning()) {
     if ((s1_sz + s2_sz) >= N) {
@@ -43,7 +43,7 @@ static void BM_strcat(benchmark::State& state) {
 
 // Linear search on a sequence
 static void BM_strchr(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   c_alloc<char> s1(N);
   char s2 = '1';
   fill_random_chars<char*>(s1, s1+N, true);
@@ -55,13 +55,13 @@ static void BM_strchr(benchmark::State& state) {
 }
 
 static void BM_strcmp(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned s2_sz = N/16;
+  int N = state.range(0);
+  int s2_sz = N/16;
   c_alloc<char> s1(N);
   c_alloc<char> s2(s2_sz);
   fill_random_chars<char*>(s1, s1+N, true);
   fill_random_chars<char*>(s2, s2+s2_sz, false);
-  unsigned i = 0;
+  int i = 0;
   while (state.KeepRunning()) {
     // strcmp at varying positions
     benchmark::DoNotOptimize(strcmp(s1+(i++%N), s2));
@@ -70,29 +70,29 @@ static void BM_strcmp(benchmark::State& state) {
 }
 
 static void BM_strcpy(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned s2_sz = N/16;
+  int N = state.range(0);
+  int s2_sz = N/16;
   c_alloc<char> s1(N);
   c_alloc<char> s2(s2_sz);
   fill_random_chars<char*>(s1, s1+N, true);
   fill_random_chars<char*>(s2, s2+s2_sz, false);
-  unsigned i = 0;
+  int i = 0;
   while (state.KeepRunning()) {
     // strcpy at varying positions.
-    const unsigned offset = (i++%N)/2;
+    const int offset = (i++%N)/2;
     benchmark::DoNotOptimize(strcpy(s1 + offset, s2));
   }
   state.SetComplexityN(N);
 }
 
 static void BM_strlen(benchmark::State& state) {
-  const unsigned N = state.range(0);
-  const unsigned s2_sz = N/16;
+  int N = state.range(0);
+  int s2_sz = N/16;
   c_alloc<char> s1(N);
   c_alloc<char> s2(s2_sz);
   fill_random_chars<char*>(s1, s1+N, true);
   fill_random_chars<char*>(s2, s2+s2_sz, false);
-  unsigned i = 0;
+  int i = 0;
   while (state.KeepRunning()) {
     // strlen at varying positions.
     benchmark::DoNotOptimize(strlen(s1+i++));

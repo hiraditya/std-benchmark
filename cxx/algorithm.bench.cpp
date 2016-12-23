@@ -12,7 +12,7 @@
 
 template<typename V>
 void BM_sort_std(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N);
   fill_random(v);
   while (state.KeepRunning()) {
@@ -23,7 +23,7 @@ void BM_sort_std(benchmark::State& state) {
 
 template<typename V>
 void BM_sort_stable(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N);
   fill_random(v);
   while (state.KeepRunning()) {
@@ -35,7 +35,7 @@ void BM_sort_stable(benchmark::State& state) {
 
 template<typename V>
 void BM_search_linear(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {
@@ -51,7 +51,7 @@ void BM_search_linear(benchmark::State& state) {
 
 template<typename V>
 void BM_search_binary(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {

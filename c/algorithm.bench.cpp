@@ -7,7 +7,7 @@
 
 // qsort
 void BM_sort(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   c_alloc<int> a(N);
   fill_seq<int*>(a, a+N);
   while (state.KeepRunning()) {
@@ -20,7 +20,7 @@ void BM_sort(benchmark::State& state) {
 
 // Linear search on a sequence
 void BM_search_linear(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   c_alloc<int> a(N);
   fill_seq<int*>(a, a+N);
   while (state.KeepRunning()) {
@@ -39,7 +39,7 @@ void BM_search_linear(benchmark::State& state) {
 
 // Binary search on a sequence
 void BM_search_binary(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   c_alloc<int> a(N);
   fill_seq<int*>(a, a+N);
   while (state.KeepRunning()) {

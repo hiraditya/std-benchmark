@@ -13,10 +13,10 @@
 
 template<typename V>
 void BM_push_back(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v;
   while (state.KeepRunning()) {
-    for (unsigned i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
       v.push_back(i);
   }
   state.SetComplexityN(N);
@@ -24,10 +24,10 @@ void BM_push_back(benchmark::State& state) {
 
 template<typename V>
 void BM_push_back_resize(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N);
   while (state.KeepRunning()) {
-    for (unsigned i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
       v.push_back(i);
   }
   state.SetComplexityN(N);
@@ -35,11 +35,11 @@ void BM_push_back_resize(benchmark::State& state) {
 
 template<typename V>
 void BM_push_back_vector_reserve(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v;
   v.reserve(N);
   while (state.KeepRunning()) {
-    for (unsigned i = 0; i < N; ++i)
+    for (int i = 0; i < N; ++i)
       v.push_back(i);
   }
   state.SetComplexityN(N);
@@ -47,7 +47,7 @@ void BM_push_back_vector_reserve(benchmark::State& state) {
 
 template<typename V>
 void BM_insert(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N, 1);
   auto val = *v.begin();
   while (state.KeepRunning()) {
@@ -58,7 +58,7 @@ void BM_insert(benchmark::State& state) {
 
 template<typename V>
 void BM_insert_last(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   V v(N, 1);
   auto val = *v.begin();
   while (state.KeepRunning()) {
@@ -70,7 +70,7 @@ void BM_insert_last(benchmark::State& state) {
 // Insert random elements
 template<typename V>
 void BM_assoc_insert_random(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
@@ -88,7 +88,7 @@ void BM_assoc_insert_random(benchmark::State& state) {
 // Insert random elements
 template<typename V>
 void BM_assoc_insert_seq(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
   std::vector<VT> temp(N);
@@ -106,7 +106,7 @@ void BM_assoc_insert_seq(benchmark::State& state) {
 // Insert same element over and over.
 template<typename V>
 void BM_assoc_insert(benchmark::State& state) {
-  const unsigned N = state.range(0);
+  int N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
   VT temp = get_rand<VT>(N);
