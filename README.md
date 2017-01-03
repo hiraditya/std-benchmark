@@ -25,7 +25,7 @@ mkdir $SRC/build
 cd $SRC/build
 C:\Program Files (x86)\Microsoft Visual Studio <Version>\VC\vcvarsall.bat amd64
 cmake ..
-cmake --build .
+cmake --build . --config release
 ```
 
 If there are errors then build the project by opening the visual studio IDE (devenv)
