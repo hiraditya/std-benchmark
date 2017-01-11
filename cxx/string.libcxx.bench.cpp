@@ -8,13 +8,14 @@
 #include "benchmark/benchmark_api.h"
 
 constexpr std::size_t MAX_STRING_LEN = 8 << 14;
+const int alignment_shift = 0;
 
 // Benchmark when there is no match.
 static void BM_StringFindNoMatch(benchmark::State &state) {
   std::string s1(state.range(0), '-');
   std::string s2(8, '*');
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(s1.find(s2));
+    benchmark::DoNotOptimize(s1.find(s2, alignment_shift));
 }
 BENCHMARK(BM_StringFindNoMatch)->Range(16, MAX_STRING_LEN);
 
@@ -23,9 +24,9 @@ static void BM_StringFindAllMatch(benchmark::State &state) {
   std::string s1(MAX_STRING_LEN, '-');
   std::string s2(state.range(0), '-');
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(s1.find(s2));
+    benchmark::DoNotOptimize(s1.find(s2, alignment_shift));
 }
-BENCHMARK(BM_StringFindAllMatch)->Range(1, MAX_STRING_LEN);
+BENCHMARK(BM_StringFindAllMatch)->Range(16, MAX_STRING_LEN);
 
 // Benchmark when the string matches somewhere in the end.
 static void BM_StringFindMatch1(benchmark::State &state) {
@@ -33,9 +34,9 @@ static void BM_StringFindMatch1(benchmark::State &state) {
   s1 += std::string(state.range(0), '-');
   std::string s2(state.range(0), '-');
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(s1.find(s2));
+    benchmark::DoNotOptimize(s1.find(s2, alignment_shift));
 }
-BENCHMARK(BM_StringFindMatch1)->Range(1, MAX_STRING_LEN / 4);
+BENCHMARK(BM_StringFindMatch1)->Range(16, MAX_STRING_LEN / 4);
 
 // Benchmark when the string matches somewhere from middle to the end.
 static void BM_StringFindMatch2(benchmark::State &state) {
@@ -44,16 +45,16 @@ static void BM_StringFindMatch2(benchmark::State &state) {
   s1 += std::string(state.range(0), '*');
   std::string s2(state.range(0), '-');
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(s1.find(s2));
+    benchmark::DoNotOptimize(s1.find(s2, alignment_shift));
 }
 
-BENCHMARK(BM_StringFindMatch2)->Range(1, MAX_STRING_LEN / 4);
+BENCHMARK(BM_StringFindMatch2)->Range(16, MAX_STRING_LEN / 4);
 
 static void BM_StringRegression(benchmark::State &state) {
   std::string s1 = "aabbaabbaaxd adbffdadgaxaabbbddhatyaaaabbbaabbaabbcsy";
   std::string s2 = "aabbaabbc";
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(s1.find(s2));
+    benchmark::DoNotOptimize(s1.find(s2, alignment_shift));
 }
 
 BENCHMARK(BM_StringRegression);
@@ -80,7 +81,7 @@ static void BM_CStringFindAllMatch(benchmark::State &state) {
   while (state.KeepRunning())
     benchmark::DoNotOptimize(strstr(s1, s2));
 }
-BENCHMARK(BM_CStringFindAllMatch)->Range(1, MAX_STRING_LEN);
+BENCHMARK(BM_CStringFindAllMatch)->Range(16, MAX_STRING_LEN);
 
 // Benchmark when the string matches somewhere in the end.
 static void BM_CStringFindMatch1(benchmark::State &state) {
@@ -97,7 +98,7 @@ static void BM_CStringFindMatch1(benchmark::State &state) {
   while (state.KeepRunning())
     benchmark::DoNotOptimize(strstr(s1, s2));
 }
-BENCHMARK(BM_CStringFindMatch1)->Range(1, MAX_STRING_LEN / 4);
+BENCHMARK(BM_CStringFindMatch1)->Range(16, MAX_STRING_LEN / 4);
 
 // Benchmark when the string matches somewhere from middle to the end.
 static void BM_CStringFindMatch2(benchmark::State &state) {
@@ -117,7 +118,7 @@ static void BM_CStringFindMatch2(benchmark::State &state) {
     benchmark::DoNotOptimize(strstr(s1, s2));
 }
 
-BENCHMARK(BM_CStringFindMatch2)->Range(1, MAX_STRING_LEN / 4);
+BENCHMARK(BM_CStringFindMatch2)->Range(16, MAX_STRING_LEN / 4);
 
 static void BM_CStringRegression(benchmark::State &state) {
   const char* s1 = "aabbaabbaaxd adbffdadgaxaabbbddhatyaaaabbbaabbaabbcsy";
