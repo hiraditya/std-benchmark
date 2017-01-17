@@ -30,6 +30,7 @@ add_subdirectory(benchmark)
 
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)
 option(ENABLE_CXX_BENCHMARKS "Compile C++ benchmarks" ON)
+option(ENABLE_C_VS_CXX_BENCHMARKS "Compile C vs C++ benchmarks" ON)
 
 enable_testing()
 
@@ -39,6 +40,10 @@ endif()
 
 if(ENABLE_CXX_BENCHMARKS)
   add_subdirectory(cxx)
+endif()
+
+if(ENABLE_C_VS_CXX_BENCHMARKS)
+  add_subdirectory(c.vs.cxx)
 endif()
 
 # Only for testing utility functions written for the std-benchmark.

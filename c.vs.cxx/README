@@ -1,0 +1,5 @@
+This directory has benchmarks which compares standard c implementation of
+an algorithm vs. standard c++ implementation of the same algorithm.
+Caveats:
+Effort has been made to discard any unwanted side-effects like malloc etc.
+
