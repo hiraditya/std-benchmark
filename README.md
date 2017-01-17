@@ -39,6 +39,7 @@ as well, so if you are only interested in runningthe `c` and `cxx` std-benchmark
 ```sh
 ctest -L c --verbose
 ctest -L cxx --verbose
+ctest -C Release -L c.vs.cxx --verbose
 ```
 
 NB: On windows the tests might not run because ctest adds each test under specific
@@ -47,5 +48,6 @@ configurations. So you have to pass the appropriate configuration using the `-C 
 ```sh
 ctest -C Release -L c --verbose
 ctest -C Release -L cxx --verbose
+ctest -C Release -L c.vs.cxx --verbose
 ```
 

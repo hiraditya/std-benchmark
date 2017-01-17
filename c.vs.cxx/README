@@ -1,5 +1,11 @@
 This directory has benchmarks which compares standard c implementation of
-an algorithm vs. standard c++ implementation of the same algorithm.
-Caveats:
-Effort has been made to discard any unwanted side-effects like malloc etc.
+an algorithm vs. standard c++ implementation of the same algorithm. The idea is
+to first construct equivalent data structures in both C and C++ respectively,
+and then call corresponding functions (e.g., string::find vs. strstr) to
+measure performance.
 
+Caveats:
+- Effort has been made to discard any unwanted side-effects like malloc etc.
+- The c library functions are called from the C++ programs
+- c_alloc is a very primitive wrapper to hide malloc and free, it is intended
+  to be very simple and used as such.
