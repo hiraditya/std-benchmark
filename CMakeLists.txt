@@ -13,6 +13,14 @@ set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 set(COMPILE_FLAGS
   "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 
+if (BENCHMARK_USE_LIBCXX)
+  if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
+   set(COMPILE_FLAGS "${COMPILE_FLAGS} -stdlib=libc++")
+  else()
+    message(FATAL "-DBENCHMARK_USE_LIBCXX:BOOL=ON is not supported for compiler")
+  endif()
+endif(BENCHMARK_USE_LIBCXX)
+
 # -fno-omit-frame-pointer
 
 set(LINK_FLAGS

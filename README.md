@@ -19,6 +19,18 @@ cmake ..
 cmake --build .
 ```
 
+When you are compiling with clang compiler along with libcxx enabled (-DBENCHMARK_USE_LIBCXX=ON),
+you might get cmake error like this:
+```CMake Error at benchmark/CMakeLists.txt:171 (message):
+   Failed to determine the source files for the regular expression backend
+  -- Configuring incomplete, errors occurred!
+```
+
+In that case,
+```sh
+export LD_LIBRARY_PATH=path-to-clang-install/lib
+```
+
 **BUILDING WITH VISUAL STUDIO**
 ```sh
 mkdir $SRC/build
