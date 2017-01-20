@@ -9,6 +9,8 @@
 
 // TODO: reverse, rotate, shuffle, lower_bound, upper_bound
 // uninitialized_fill, uninitialized_copy
+// change data type (int, double, class { int, int }, and compare
+// algorithms.
 
 template<typename V>
 void BM_sort_std(benchmark::State& state) {
@@ -66,13 +68,26 @@ void BM_search_binary(benchmark::State& state) {
 }
 
 static const int MSize = L1;
-COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::deque<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::deque<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<int>, MSize);
+
+#define TYPED_BENCHMARK(T) \
+    COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<T>, MSize); \
+    COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<T>, MSize); \
+    COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
+
+// TODO: Add aggregates to TYPED_BENCHMARK.
+class int_int {
+    int i;
+    int j;
+};
+
+// TODO: Rename
+TYPED_BENCHMARK(char)
+TYPED_BENCHMARK(int)
+TYPED_BENCHMARK(double)
 
 BENCHMARK_MAIN()
