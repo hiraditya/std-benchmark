@@ -4,6 +4,47 @@
 #include "rng_utils.h"
 #include <cstdlib>
 
+// TODO: Add more aggregates.
+struct int_int {
+  int first;
+  int second;
+  int third;
+  int fourth;
+  int_int() : first(0), second(0)
+  {}
+  int_int(int i) : first(i), second(i)
+  {}
+  int_int(int i, int j) : first(i), second(j)
+  {}
+
+  int_int& operator++() {
+    ++first;
+    ++second;
+    return *this;
+  }
+  int_int operator++(int) {
+    int_int N(*this);
+    ++(*this);
+    return N;
+  }
+
+  bool operator<(const int_int& i) const {
+    return first < i.first;
+  }
+
+  bool operator>(const int_int& i) const {
+    return i < *this;
+  }
+
+  bool operator==(const int_int& i) const {
+    return first == i.first;
+  }
+
+  bool operator!=(const int_int& i) const {
+    return !(*this == i);
+  }
+};
+
 template<typename T>
 struct remove_const { typedef T type; };
 
@@ -21,16 +62,14 @@ std::pair<int, int> get_rand<std::pair<int, int>>(random_device &r, int max) {
   return std::make_pair(r.get_rand(0, max), r.get_rand(0, max));
 }
 
-template<typename T>
-T increment(T &i) { // do-nothing
-  assert(0);
-  return i;
+template<>
+int_int get_rand<int_int>(random_device &r, int max) {
+  return int_int(r.get_rand(0, max));
 }
 
-// Generalize this for is_integral
-template<>
-int increment<int>(int &i) {
-  return i++;
+template<typename T>
+T increment(T &i) {
+  return ++i;
 }
 
 // value_type of a std::map is std::pair<const KeyType, ValueType>

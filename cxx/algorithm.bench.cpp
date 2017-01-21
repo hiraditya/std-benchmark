@@ -43,9 +43,9 @@ void BM_search_linear(benchmark::State& state) {
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
-      int j = *std::find(v.begin(), v.end(), i);
+      auto j = std::find(v.begin(), v.end(), i);
       benchmark::DoNotOptimize(j);
-      assert(j == i); // j is the i-th element in v
+      assert(std::distance(v.begin(), j) == i); // j is the i-th element in v
     }
   }
   state.SetComplexityN(N);
@@ -59,9 +59,9 @@ void BM_search_binary(benchmark::State& state) {
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
-      int j = *std::lower_bound(v.begin(), v.end(), i);
+      auto j = *std::lower_bound(v.begin(), v.end(), i);
       benchmark::DoNotOptimize(j);
-      assert(j == i); // j is the i-th element in v
+      assert(std::distance(v.begin(), j) == i); // j is the i-th element in v
     }
   }
   state.SetComplexityN(N);
@@ -79,15 +79,9 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
 
-// TODO: Add aggregates to TYPED_BENCHMARK.
-class int_int {
-    int i;
-    int j;
-};
-
-// TODO: Rename
-TYPED_BENCHMARK(char)
+// TODO: Find a better name for TYPED_BENCHMARK
+//TYPED_BENCHMARK(int_int)
 TYPED_BENCHMARK(int)
-TYPED_BENCHMARK(double)
+//TYPED_BENCHMARK(double)
 
 BENCHMARK_MAIN()
