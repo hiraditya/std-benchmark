@@ -20,6 +20,8 @@ struct int_int {
   int_int& operator++() {
     ++first;
     ++second;
+    ++third;
+    ++fourth;
     return *this;
   }
   int_int operator++(int) {

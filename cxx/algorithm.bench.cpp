@@ -69,7 +69,7 @@ void BM_search_binary(benchmark::State& state) {
 
 static const int MSize = L1;
 
-#define TYPED_BENCHMARK(T) \
+#define COMPLEXITY_BENCHMARK_GEN_T(T) \
     COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<T>, MSize); \
     COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::list<T>, MSize); \
     COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::deque<T>, MSize);\
@@ -80,8 +80,8 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
 
 // TODO: Find a better name for TYPED_BENCHMARK
-//TYPED_BENCHMARK(int_int)
-TYPED_BENCHMARK(int)
-//TYPED_BENCHMARK(double)
+//COMPLEXITY_BENCHMARK_T(int_int)
+COMPLEXITY_BENCHMARK_GEN_T(int)
+//COMPLEXITY_BENCHMARK_T(double)
 
 BENCHMARK_MAIN()

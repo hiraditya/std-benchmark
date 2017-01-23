@@ -102,7 +102,7 @@ static void BM_strlen(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L2;
+static const int MSize = L1;
 COMPLEXITY_BENCHMARK(BM_strstr, MSize);
 COMPLEXITY_BENCHMARK(BM_strcat, MSize);
 COMPLEXITY_BENCHMARK(BM_strchr, MSize);
