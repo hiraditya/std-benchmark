@@ -75,7 +75,17 @@ T increment(T &i) {
 // value_type of a std::map is std::pair<const KeyType, ValueType>
 template<>
 std::pair<int, int> increment<std::pair<int, int>>(std::pair<int, int> &i) {
-  return std::make_pair(i.first++, i.second);
+  return std::make_pair(++i.first, i.second);
+}
+
+template<typename T>
+T init() {
+  return T(0);
+}
+
+template<>
+std::pair<int, int> init<std::pair<int, int>>() {
+  return std::make_pair(0, 0);
 }
 
 template <template <class, class> class Container, class value_type>
@@ -115,22 +125,18 @@ void fill_random_chars(T begin, T end, bool upper) {
 // for example insert, push_back, pop_back, push_front, pop_front, advance
 
 // TODO: Benchmark memory allocated on heap vs. stack.
-
-template <template <class, class> class Container, class value_type>
-void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
-  random_device r;
-  value_type j = get_rand<value_type>(r, RAND_MAX);
-  for (auto &e : v)
-    e = increment(j);
-}
-
 template <typename T>
 void fill_seq(T begin, T end) {
   typedef typename std::iterator_traits<T>::value_type value_type;
-  random_device r;
-  value_type j = get_rand<value_type>(r, RAND_MAX);
-  for (auto it = begin; it != end; ++it)
-    *it = increment(j);
+  //random_device r;
+  value_type j = init<value_type>();// = get_rand<value_type>(r, RAND_MAX);
+  for (auto it = begin; it != end; ++it, increment(j))
+    *it = j;
+}
+
+template <template <class, class> class Container, class value_type>
+void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
+  fill_seq(std::begin(v), std::end(v));
 }
 
 // c-style comparator for integral types.

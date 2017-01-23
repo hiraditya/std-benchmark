@@ -59,7 +59,7 @@ void BM_search_binary(benchmark::State& state) {
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
-      auto j = *std::lower_bound(v.begin(), v.end(), i);
+      auto j = std::lower_bound(v.begin(), v.end(), i);
       benchmark::DoNotOptimize(j);
       assert(std::distance(v.begin(), j) == i); // j is the i-th element in v
     }

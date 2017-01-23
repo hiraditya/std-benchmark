@@ -11,7 +11,7 @@ set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)
 set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
 set(COMPILE_FLAGS
-  "-std=c++14 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+  "-std=c++14 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 
 if (BENCHMARK_USE_LIBCXX)
   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -35,6 +35,11 @@ SET(CMAKE_BUILD_TYPE "Release")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 add_subdirectory(benchmark)
+
+# Set these after adding benchmark because google-bechmark
+# fails with C++ standard greater than 2003
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)
 option(ENABLE_CXX_BENCHMARKS "Compile C++ benchmarks" ON)
