@@ -97,24 +97,30 @@ void BM_assoc_find_seq(benchmark::State& state) {
 }
 
 static const int MSize = L1;
-COMPLEXITY_BENCHMARK_GEN(BM_advance, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_advance, std::list<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_advance, std::deque<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_access, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_access, std::list<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_access, std::deque<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_at, std::vector<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_at, std::deque<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::set<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::unordered_set<int>, MSize);
 
-#define BENCH_STD_MAP SINGLE_ARG(std::map<int, int>)
-#define BENCH_STD_UNORDERED_MAP SINGLE_ARG(std::unordered_map<int, int>)
+#define BENCH_STD_MAP(T) SINGLE_ARG(std::map<T, T>)
+#define BENCH_STD_UNORDERED_MAP(T) SINGLE_ARG(std::unordered_map<T, T>)
 
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_MAP, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_UNORDERED_MAP, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::set<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::unordered_set<int>, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_MAP, MSize);
-COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_UNORDERED_MAP, MSize);
+#define COMPLEXITY_BENCHMARK_GEN_T(T) \
+    COMPLEXITY_BENCHMARK_GEN(BM_advance, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_advance, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_advance, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_access, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_access, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_access, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_at, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_at, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, std::unordered_set<T>, MSize);\
+\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_MAP(T), MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_random, BENCH_STD_UNORDERED_MAP(T), MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, std::unordered_set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_MAP(T), MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_find_seq, BENCH_STD_UNORDERED_MAP(T), MSize);
+
+COMPLEXITY_BENCHMARK_GEN_T(int)
+COMPLEXITY_BENCHMARK_GEN_T(aggregate)
+
 BENCHMARK_MAIN()
