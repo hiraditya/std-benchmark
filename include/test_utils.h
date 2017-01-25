@@ -10,11 +10,10 @@ struct aggregate {
   int second;
   int third;
   int fourth;
-  aggregate() : first(0), second(0)
+  aggregate() : first(0), second(0), third(0), fourth(0)
   {}
-  aggregate(int i) : first(i), second(i)
-  {}
-  aggregate(int i, int j) : first(i), second(j)
+  aggregate(int i, int j=0, int k=0, int l=0)
+    : first(i), second(j), third(k), fourth(l)
   {}
 
   aggregate& operator++() {
@@ -47,6 +46,23 @@ struct aggregate {
   }
 };
 
+// Hasher for aggregate data type.
+namespace std {
+  template <>
+  struct hash<aggregate>
+  {
+    std::size_t operator()(const aggregate& k) const
+    {
+      using std::hash;
+      // Hash and combine using bit-shift.
+      return ((hash<int>()(k.first)
+               ^ (hash<int>()(k.second) << 1)) >> 1)
+               ^ (hash<int>()(k.third) << 1)
+               ^ (hash<int>()(k.fourth) << 1);
+    }
+  };
+}
+
 template<typename T>
 struct remove_const { typedef T type; };
 
@@ -69,6 +85,12 @@ aggregate get_rand<aggregate>(random_device &r, int max) {
   return aggregate(r.get_rand(0, max));
 }
 
+template<>
+std::pair<aggregate, aggregate>
+get_rand<std::pair<aggregate, aggregate>>(random_device &r, int max) {
+  return std::make_pair(r.get_rand(0, max), r.get_rand(0, max));
+}
+
 template<typename T>
 T increment(T &i) {
   return ++i;
@@ -80,6 +102,12 @@ std::pair<int, int> increment<std::pair<int, int>>(std::pair<int, int> &i) {
   return std::make_pair(++i.first, i.second);
 }
 
+template<>
+std::pair<aggregate, aggregate>
+increment<std::pair<aggregate, aggregate>>(std::pair<aggregate, aggregate> &i) {
+  return std::make_pair(++i.first, i.second);
+}
+
 template<typename T>
 T init() {
   return T(0);
@@ -87,6 +115,11 @@ T init() {
 
 template<>
 std::pair<int, int> init<std::pair<int, int>>() {
+  return std::make_pair(0, 0);
+}
+
+template<>
+std::pair<aggregate, aggregate> init<std::pair<aggregate, aggregate>>() {
   return std::make_pair(0, 0);
 }
 
