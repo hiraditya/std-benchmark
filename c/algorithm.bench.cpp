@@ -6,23 +6,25 @@
 #include "test_utils.h"
 
 // qsort
+template<typename T>
 void BM_sort(benchmark::State& state) {
   int N = state.range(0);
-  c_alloc<int> a(N);
-  fill_seq<int*>(a, a+N);
+  c_alloc<T> a(N);
+  fill_seq<T*>(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i)
-      qsort(a.get(), N, sizeof (int), compare<int>);
+      qsort(a.get(), N, sizeof (T), compare<T>);
   }
   state.SetComplexityN(N);
 }
 
 // Linear search on a sequence
+template<typename T>
 void BM_search_linear(benchmark::State& state) {
   int N = state.range(0);
-  c_alloc<int> a(N);
-  fill_seq<int*>(a, a+N);
+  c_alloc<T> a(N);
+  fill_seq<T*>(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
@@ -38,14 +40,15 @@ void BM_search_linear(benchmark::State& state) {
 }
 
 // Binary search on a sequence
+template<typename T>
 void BM_search_binary(benchmark::State& state) {
   int N = state.range(0);
-  c_alloc<int> a(N);
-  fill_seq<int*>(a, a+N);
+  c_alloc<T> a(N);
+  fill_seq<T*>(a, a+N);
   while (state.KeepRunning()) {
     // searching for all the elements.
     for (int i = 0; i < N; ++i) {
-      int *p = (int*) bsearch(&i, a, N, sizeof (int), compare<int>);
+      T *p = (T*) bsearch(&i, a, N, sizeof (T), compare<T>);
       benchmark::DoNotOptimize(p);
       assert(*p == i); // j is the i-th element in a
     }
@@ -54,7 +57,10 @@ void BM_search_binary(benchmark::State& state) {
 }
 
 static const int MSize = L1;
-COMPLEXITY_BENCHMARK(BM_search_linear, MSize);
-COMPLEXITY_BENCHMARK(BM_search_binary, MSize);
-COMPLEXITY_BENCHMARK(BM_sort, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_linear, int, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_linear, char, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_binary, int, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_search_binary, char, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_sort, int, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_sort, char, MSize);
 BENCHMARK_MAIN()
