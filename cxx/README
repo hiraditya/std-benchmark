@@ -1,0 +1,11 @@
+Benchmarking C++ standard library
+
+To define your own data type for benchmarking:
+Define the class in a header e.g., $PROJECT_HOME/include/test_utils.h
+The class should have a T(0) otherwise you have to define init<T>.
+The class should have operator++ defined otherwise you have to define increment<T>.
+
+Define the following if it cannot use the default:
+hasher, init<std::pair<T, T>>, increment<std::pair<T, T>>,
+
+Call the macro COMPLEXITY_BENCHMARK_GEN_T(T) in all the files.
