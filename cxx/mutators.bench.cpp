@@ -147,26 +147,26 @@ static const int MSize = L1;
 #define BENCH_STD_UNORDERED_MAP(T) SINGLE_ARG(std::unordered_map<T, T>)
 
 #define COMPLEXITY_BENCHMARK_GEN_T(T) \
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::vector<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::list<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::deque<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_push_back_vector_reserve, std::vector<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::vector<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::list<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::deque<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::vector<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::list<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::deque<int>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_push_back_vector_reserve, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::deque<T>, MSize);\
 \
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::set<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::set<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, std::set<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::unordered_set<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::unordered_set<int>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, std::unordered_set<int>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, std::set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::unordered_set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::unordered_set<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, std::unordered_set<T>, MSize);\
 \
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, BENCH_STD_MAP(T), MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, BENCH_STD_MAP(T), MSize);\
@@ -176,5 +176,7 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_seq, BENCH_STD_UNORDERED_MAP(T), MSize);
 
 COMPLEXITY_BENCHMARK_GEN_T(int)
+
+//COMPLEXITY_BENCHMARK_GEN_T(aggregate)
 
 BENCHMARK_MAIN()

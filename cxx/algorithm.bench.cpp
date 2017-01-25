@@ -80,7 +80,7 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
 
 // TODO: Find a better name for TYPED_BENCHMARK
-//COMPLEXITY_BENCHMARK_T(int_int)
+//COMPLEXITY_BENCHMARK_T(aggregate)
 COMPLEXITY_BENCHMARK_GEN_T(int)
 //COMPLEXITY_BENCHMARK_T(double)
 
