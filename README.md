@@ -21,7 +21,8 @@ cmake --build .
 
 When you are compiling with clang compiler along with libcxx enabled (-DBENCHMARK_USE_LIBCXX=ON),
 you might get cmake error like this:
-```CMake Error at benchmark/CMakeLists.txt:171 (message):
+```
+   CMake Error at benchmark/CMakeLists.txt:171 (message):
    Failed to determine the source files for the regular expression backend
   -- Configuring incomplete, errors occurred!
 ```
@@ -47,7 +48,6 @@ and then try to build one component at a time.
 
 To test the project run ctest. Running ctest will run the google-benchmark harness tests
 as well, so if you are only interested in runningthe `c` and `cxx` std-benchmark tests use:
-
 ```sh
 ctest -L c --verbose
 ctest -L cxx --verbose
@@ -56,7 +56,6 @@ ctest -C Release -L c.vs.cxx --verbose
 
 NB: On windows the tests might not run because ctest adds each test under specific
 configurations. So you have to pass the appropriate configuration using the `-C <config>` e.g.,
-
 ```sh
 ctest -C Release -L c --verbose
 ctest -C Release -L cxx --verbose
