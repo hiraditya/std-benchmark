@@ -11,7 +11,9 @@
 // Configurations for i7_4770
 #ifdef i7_4770
 // To benchmark data residing completely in L1 cache.
-#define L1 (32 KB)
+//#define L1 (32 KB)
+// For the Travis CI to run the entire test.
+#define L1 (2 KB)
 // To benchmark data residing in L2 cache.
 #define L2 (256 KB)
 // To benchmark data residing in L3 cache.
