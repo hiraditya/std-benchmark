@@ -10,8 +10,15 @@ set(GOOGLE_BENCHMARK_SRC ${CMAKE_SOURCE_DIR}/benchmark)
 set(BENCHMARK_INSTALL ${CMAKE_BINARY_DIR}/benchmark)
 set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
-set(COMPILE_FLAGS
-  "-std=c++14 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+if ("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
+  set(COMPILE_FLAGS
+    "-std=c++14 -g3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+else()
+  # Google benchmark is build as Debug by default.
+  set(CMAKE_BUILD_TYPE "Release")
+  set(COMPILE_FLAGS
+    "-std=c++14 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+endif()
 
 if (BENCHMARK_USE_LIBCXX)
   if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
@@ -27,11 +34,8 @@ set(LINK_FLAGS
   # -nodefaultlibs
     "-L${BENCHMARK_INSTALL}/src/")
 
-SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
-SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINK_FLAGS}")
-
-# Google benchmark is build as Debug by default.
-SET(CMAKE_BUILD_TYPE "Release")
+set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${COMPILE_FLAGS}")
+set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${LINK_FLAGS}")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 add_subdirectory(benchmark)
