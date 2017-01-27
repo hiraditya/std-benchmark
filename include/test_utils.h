@@ -12,7 +12,11 @@ struct aggregate {
   int fourth;
   aggregate() : first(0), second(0), third(0), fourth(0)
   {}
-  aggregate(int i, int j=0, int k=0, int l=0)
+  // This is a hacky constructor for ::find on associative containers to work.
+  aggregate(int i)
+    : first(i), second(i), third(i), fourth(i)
+  {}
+  aggregate(int i, int j, int k, int l)
     : first(i), second(j), third(k), fourth(l)
   {}
 
@@ -176,7 +180,7 @@ void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
 
 // c-style comparator for integral types.
 template<typename T>
-static int compare(const void * a, const void * b)
+static int compare(const void *a, const void *b)
 {
   static_assert(std::is_integral<T>::value, "Not an integral type.");
   return (*(T*)a - *(T*)b);
