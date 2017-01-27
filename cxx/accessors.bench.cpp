@@ -16,7 +16,7 @@
 template<typename V>
 void BM_advance(benchmark::State& state) {
   int N = state.range(0);
-  V v;
+  V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {
     for (int i = 0; i < N; ++i) {
@@ -31,7 +31,7 @@ void BM_advance(benchmark::State& state) {
 template<typename V>
 void BM_access(benchmark::State& state) {
   int N = state.range(0);
-  V v;
+  V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {
     for (int i = 0; i < N; ++i) {
