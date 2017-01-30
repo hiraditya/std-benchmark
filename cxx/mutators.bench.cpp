@@ -57,7 +57,7 @@ void BM_push_back_vector_reserve(benchmark::State& state) {
 }
 
 template<typename V>
-void BM_insert(benchmark::State& state) {
+void BM_insert_begin(benchmark::State& state) {
   int N = state.range(0);
   V v(N, 1);
   auto val = *v.begin();
@@ -68,12 +68,13 @@ void BM_insert(benchmark::State& state) {
 }
 
 template<typename V>
-void BM_insert_last(benchmark::State& state) {
+void BM_insert_middle(benchmark::State& state) {
   int N = state.range(0);
   V v(N, 1);
   auto val = *v.begin();
+  auto pos = std::next(v.begin(), N/2);
   while (state.KeepRunning()) {
-    v.insert(--v.end(), val);
+    v.insert(pos, val);
   }
   state.SetComplexityN(N);
 }
@@ -168,12 +169,12 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::list<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_push_back_resize, std::deque<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_push_back_vector_reserve, std::vector<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::vector<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::list<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert, std::deque<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::vector<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::list<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_last, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::deque<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::deque<T>, MSize);\
 \
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::set<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::set<T>, MSize);\
