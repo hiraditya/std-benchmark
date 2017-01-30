@@ -12,6 +12,18 @@
 // change data type (int, double, class { int, int }, and compare
 // algorithms.
 
+#ifndef NDEBUG
+#include<iostream>
+template<typename T>
+std::ostream& operator<<(std::ostream& os,const std::vector<T>& v)
+{
+  for(typename std::vector<T>::const_iterator i = v.begin(); i!= v.end(); ++i)
+    os<<*i<<' ';
+  os<< "\n";
+  return os;
+}
+#endif
+
 template<typename V>
 void BM_sort_std(benchmark::State& state) {
   int N = state.range(0);
@@ -19,6 +31,32 @@ void BM_sort_std(benchmark::State& state) {
   fill_random(v);
   while (state.KeepRunning()) {
     std::sort(v.begin(), v.end());
+  }
+  state.SetComplexityN(N);
+}
+
+// Sort (a sequence in ascending order) in ascending order.
+template<typename V>
+void BM_sort_std_ascending(benchmark::State& state) {
+  int N = state.range(0);
+  using T = typename V::value_type;
+  V v(N);
+  fill_seq(v);
+  while (state.KeepRunning()) {
+    std::sort(v.begin(), v.end(), std::less<T>());
+  }
+  state.SetComplexityN(N);
+}
+
+// Sort (a sequence in ascending order) in descending order.
+template<typename V>
+void BM_sort_std_descending(benchmark::State& state) {
+  int N = state.range(0);
+  using T = typename V::value_type;
+  V v(N);
+  fill_seq(v);
+  while (state.KeepRunning()) {
+    std::sort(v.begin(), v.end(), std::greater<T>());
   }
   state.SetComplexityN(N);
 }
@@ -77,6 +115,8 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::deque<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_sort_std_ascending, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_sort_std_descending, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
 
 // TODO: Find a better name for TYPED_BENCHMARK
