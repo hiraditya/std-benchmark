@@ -12,6 +12,17 @@
 #include<vector>
 
 template<typename V>
+void BM_write_seq(benchmark::State& state) {
+  int N = state.range(0);
+  V v(N);
+  while (state.KeepRunning()) {
+    fill_seq(v);
+    benchmark::DoNotOptimize(v);
+  }
+  state.SetComplexityN(N);
+}
+
+template<typename V>
 void BM_push_back(benchmark::State& state) {
   int N = state.range(0);
   V v;
@@ -147,6 +158,9 @@ static const int MSize = L1;
 #define BENCH_STD_UNORDERED_MAP(T) SINGLE_ARG(std::unordered_map<T, T>)
 
 #define COMPLEXITY_BENCHMARK_GEN_T(T) \
+    COMPLEXITY_BENCHMARK_GEN(BM_write_seq, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_write_seq, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_write_seq, std::deque<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::list<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_push_back, std::deque<T>, MSize);\
