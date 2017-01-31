@@ -12,12 +12,12 @@ set(STD_BENCHMARK_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/include)
 
 if ("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
   set(COMPILE_FLAGS
-    "-std=c++14 -g3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+    "-std=c++1z -g3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 else()
   # Google benchmark is build as Debug by default.
   set(CMAKE_BUILD_TYPE "Release")
   set(COMPILE_FLAGS
-    "-std=c++14 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+    "-std=c++1z -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 endif()
 
 if (BENCHMARK_USE_LIBCXX)
@@ -42,7 +42,7 @@ add_subdirectory(benchmark)
 
 # Set these after adding benchmark because google-bechmark
 # fails with C++ standard greater than 2003
-set(CMAKE_CXX_STANDARD 14)
+#set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)

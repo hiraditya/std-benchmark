@@ -4,6 +4,7 @@
 
 #include<algorithm>
 #include<deque>
+#include<iterator>
 #include<list>
 #include<map>
 #include<set>
@@ -70,10 +71,14 @@ void BM_insert_begin(benchmark::State& state) {
 template<typename V>
 void BM_insert_middle(benchmark::State& state) {
   int N = state.range(0);
+  using namespace std;
+  using v_iterator = typename iterator_traits<typename V::iterator>::iterator_category;
   V v(N, 1);
   auto val = *v.begin();
   auto pos = std::next(v.begin(), N/2);
   while (state.KeepRunning()) {
+    if constexpr(is_same<v_iterator, random_access_iterator_tag>::value)
+      pos = std::next(v.begin(), N/2);
     v.insert(pos, val);
   }
   state.SetComplexityN(N);
