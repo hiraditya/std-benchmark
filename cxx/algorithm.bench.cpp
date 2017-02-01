@@ -35,6 +35,23 @@ void BM_sort_std(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+template<typename V>
+void BM_sort_std_list_with_vector(benchmark::State& state) {
+  int N = state.range(0);
+  V v(N);
+  fill_random(v);
+  using T = typename V::value_type;
+  // Copy the contents into a vector
+  while (state.KeepRunning()) {
+    std::vector<T> vec(v.begin(), v.end());
+    // Sort the vector
+    std::sort(vec.begin(), vec.end());
+    // Put the item back in the list
+    v.assign(vec.begin(), vec.end());
+  }
+  state.SetComplexityN(N);
+}
+
 // Sort (a sequence in ascending order) in ascending order.
 template<typename V>
 void BM_sort_std_ascending(benchmark::State& state) {
@@ -124,5 +141,8 @@ static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN_T(int)
 //COMPLEXITY_BENCHMARK_GEN_T(double)
 COMPLEXITY_BENCHMARK_GEN_T(aggregate)
+
+COMPLEXITY_BENCHMARK_GEN(BM_sort_std_list_with_vector, std::list<int>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_sort_std_list_with_vector, std::list<aggregate>, MSize);
 
 BENCHMARK_MAIN()
