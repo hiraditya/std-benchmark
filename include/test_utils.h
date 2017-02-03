@@ -2,7 +2,8 @@
 #define TEST_UTILS_H
 
 #include "rng_utils.h"
-#include <cstdlib>
+#include<cstdlib>
+#include<algorithm>
 
 // TODO: Add more aggregates.
 struct aggregate {
@@ -176,6 +177,34 @@ void fill_seq(T begin, T end) {
 template <template <class, class> class Container, class value_type>
 void fill_seq(Container<value_type, std::allocator<value_type>> &v) {
   fill_seq(std::begin(v), std::end(v));
+}
+
+// Size of vector \p v to be constructed is \p size
+template <typename T>
+void make_killer(int size, std::vector<T>& v) {
+  int candidate = 0;
+  int num_solid = 0;
+  int gas = size - 1;
+
+  std::vector<T> tmp(size);
+  v.resize(size);
+
+  for (T i = 0; i < size; ++i) {
+    tmp[i] = i;
+    v[i] = gas;
+  }
+
+  std::sort(tmp.begin(), tmp.end(), [&](T x, T y) {
+      if (v[x] == gas && v[y] == gas) {
+        if (x == candidate) v[x] = num_solid++;
+        else v[y] = num_solid++;
+      }
+
+      if (v[x] == gas) candidate = x;
+      else if (v[y] == gas) candidate = y;
+
+      return v[x] < v[y];
+    });
 }
 
 // c-style comparator for integral types.

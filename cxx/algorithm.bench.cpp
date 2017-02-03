@@ -3,6 +3,7 @@
 #include "test_utils.h"
 
 #include<algorithm>
+#include<chrono>
 #include<deque>
 #include<list>
 #include<vector>
@@ -24,13 +25,25 @@ std::ostream& operator<<(std::ostream& os,const std::vector<T>& v)
 }
 #endif
 
+
+#define START_TIMER auto start = std::chrono::high_resolution_clock::now();
+#define STOP_TIMER  auto end = std::chrono::high_resolution_clock::now();\
+                    auto elapsed_seconds =\
+                    std::chrono::duration_cast<std::chrono::duration<double>>(\
+                    end - start);\
+                    state.SetIterationTime(elapsed_seconds.count());
+
 template<typename V>
-void BM_sort_std(benchmark::State& state) {
+void BM_sort_std_common(benchmark::State& state) {
   int N = state.range(0);
   V v(N);
   fill_random(v);
+  using T = typename V::value_type;
   while (state.KeepRunning()) {
-    std::sort(v.begin(), v.end());
+    std::vector<T> vec(v.begin(), v.end());
+    START_TIMER
+    std::sort(vec.begin(), vec.end());
+    STOP_TIMER
   }
   state.SetComplexityN(N);
 }
@@ -60,7 +73,10 @@ void BM_sort_std_ascending(benchmark::State& state) {
   V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {
-    std::sort(v.begin(), v.end(), std::less<T>());
+    std::vector<T> vec(v.begin(), v.end());
+    START_TIMER
+    std::sort(vec.begin(), vec.end(), std::less<T>());
+    STOP_TIMER
   }
   state.SetComplexityN(N);
 }
@@ -73,7 +89,25 @@ void BM_sort_std_descending(benchmark::State& state) {
   V v(N);
   fill_seq(v);
   while (state.KeepRunning()) {
-    std::sort(v.begin(), v.end(), std::greater<T>());
+    std::vector<T> vec(v.begin(), v.end());
+    START_TIMER
+    std::sort(vec.begin(), vec.end(), std::greater<T>());
+    STOP_TIMER
+  }
+  state.SetComplexityN(N);
+}
+
+template<typename V>
+void BM_sort_std_worst_quick(benchmark::State& state) {
+  int N = state.range(0);
+  using T = typename V::value_type;
+  V v;
+  make_killer(N, v);
+  while (state.KeepRunning()) {
+    std::vector<T> vec(v.begin(), v.end());
+    START_TIMER
+    std::sort(vec.begin(), vec.end());
+    STOP_TIMER
   }
   state.SetComplexityN(N);
 }
@@ -131,7 +165,7 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::list<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_search_binary, std::deque<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_sort_std, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_sort_std_common, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_std_ascending, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_std_descending, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_sort_stable, std::vector<T>, MSize);
@@ -144,5 +178,6 @@ COMPLEXITY_BENCHMARK_GEN_T(aggregate)
 
 COMPLEXITY_BENCHMARK_GEN(BM_sort_std_list_with_vector, std::list<int>, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_sort_std_list_with_vector, std::list<aggregate>, MSize);
+COMPLEXITY_BENCHMARK_GEN(BM_sort_std_worst_quick, std::vector<int>, MSize);
 
 BENCHMARK_MAIN()
