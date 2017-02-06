@@ -1,4 +1,5 @@
 When you run the google-benchmark it might print a message like:
+
 ***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
 
 This means the operating system (OS) can dynamically change the frequency while the program is running.
@@ -20,12 +21,14 @@ sudo apt-get install cpufrequtils
 
 Then edit the following file (if it doesn't exist, create it):
 
-```sudo vi /etc/default/cpufrequtils
+```
+sudo vi /etc/default/cpufrequtils
 ```
 
 And add the following line to it:
 
-```GOVERNOR="performance"
+```sh
+GOVERNOR="performance"
 ```
 For more details see this post:
 http://askubuntu.com/questions/523640/how-i-can-disable-cpu-frequency-scaling-and-set-the-system-to-performance
