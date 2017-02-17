@@ -68,6 +68,7 @@ void BM_insert_begin(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
+#if __cplusplus >= 201402L
 template<typename V>
 void BM_insert_middle(benchmark::State& state) {
   int N = state.range(0);
@@ -83,6 +84,7 @@ void BM_insert_middle(benchmark::State& state) {
   }
   state.SetComplexityN(N);
 }
+#endif
 
 // Insert random elements
 template<typename V>
@@ -177,9 +179,6 @@ static const int MSize = L1;
     COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::vector<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::list<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_insert_begin, std::deque<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::vector<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::list<T>, MSize);\
-    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::deque<T>, MSize);\
 \
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert, std::set<T>, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_assoc_insert_random, std::set<T>, MSize);\
@@ -197,5 +196,14 @@ static const int MSize = L1;
 
 COMPLEXITY_BENCHMARK_GEN_T(int)
 COMPLEXITY_BENCHMARK_GEN_T(aggregate)
+
+#if __cplusplus >= 201402L
+#define COMPLEXITY_BENCHMARK_GEN_T_14(T) \
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::vector<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::list<T>, MSize);\
+    COMPLEXITY_BENCHMARK_GEN(BM_insert_middle, std::deque<T>, MSize);
+COMPLEXITY_BENCHMARK_GEN_T_14(int)
+COMPLEXITY_BENCHMARK_GEN_T_14(aggregate)
+#endif
 
 BENCHMARK_MAIN()
