@@ -48,6 +48,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(ENABLE_C_BENCHMARKS "Compile C benchmarks" ON)
 option(ENABLE_CXX_BENCHMARKS "Compile C++ benchmarks" ON)
 option(ENABLE_C_VS_CXX_BENCHMARKS "Compile C vs C++ benchmarks" ON)
+option(ENABLE_COMPILER_VS_PROGRAMMER "Compile C vs C++ benchmarks" ON)
 
 enable_testing()
 
@@ -61,6 +62,10 @@ endif()
 
 if(ENABLE_C_VS_CXX_BENCHMARKS)
   add_subdirectory(c.vs.cxx)
+endif()
+
+if(ENABLE_COMPILER_VS_PROGRAMMER)
+  add_subdirectory(compiler.vs.programmer)
 endif()
 
 # Only for testing utility functions written for the std-benchmark.

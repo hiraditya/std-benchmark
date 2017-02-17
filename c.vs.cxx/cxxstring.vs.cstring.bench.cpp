@@ -67,6 +67,29 @@ static void BM_CXXStringRegression(benchmark::State &state) {
 
 BENCHMARK(BM_CXXStringRegression);
 
+// Benchmark memchr vs. traits_type::find
+static void BM_CXXStringmemchr(benchmark::State &state) {
+  const unsigned N = state.range(0);
+  std::string s1(N, '*');
+  s1[N-1] = '-';
+  while (state.KeepRunning())
+    benchmark::DoNotOptimize(std::string::traits_type::find(s1.c_str(), s1.size(), '-'));
+}
+
+BENCHMARK(BM_CXXStringmemchr)->Range(MIN_STRING_LEN, MAX_STRING_LEN);
+
+// Benchmark memchr vs. traits_type::find
+static void BM_CStringmemchr(benchmark::State &state) {
+  const unsigned N = state.range(0);
+  c_alloc<char> s1(N);
+  memset(s1, '*', N);
+  s1[N-1] = '-';
+  while (state.KeepRunning())
+    benchmark::DoNotOptimize(memchr(s1, '-', N));
+}
+
+BENCHMARK(BM_CStringmemchr)->Range(MIN_STRING_LEN, MAX_STRING_LEN);
+
 // CStrings
 
 static void BM_CStringFindNoMatch(benchmark::State &state) {
