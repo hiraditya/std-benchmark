@@ -4,13 +4,15 @@
 
 #include <cstring>
 
-const char* assign(const char *beg, const char *end, char *dest) {
+const char* __attribute__ ((noinline)) assign(const char *beg, const char *end, char *dest) {
   while (beg != end)
     *dest++ = *beg++;
   return beg;
 }
 
-const char* assign_res(const char * __restrict beg, const char * __restrict end, char *__restrict dest) {
+const char* __attribute__ ((noinline)) assign_res(const char * __restrict__ beg,
+                       const char * __restrict__ end,
+                       char *__restrict__ dest) {
   while (beg != end)
     *dest++ = *beg++;
   return beg;
