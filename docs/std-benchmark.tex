@@ -95,6 +95,82 @@ string::find vs. strstr.
 
 We present the results we got on x86-64 as well as aarch64 machines.
 
+\section{compiler vs programmer}
+We created test to figure out simple patterns which could be converted to
+standard library functions by the compiler but did not in some cases. This is mostly
+because of aliasing ambiguities and how the programmer can void them.
+In the benchmark compiler.vs.programmer/memory.bench.cpp, we have program like:
+
+\begin{verbatim}
+const char* __attribute__ ((noinline))
+assign(const char *beg, const char *end, char *dest) {
+  while (beg != end)
+    *dest++ = *beg++;
+  return beg;
+}
+\end{verbatim}
+
+This is a very common pattern found in many codebases including C++ standard libraries e.g.,
+libcxx:locale.cpp:const char*ctype<char>::do\_widen,
+
+\begin{verbatim}
+const char*
+ctype<char>::do_widen(const char* low, const char* high,
+                      char_type* dest) const
+{
+    for (; low != high; ++low, ++dest)
+        *dest = *low;
+    return low;
+}
+\end{verbatim}
+
+The dest never aliases with the low or the high pointer but the compiler fails to convert
+this to memcpy, because it cannot figure out low, high, and dest are not aliases of each other.
+It might be able to figure out if they were inlined in the caller but this function is in a .cpp
+file and hence the caller will not see it. This function gets called over and over again
+each time you invoke std::stringstream to parse token of integers from a character stream.
+
+Just adding \_\_restrict\_\_ would solve this problem, for example in the function assign\_res from
+std-benchmark/compiler.vs.programmer/memory.bench.cpp there is another function which shows the
+usage in this case.
+
+\begin{verbatim}
+const char* __attribute__ ((noinline))
+assign_res(const char * __restrict__ beg,
+           const char * __restrict__ end,
+           char *__restrict__ dest) {
+  while (beg != end)
+    *dest++ = *beg++;
+  return beg;
+}
+\end{verbatim}
+
+This function runs twice as fast as the one without restrict.
+
+\begin{verbatim}
+Benchmark                        Time           CPU Iterations
+--------------------------------------------------------------
+BM_prog_memcpy/32                5 ns          5 ns  143049157
+BM_prog_memcpy/64                6 ns          6 ns  117543415
+BM_prog_memcpy/128               8 ns          8 ns   87350103
+BM_prog_memcpy/256              12 ns         12 ns   57677864
+BM_prog_memcpy/512              20 ns         20 ns   34332565
+BM_prog_memcpy/1024             36 ns         36 ns   19396612
+BM_compiler_memcpy/32            4 ns          4 ns  181115627
+BM_compiler_memcpy/64            4 ns          4 ns  169701384
+BM_compiler_memcpy/128           6 ns          6 ns  111126103
+BM_compiler_memcpy/256           6 ns          6 ns  122750774
+BM_compiler_memcpy/512           8 ns          8 ns   91138876
+BM_compiler_memcpy/1024         11 ns         11 ns   62055274
+BM_memcpy/32                     3 ns          3 ns  246831272
+BM_memcpy/64                     3 ns          3 ns  226251314
+BM_memcpy/128                    6 ns          6 ns  124278117
+BM_memcpy/256                    5 ns          5 ns  150856758
+BM_memcpy/512                    6 ns          6 ns  114059692
+BM_memcpy/1024                  10 ns         10 ns   69498277
+\end{verbatim}
+
+
 \section{Timing and Limitations}
 Timing and Limitations
 \subsection{Limitations of the time-complexity measurement}
