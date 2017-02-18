@@ -51,7 +51,6 @@ void BM_memcpy(benchmark::State& state) {
 
 static const int MSize = L1;
 
-
 BASIC_BENCHMARK_TEST(BM_prog_memcpy);
 BASIC_BENCHMARK_TEST(BM_compiler_memcpy);
 BASIC_BENCHMARK_TEST(BM_memcpy);
