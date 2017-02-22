@@ -1,30 +1,38 @@
 #include "benchmark/benchmark_api.h"
 #include "test_configs.h"
-#include "test_utils.h"
 
 #include <sstream>
-
-static inline float istream_numbers(void) {
+float __attribute__((noinline)) istream_numbers() {
   const char *a[] = {
-    "-6 69 -71 2.4882335544453341e-02",
-    "-25 71 7 -9.3262388184041552e+01",
-    "14 53 46 -6.7026092077494765e-02"
+    "-6  69 -71  2.4882e-02 -100 101 -2.00005 5000000 -50000000",
+    "-25 71   7 -9.3262e+01 -100 101 -2.00005 5000000 -50000000",
+    "-14 53  46 -6.7026e-02 -100 101 -2.00005 5000000 -50000000"
   };
 
-  int x, y, z;
-  float f = 0.0, q = 0.0;
-  for (int i=0; i < 1; i++) {
+  int a1, a2, a3, a4, a5, a6, a7;
+  double f1 = 0.0, f2 = 0.0, q = 0.0;
+  for (int i=0; i < 3; i++) {
     std::istringstream s(a[i]);
-    s >> x >> y >> z >> f;
-    q += x + y + z + f;
+    s >> a1
+      >> a2
+      >> a3
+      >> f1
+      >> a4
+      >> a5
+      >> f2
+      >> a6
+      >> a7;
+    q += (a1 + a2 + a3 + a4 + a5 + a6 + a7 + f1 + f2)/1000000;
   }
   return q;
 }
 
 static void BM_Istream_numbers(benchmark::State &state) {
+  int i = 0;
   while (state.KeepRunning())
-    benchmark::DoNotOptimize(istream_numbers());
+    benchmark::DoNotOptimize(i += istream_numbers());
 }
-BENCHMARK(BM_Istream_numbers);
+
+BASIC_BENCHMARK_TEST(BM_Istream_numbers);
 
 BENCHMARK_MAIN()
