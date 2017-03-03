@@ -239,11 +239,12 @@ void BM_##Name(benchmark::State& state) {\
   int N = state.range(0);\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N);\
+  int i = 0;\
   while (state.KeepRunning()) {\
-    for (int i = 0; i < N; ++i) {\
-      T p = Name(a[i]);\
-      benchmark::DoNotOptimize(p);\
-    }\
+    T p = Name(a[i]);\
+    benchmark::DoNotOptimize(p);\
+    if (i++ == N)\
+      i = 0;\
   }\
   state.SetComplexityN(N);\
 }
@@ -255,11 +256,12 @@ void BM_##Name(benchmark::State& state) {\
   c_alloc<T> a(N);\
   fill_random(a.get(), a.get()+N);\
   random_device r;\
+  int i = 0;\
   while (state.KeepRunning()) {\
-    for (int i = 0; i < N; ++i) {\
-      T p = Name(a[i], get_rand<int>(r, RAND_MAX));\
-      benchmark::DoNotOptimize(p);\
-    }\
+    T p = Name(a[i], get_rand<int>(r, RAND_MAX));\
+    benchmark::DoNotOptimize(p);\
+    if (i++ == N)\
+      i = 0;\
   }\
   state.SetComplexityN(N);\
 }

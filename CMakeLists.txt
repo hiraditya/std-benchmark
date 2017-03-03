@@ -17,7 +17,7 @@ else()
   # Google benchmark is build as Debug by default.
   set(CMAKE_BUILD_TYPE "Release")
   set(COMPILE_FLAGS
-    "-std=c++11 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
+    "-std=c++11 -O3 -I${GOOGLE_BENCHMARK_SRC}/include -I${STD_BENCHMARK_INCLUDE_DIR}")
 endif()
 
 if (BENCHMARK_USE_LIBCXX)
