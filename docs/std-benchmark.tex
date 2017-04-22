@@ -24,7 +24,7 @@
 \setlength{\pdfpageheight}{\paperheight}
 \setlength{\pdfpagewidth}{\paperwidth}
 
-\title{Std-benchmarking}
+\title{Benchmarking C/C++ standard libraries}
 
 \toappear{
    \hrule \vspace{5pt}
@@ -48,15 +48,15 @@ Sebastian\\
 \begin{abstract}
 We present a systematic analysis of C and C++ standard libraries. The goal
 here is to enable each programmer make informed decision about the functionality
-one is using and not just rely on common wisdom. We make is very easy to know
+one is using and not just rely on common wisdom. We make it very easy to know
 the internals of the standard libraries. There are benchmark analyses available
 online but those are in bits and pieces. We present a comprehensize infrastructure
-where a large set of standard library is covered. This also enables someone
+where a large subset of standard library is covered. This also enables someone
 to run their own configuration of test by adding just few lines of code. This also
 allows the programmer to compare which compiler toolchain generates better code
 in terms of performance, code-size etc. such that they can choose the right
 toolchain for their application. The comparative analysis of multiple toolchains
-also enabled us to improve the slow library functions.
+also enabled us to improve the underperforming library functions.
 \end{abstract}
 
 \section{Introduction}
@@ -74,6 +74,11 @@ standard libraries) at -O0, -O3
 \section{Related Work}
 Several bits and pieces of benchmarking available online.
 Bjarne's channel9 talk \cite{stroustrup2012}.
+He talks about std::list vs. std::vector, in fact there are several
+analyses online, all of them establish std::vector as a better choice
+over std::list. But is std::vector the best sequential data structure?
+Our experiments indicate that std::deque may be better in many cases \ref{sec:experiments}.
+
 clrs \cite{clrs}
 
 \newpage
@@ -85,7 +90,28 @@ Structure
 How to add a single benchmark \cite{googlebench}
 \newpage
 
+
+\section{Performance problems due to C++ standardese}
+char_traits<char>::find has to check if both the pointer to the string
+and the number of characters to analyze, because if both are zero then the result is valid (zero).
+
+
+\begin{verbatim}
+static const char_type*
+find(const char_type* __s, size_t __n, const char_type& __a)
+{
+  if (__n == 0)
+    return 0;
+  return memchr(__s, __a, __n);
+}
+\end{verbatim}
+
+A pointer to the first character in the range specified by [p, p + count) that compares equal to ch, or NULL if not found.
+
+
 \section{Experimental Results and discussion}
+\label{sec:experiments}
+
 \subsection{Benchmark results comparison across toolchains}
 
 \subsection{Time complexity results}
@@ -130,7 +156,7 @@ It might be able to figure out if they were inlined in the caller but this funct
 file and hence the caller will not see it. This function gets called over and over again
 each time you invoke std::stringstream to parse token of integers from a character stream.
 
-Just adding \_\_restrict\_\_ would solve this problem, for example in the function assign\_res from
+Just adding \_\_restrict\_\_ would solve this problem, for example in the function assign\_res from\\
 std-benchmark/compiler.vs.programmer/memory.bench.cpp there is another function which shows the
 usage in this case.
 
