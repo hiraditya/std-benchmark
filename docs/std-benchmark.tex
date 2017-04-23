@@ -61,6 +61,16 @@ functions.
 \end{abstract}
 
 \section{Introduction}
+Although programmers use C++ mostly in performance critical applications,
+there is little literature to validate claims on how C++ programs perform
+better than programs written in other languages. Early work by M{\"u}ller \cite{muller}
+and the technical report on C++ performance \cite{c++perftr} give some
+perspective on this. Since that time, compilers and hardware have come a long way
+and there is a need to revisit this. Moreover, a systematic analysis of C++ standard libraries
+has not been done with great rigor. Some references on gcc mailing list show
+analysis of basic\_string etc but after the conclusion ended in a suboptimal
+implementation.
+
 Why a systematic analysis is important.
 
 The main contributions of this paper are:
