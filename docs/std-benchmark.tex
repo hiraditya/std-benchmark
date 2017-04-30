@@ -111,6 +111,7 @@ number of characters to analyze, because if both are zero then the result is
 valid (zero).
 
 
+
 \begin{verbatim}
 static const char_type*
 find(const char_type* __s, size_t __n, const char_type& __a)
@@ -124,6 +125,15 @@ find(const char_type* __s, size_t __n, const char_type& __a)
 A pointer to the first character in the range specified by [p, p + count) that
   compares equal to ch, or NULL if not found.
 
+
+size being an unsigned int. Many loops written in C++ have unsigned integers
+as induction variables, the problem is that unsigned int overflow is well
+defined so the compiler cannot assume that loop is monotonic. This disables
+many useful compiler optimizations like vectorization etc.
+TODO: Example??
+
+Undefined behavior
+http://stackoverflow.com/a/367662/811335
 
 \section{Experimental Results and discussion}
 \label{sec:experiments}
