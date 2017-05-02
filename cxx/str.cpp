@@ -35,3 +35,12 @@ int t2() {
   s+='a';
   return 0;
 }
+
+// g++ -O3 -S -o a.s ../a.cpp -fdump-tree-all-all
+// g++ does not inline the string::find function
+int foo1(const std::string &s1, const std::string &s2, int i) {
+  bool ret = false;
+  for (int k = 0; k < i; ++k)
+     ret |= s1.find(s2) == k;
+  return ret;
+}
