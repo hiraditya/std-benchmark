@@ -17,6 +17,7 @@ mkdir $SRC/build
 cd $SRC/build
 cmake ..
 cmake --build .
+cmake --buid . --config Release
 ```
 
 When you are compiling with clang compiler along with libcxx enabled (-DBENCHMARK_USE_LIBCXX=ON),
@@ -40,6 +41,9 @@ C:\Program Files (x86)\Microsoft Visual Studio <Version>\VC\vcvarsall.bat amd64
 cmake ..
 cmake --build . --config release
 ```
+
+For more help see config.bat in the top level directory. It has some useful tricks
+which allows you to use git-bash for building and running the tests.
 
 If there are errors then build the project by opening the visual studio IDE (devenv)
 and then try to build one component at a time.
