@@ -6,6 +6,9 @@ $(paper).pdf: $(paper).tex Bibliography.bib
 	pdflatex -shell-escape $(paper)
 	pdflatex -shell-escape $(paper)
 
+abstract:
+	pdflatex -shell-escape abstract
+
 $(slides).pdf: $(slides).tex
 	pdflatex -shell-escape $(slides)
 

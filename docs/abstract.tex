@@ -1,0 +1,53 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+
+\begin{document}
+\title{Performance analysis and optimization of C$++$ standard libraries}
+\date{}
+
+\maketitle
+
+\section{Summary}
+We will present the performance analysis work on libc$++$ and libstdc$++$ and
+the changes we did to the libraries and to the LLVM compiler to optimize the
+code using the C$++$ standard libraries. This includes the improvements on
+standard library algorithms like string::find,
+libc$++$::basic\_streambuf::xsgetn, libc$++$::stringstream. These algorithms
+were suboptimal and we improved those algorithms, particularly std::string::find
+which improved by more than 10x as a result of our work. Similarly, we enabled
+the inlining of constructor and destructor of libc$++$::std::string. We will
+present a systematic analysis of function attributes in libc$++$ and the places
+where we added missing attributes. We will present comparative analysis of
+libc$++$ vs. libstdc$++$ on commonly used algorithms, and show cases where
+std::sort of libstdc$++$ performs much better than that of libc$++$.
+
+We will talk about std-benchmark (https://github.com/hiraditya/std-benchmark)
+that we started developing to help analyze performance across standard C$++$
+libraries.
+
+We will discuss the performance issues we are currently working on:
+\begin{enumerate}
+\item Suboptimal parsing of numbers in libc$++$::stringstream
+\item Suboptimal libc$++$::std::sort
+\item Range checked access, for vectors (vector::at), is not properly optimized
+  by the compiler
+\item Missing function attributes like \_\_attribute\_\_(noreturn)
+\end{enumerate}
+
+For each of the performance issues that we have found, we will suggest possible
+solutions we are working on like improving the implementation or improved
+compiler optimizations (inlining extern templates, loop idiom recognition, loop
+rotation etc.)
+
+If time permits, we will also present the lessons learnt as a result of
+analyzing C$++$ standard libraries like things to look out for while using
+standard C$++$ libraries, for example:\
+\begin{enumerate}
+\item Instead of std::rotate for std::list we can just exchange few pointers.
+\item Issue with the destructor of std::string
+\item Performance issues while using most commonly used containers such as
+  std::vector, std::string
+\end{enumerate}
+
+Keywords: libc$++$, libstdc$++$, C$++$, performance analysis, function attributes
+\end{document}
