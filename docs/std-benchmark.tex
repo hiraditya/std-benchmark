@@ -227,6 +227,14 @@ BM_memcpy/1024                  10 ns     69498277
 
 ; MSVC compiler identification is:  MSVC 19.10.25019.0
 ; Same machine was used for gcc, clang, and MSVC (using dual boot)
+MSVC Compiler size of containers:
+Sizeof, std::deque<int>(), 40
+Sizeof, std::list<int>(), 16
+Sizeof, std::vector<int>(), 24
+Sizeof, std::set<int>(), 16
+Sizeof, std::unordered_set<int>(), 64
+Sizeof, (std::map<int, int>()), 16
+Sizeof, (std::unordered_map<int, int>()), 64
 
 \section{Timing and Limitations}
 Timing and Limitations
