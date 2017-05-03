@@ -34,3 +34,20 @@
                                 ->RangeMultiplier(2)->Range(1<<5, CACHE_TYPE)\
                                 ->Complexity()
 #endif // TEST_CONFIGS_H
+
+
+#if defined(__clang__)
+#define COMPILER_CLANG
+#elif defined(__GNUC__)
+#define COMPILER_GCC
+#elif defined(_MSC_VER)
+#define COMPILER_MSVC
+#endif
+
+#if defined(COMPILER_GCC) || defined(COMPILER_CLANG)
+#define ATTR_NOINLINE __attribute__((noinline))
+#elif defined(COMPILER_MSVC)
+#define ATTR_NOINLINE __declspec(noinline)
+#else
+#define ATTR_NOINLINE
+#endif

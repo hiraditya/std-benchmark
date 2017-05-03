@@ -4,15 +4,17 @@
 
 #include <cstring>
 
-const char* __attribute__ ((noinline)) assign(const char *beg, const char *end, char *dest) {
+ATTR_NOINLINE
+const char* assign(const char *beg, const char *end, char *dest) {
   while (beg != end)
     *dest++ = *beg++;
   return beg;
 }
 
-const char* __attribute__ ((noinline)) assign_res(const char * __restrict__ beg,
-                       const char * __restrict__ end,
-                       char *__restrict__ dest) {
+ATTR_NOINLINE
+const char* assign_res(const char * __restrict beg,
+                       const char * __restrict end,
+                       char *__restrict dest) {
   while (beg != end)
     *dest++ = *beg++;
   return beg;
@@ -22,7 +24,7 @@ void BM_prog_memcpy(benchmark::State& state) {
   const unsigned N = state.range(0);
   c_alloc<char> s1(N);
   c_alloc<char> s2(N);
-  memset(s1, '*', N);  
+  memset(s1, '*', N);
   while (state.KeepRunning()) {
     benchmark::DoNotOptimize(assign(s1.get(), s1.get()+N, s2.get()));
   }

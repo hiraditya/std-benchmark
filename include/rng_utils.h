@@ -7,7 +7,7 @@ template<typename T> struct uniform_distribution {
 };
 
 template<> struct uniform_distribution<char> {
-   typedef std::uniform_int_distribution<char> type;
+   typedef std::uniform_int_distribution<int> type;
 };
 
 template<> struct uniform_distribution<int> {

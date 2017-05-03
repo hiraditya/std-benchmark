@@ -5,6 +5,7 @@
 #include<algorithm>
 #include<chrono>
 #include<deque>
+#include<functional>
 #include<list>
 #include<vector>
 

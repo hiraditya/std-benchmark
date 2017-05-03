@@ -2,7 +2,7 @@
 #include "test_configs.h"
 
 #include <sstream>
-float __attribute__((noinline)) istream_numbers() {
+float ATTR_NOINLINE istream_numbers() {
   const char *a[] = {
     "-6  69 -71  2.4882e-02 -100 101 -2.00005 5000000 -50000000",
     "-25 71   7 -9.3262e+01 -100 101 -2.00005 5000000 -50000000",
