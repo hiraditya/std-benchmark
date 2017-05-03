@@ -38,10 +38,11 @@ export LD_LIBRARY_PATH=path-to-clang-install/lib
 mkdir $SRC/build
 cd $SRC/build
 C:\Program Files (x86)\Microsoft Visual Studio <Version>\VC\vcvarsall.bat amd64
-cmake ..
+cmake -G"Visual Studio 15 2017 Win64" ..
 cmake --build . --config release
 ```
 
+Remember to use a generator for Win64 otherwise 32-bit binaries will be built.
 For more help see config.bat in the top level directory. It has some useful tricks
 which allows you to use git-bash for building and running the tests.
 
