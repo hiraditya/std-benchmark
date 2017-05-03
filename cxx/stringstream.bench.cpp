@@ -2,7 +2,7 @@
 #include "test_configs.h"
 
 #include <sstream>
-float ATTR_NOINLINE istream_numbers() {
+double ATTR_NOINLINE istream_numbers() {
   const char *a[] = {
     "-6  69 -71  2.4882e-02 -100 101 -2.00005 5000000 -50000000",
     "-25 71   7 -9.3262e+01 -100 101 -2.00005 5000000 -50000000",
@@ -28,7 +28,7 @@ float ATTR_NOINLINE istream_numbers() {
 }
 
 static void BM_Istream_numbers(benchmark::State &state) {
-  int i = 0;
+  double i = 0;
   while (state.KeepRunning())
     benchmark::DoNotOptimize(i += istream_numbers());
 }
