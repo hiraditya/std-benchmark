@@ -13,6 +13,9 @@
 
 // TODO: get, operator[], count, equal_range, erase, lower_bound, upper_bound
 
+// See http://info.prelert.com/blog/speed-is-not-the-only-consideration-with-stddeque
+// for comparison of vector vs. deque.
+
 template<typename V>
 void BM_advance(benchmark::State& state) {
   int N = state.range(0);

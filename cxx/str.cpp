@@ -24,6 +24,11 @@ void foo();
 // These failures need more investigation or patches to either Clang or libc++
 // but for now we don't want them to prevent the bot from going green.
 
+
+// http://info.prelert.com/blog/cpp-stdstring-implementations
+// print sizeof std::string empty. Discuss empty base optimization
+// after reading the code.
+
 int t1() {
   std::string s("a");
   foo();
