@@ -258,9 +258,46 @@ Sizeof, std::unordered_set<int>(), 64
 	size_type _Maxidx;	// current maximum key value
 
 
+; libc++
+unordered_set/map
+__bucket_list (unique_ptr)                            __bucket_list_;
+__compressed_pair<__first_node, __node_allocator>     __p1_;
+__compressed_pair<size_type, hasher>                  __p2_;
+__compressed_pair<float, key_equal>                   __p3_;
+
+std::list
+__node_base __end_; (has prev and next ptr)
+__compressed_pair<size_type, __node_allocator> __size_alloc_;
+
+std::deque
+__map __map_ (split buffer 4 pointers => 32 size);
+size_type __start_;
+__compressed_pair<size_type, allocator_type> __size_;
+
+std::set
+    __iter_pointer                                     __begin_node_;
+    __compressed_pair<__end_node_t, __node_allocator>  __pair1_;
+    __compressed_pair<size_type, value_compare>        __pair3_;
+
+std::unordered_set
+    __bucket_list(unique_ptr)                             __bucket_list_;
+    __compressed_pair<__first_node, __node_allocator>     __p1_;
+    __compressed_pair<size_type, hasher>                  __p2_;
+    __compressed_pair<float, key_equal>                   __p3_;
+
+
+gcc
+std::set/map
+        _Base_ptr _M_root;
+        _Base_ptr _M_nodes;
+        _Rb_tree& _M_t;
+
 \section{Timing and Limitations}
 Timing and Limitations
 \subsection{Limitations of the time-complexity measurement}
+
+Add missing noexcept on std::_Sp_locker constructors
+git-svn-id: svn+ssh://gcc.gnu.org/svn/gcc/trunk@243291 138bc75d-0d04-0410-961f-82ee72b054a4
 
 \section{Conclusion and Future Work}
 
