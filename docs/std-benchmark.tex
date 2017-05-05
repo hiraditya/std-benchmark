@@ -229,12 +229,34 @@ BM_memcpy/1024                  10 ns     69498277
 ; Same machine was used for gcc, clang, and MSVC (using dual boot)
 MSVC Compiler size of containers (64 bit):
 Sizeof, std::deque<int>(), 40
+	_Mapptr _Map;		// pointer to array of pointers to blocks
+	size_type _Mapsize;	// size of map array, zero or 2^N
+	size_type _Myoff;	// offset of initial element
+	size_type _Mysize;	// current length of sequence
+
+
 Sizeof, std::list<int>(), 16
+ (node ptr and size only)
+
 Sizeof, std::vector<int>(), 24
+	pointer _Myfirst;	// pointer to beginning of array
+	pointer _Mylast;	// pointer to current end of sequence
+	pointer _Myend;	// pointer to end of array
+
 Sizeof, std::set<int>(), 16
-Sizeof, std::unordered_set<int>(), 64
 Sizeof, (std::map<int, int>()), 16
+	_Nodeptr _Myhead;	// pointer to head node
+	size_type _Mysize;	// number of elements
+
+
 Sizeof, (std::unordered_map<int, int>()), 64
+Sizeof, std::unordered_set<int>(), 64
+	_Traits _Traitsobj;	// traits to customize behavior
+	_Mylist _List;	// list of elements, must initialize before _Vec
+	_Myvec _Vec;	// vector of list iterators, begin() then end()-1
+	size_type _Mask;	// the key mask
+	size_type _Maxidx;	// current maximum key value
+
 
 \section{Timing and Limitations}
 Timing and Limitations
