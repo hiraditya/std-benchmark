@@ -77,7 +77,7 @@ BM_unary_real(digits10_fast)
   state.SetComplexityN(N);
 }*/
 
-static const int MSize = L1;
+//static const int MSize = L1;
 #define COMPLEXITY_BENCHMARK_GEN_T(T) \
     COMPLEXITY_BENCHMARK_GEN(BM_sin, T, MSize);\
     COMPLEXITY_BENCHMARK_GEN(BM_cos, T, MSize);\

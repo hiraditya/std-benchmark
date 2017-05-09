@@ -53,7 +53,7 @@ void BM_memcpy(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L1;
+//static const int MSize = L1;
 
 BASIC_BENCHMARK_TEST(BM_prog_memcpy);
 BASIC_BENCHMARK_TEST(BM_compiler_memcpy);

@@ -157,7 +157,7 @@ void BM_search_binary(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L1;
+//static const int MSize = L1;
 
 #define COMPLEXITY_BENCHMARK_GEN_T(T) \
     COMPLEXITY_BENCHMARK_GEN(BM_search_linear, std::vector<T>, MSize); \

@@ -162,7 +162,7 @@ check<BM_push_back, CONTAINERS > ();*/
 
 
 //std::forward_list<int> does not have push_back :(
-static const int MSize = L1;
+//static const int MSize = L1;
 
 #define BENCH_STD_MAP(T) SINGLE_ARG(std::map<T, T>)
 #define BENCH_STD_UNORDERED_MAP(T) SINGLE_ARG(std::unordered_map<T, T>)

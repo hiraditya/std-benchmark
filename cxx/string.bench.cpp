@@ -83,7 +83,7 @@ static void BM_strcat(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L1;
+//static const int MSize = L1;
 COMPLEXITY_BENCHMARK(BM_find, MSize);
 COMPLEXITY_BENCHMARK(BM_find_no_match, MSize);
 COMPLEXITY_BENCHMARK(BM_find_all_match, MSize);

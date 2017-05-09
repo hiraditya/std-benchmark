@@ -56,7 +56,7 @@ void BM_search_binary(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L1;
+//static const int MSize = L1;
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, int, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_linear, char, MSize);
 COMPLEXITY_BENCHMARK_GEN(BM_search_binary, int, MSize);

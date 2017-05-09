@@ -11,9 +11,9 @@
 // Configurations for i7_4770
 #ifdef i7_4770
 // To benchmark data residing completely in L1 cache.
-//#define L1 (32 KB)
+#define L1 (32 KB)
 // For the Travis CI to run the entire test.
-#define L1 (1 KB)
+//#define L1 (1 KB)
 // To benchmark data residing in L2 cache.
 #define L2 (256 KB)
 // To benchmark data residing in L3 cache.
@@ -25,16 +25,17 @@
 #define SINGLE_ARG(...) __VA_ARGS__
 
 #define BASIC_BENCHMARK_TEST(x) BENCHMARK(x)->RangeMultiplier(2)\
-                                ->Range(1<<5, L1)
+                                ->Range(L1, L2)
 
 #define COMPLEXITY_BENCHMARK(x, CACHE_TYPE) BENCHMARK(x)->RangeMultiplier(2)\
-                                ->Range(1<<5, CACHE_TYPE)->Complexity()
+                                ->Range(L1, CACHE_TYPE)->Complexity()
 
 #define COMPLEXITY_BENCHMARK_GEN(x, y, CACHE_TYPE) BENCHMARK_TEMPLATE(x, y)\
-                                ->RangeMultiplier(2)->Range(1<<5, CACHE_TYPE)\
+                                ->RangeMultiplier(2)->Range(L1, CACHE_TYPE)\
                                 ->Complexity()
 #endif // TEST_CONFIGS_H
 
+constexpr int MSize = L2;
 
 #if defined(__clang__)
 #define COMPILER_CLANG

@@ -5,6 +5,6 @@ foreach(test_path ${BENCHMARK_TESTS})
   #EXCLUDE_FROM_ALL
   add_executable(${target} ${test_file})
   target_link_libraries(${target} benchmark -pthread)
-  add_test (NAME ${target} COMMAND ${target})
+  add_test (NAME ${target} COMMAND ${target} --benchmark_format=csv)
   set_tests_properties(${target} PROPERTIES LABELS "c")
 endforeach()

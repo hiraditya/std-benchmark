@@ -8,6 +8,6 @@ foreach(test_path ${BENCHMARK_TESTS})
   #target_link_libraries(${target} benchmark -pthread shlwapi)
   target_link_libraries(${target} benchmark -pthread)
   # TODO: Rename test targets different from executables.
-  add_test (NAME ${target} COMMAND ${target})
+  add_test (NAME ${target} COMMAND ${target} --benchmark_format=csv)
   set_tests_properties(${target} PROPERTIES LABELS "c.vs.cxx")
 endforeach()

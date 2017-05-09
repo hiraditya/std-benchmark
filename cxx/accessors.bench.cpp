@@ -99,7 +99,7 @@ void BM_assoc_find_seq(benchmark::State& state) {
   state.SetComplexityN(N);
 }
 
-static const int MSize = L1;
+//static const int MSize = L1;
 
 #define BENCH_STD_MAP(T) SINGLE_ARG(std::map<T, T>)
 #define BENCH_STD_UNORDERED_MAP(T) SINGLE_ARG(std::unordered_map<T, T>)
