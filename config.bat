@@ -8,6 +8,8 @@ echo "Calling vcvars"
 :: Initialize environment variables by calling vcvars. Your compiler may have this
 :: batch file somewhere else. Please change this appropriately.
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary/Build/vcvars64.bat"
+:: READ README.md for more info
+
 ::call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\VC\Auxiliary/Build/vcvars32.bat"
 
 
