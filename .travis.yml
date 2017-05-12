@@ -13,12 +13,12 @@ before_script:
   - set +x
   - mkdir build
   - cd build
-  - cmake -DCMAKE_C_COMPILER=${C_COMPILER} -DCMAKE_CXX_COMPILER=${COMPILER} -DCMAKE_VERBOSE_MAKEFILE=ON ..
+  - cmake -DCMAKE_C_COMPILER=${C_COMPILER} -DCMAKE_CXX_COMPILER=${COMPILER} -DCMAKE_VERBOSE_MAKEFILE=ON -DTRAVIS_BUILD:BOOL=ON ..
 
 script:
     - make -j4
     - ctest -L c --verbose
-    - ctest -L cxx --verbose
+      #- ctest -L cxx --verbose
     - ctest -L c.vs.cxx --verbose
 
 compiler:

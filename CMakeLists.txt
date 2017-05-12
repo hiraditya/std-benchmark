@@ -57,6 +57,10 @@ option(ENABLE_COMPILER_VS_PROGRAMMER "Compile C vs C++ benchmarks" ON)
 
 enable_testing()
 
+if (TRAVIS_BUILD)
+  add_definitions(-DENABLE_TRAVIS_BUILD)
+endif()
+
 if(ENABLE_C_BENCHMARKS)
   add_subdirectory(c)
 endif()
