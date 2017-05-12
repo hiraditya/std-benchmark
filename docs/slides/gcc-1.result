@@ -1,0 +1,1273 @@
+UpdateCTestConfiguration  from :/home/hiraditya/work/std-benchmark/build-gcc/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/hiraditya/work/std-benchmark/build-gcc/DartConfiguration.tcl
+Test project /home/hiraditya/work/std-benchmark/build-gcc
+Constructing a list of tests
+Done constructing a list of tests
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+      Start  1: string.bench.cpp.c.out
+
+1: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/string.bench.cpp.c.out "--benchmark_format=csv"
+1: Test timeout computed to be: 9.99988e+06
+1: /home/hiraditya/work/std-benchmark/build-gcc/c/string.bench.cpp.c.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/c/string.bench.cpp.c.out)
+ 1/12 Test  #1: string.bench.cpp.c.out ...............***Failed    0.02 sec
+test 2
+      Start  2: algorithm.bench.cpp.c.out
+
+2: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/algorithm.bench.cpp.c.out "--benchmark_format=csv"
+2: Test timeout computed to be: 9.99988e+06
+2: /home/hiraditya/work/std-benchmark/build-gcc/c/algorithm.bench.cpp.c.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/c/algorithm.bench.cpp.c.out)
+ 2/12 Test  #2: algorithm.bench.cpp.c.out ............***Failed    0.04 sec
+test 3
+      Start  3: math.bench.cpp.c.out
+
+3: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/math.bench.cpp.c.out "--benchmark_format=csv"
+3: Test timeout computed to be: 9.99988e+06
+3: /home/hiraditya/work/std-benchmark/build-gcc/c/math.bench.cpp.c.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/c/math.bench.cpp.c.out)
+ 3/12 Test  #3: math.bench.cpp.c.out .................***Failed    0.00 sec
+test 4
+      Start  4: sizeof.bench.cpp.out
+
+4: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/sizeof.bench.cpp.out "--benchmark_format=csv"
+4: Test timeout computed to be: 9.99988e+06
+4: 
+4: 24
+4: 24
+4: 80
+4: 48
+4: 56
+4: 48
+4: 56
+ 4/12 Test  #4: sizeof.bench.cpp.out .................   Passed    0.00 sec
+test 5
+      Start  5: string.bench.cpp.out
+
+5: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/string.bench.cpp.out "--benchmark_format=csv"
+5: Test timeout computed to be: 9.99988e+06
+5: /home/hiraditya/work/std-benchmark/build-gcc/cxx/string.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/cxx/string.bench.cpp.out)
+ 5/12 Test  #5: string.bench.cpp.out .................***Failed    0.01 sec
+test 6
+      Start  6: accessors.bench.cpp.out
+
+6: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/accessors.bench.cpp.out "--benchmark_format=csv"
+6: Test timeout computed to be: 9.99988e+06
+6: /home/hiraditya/work/std-benchmark/build-gcc/cxx/accessors.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/cxx/accessors.bench.cpp.out)
+ 6/12 Test  #6: accessors.bench.cpp.out ..............***Failed    0.01 sec
+test 7
+      Start  7: algorithm.bench.cpp.out
+
+7: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/algorithm.bench.cpp.out "--benchmark_format=csv"
+7: Test timeout computed to be: 9.99988e+06
+7: /home/hiraditya/work/std-benchmark/build-gcc/cxx/algorithm.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/cxx/algorithm.bench.cpp.out)
+ 7/12 Test  #7: algorithm.bench.cpp.out ..............***Failed    0.01 sec
+test 8
+      Start  8: size_metric.bench.cpp.out
+
+8: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/size_metric.bench.cpp.out "--benchmark_format=csv"
+8: Test timeout computed to be: 9.99988e+06
+8: 
+8: Sizeof, std::deque<int>(), 80
+8: Sizeof, std::list<int>(), 24
+8: Sizeof, std::vector<int>(), 24
+8: Sizeof, std::set<int>(), 48
+8: Sizeof, std::unordered_set<int>(), 56
+8: Sizeof, (std::map<int, int>()), 48
+8: Sizeof, (std::unordered_map<int, int>()), 56
+ 8/12 Test  #8: size_metric.bench.cpp.out ............   Passed    0.00 sec
+test 9
+      Start  9: mutators.bench.cpp.out
+
+9: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/mutators.bench.cpp.out "--benchmark_format=csv"
+9: Test timeout computed to be: 9.99988e+06
+9: /home/hiraditya/work/std-benchmark/build-gcc/cxx/mutators.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/cxx/mutators.bench.cpp.out)
+ 9/12 Test  #9: mutators.bench.cpp.out ...............***Failed    0.01 sec
+test 10
+      Start 10: stringstream.bench.cpp.out
+
+10: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/stringstream.bench.cpp.out "--benchmark_format=csv"
+10: Test timeout computed to be: 9.99988e+06
+10: /home/hiraditya/work/std-benchmark/build-gcc/cxx/stringstream.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/cxx/stringstream.bench.cpp.out)
+10/12 Test #10: stringstream.bench.cpp.out ...........***Failed    0.01 sec
+test 11
+      Start 11: cxxstring.vs.cstring.bench.cpp.out
+
+11: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c.vs.cxx/cxxstring.vs.cstring.bench.cpp.out "--benchmark_format=csv"
+11: Test timeout computed to be: 9.99988e+06
+11: /home/hiraditya/work/std-benchmark/build-gcc/c.vs.cxx/cxxstring.vs.cstring.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/c.vs.cxx/cxxstring.vs.cstring.bench.cpp.out)
+11/12 Test #11: cxxstring.vs.cstring.bench.cpp.out ...***Failed    0.01 sec
+test 12
+      Start 12: memory.bench.cpp.out
+
+12: Test command: /home/hiraditya/work/std-benchmark/build-gcc/compiler.vs.programmer/memory.bench.cpp.out "--benchmark_format=csv"
+12: Test timeout computed to be: 9.99988e+06
+12: /home/hiraditya/work/std-benchmark/build-gcc/compiler.vs.programmer/memory.bench.cpp.out: /usr/lib/x86_64-linux-gnu/libstdc++.so.6: version `GLIBCXX_3.4.22' not found (required by /home/hiraditya/work/std-benchmark/build-gcc/compiler.vs.programmer/memory.bench.cpp.out)
+12/12 Test #12: memory.bench.cpp.out .................***Failed    0.00 sec
+
+17% tests passed, 10 tests failed out of 12
+
+Label Time Summary:
+c                         =   0.06 sec (3 tests)
+c.vs.cxx                  =   0.01 sec (1 test)
+compiler.vs.programmer    =   0.00 sec (1 test)
+cxx                       =   0.05 sec (7 tests)
+
+Total Test time (real) =   0.16 sec
+
+The following tests FAILED:
+	  1 - string.bench.cpp.c.out (Failed)
+	  2 - algorithm.bench.cpp.c.out (Failed)
+	  3 - math.bench.cpp.c.out (Failed)
+	  5 - string.bench.cpp.out (Failed)
+	  6 - accessors.bench.cpp.out (Failed)
+	  7 - algorithm.bench.cpp.out (Failed)
+	  9 - mutators.bench.cpp.out (Failed)
+	 10 - stringstream.bench.cpp.out (Failed)
+	 11 - cxxstring.vs.cstring.bench.cpp.out (Failed)
+	 12 - memory.bench.cpp.out (Failed)
+Errors while running CTest
+UpdateCTestConfiguration  from :/home/hiraditya/work/std-benchmark/build-gcc/DartConfiguration.tcl
+UpdateCTestConfiguration  from :/home/hiraditya/work/std-benchmark/build-gcc/DartConfiguration.tcl
+Test project /home/hiraditya/work/std-benchmark/build-gcc
+Constructing a list of tests
+Done constructing a list of tests
+Checking test dependency graph...
+Checking test dependency graph end
+test 1
+      Start  1: string.bench.cpp.c.out
+
+1: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/string.bench.cpp.c.out "--benchmark_format=csv"
+1: Test timeout computed to be: 9.99988e+06
+1: Run on (8 X 3437.72 MHz CPU s)
+1: 2017-05-10 23:57:52
+1: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+1: "BM_strstr/32768",595178,1173.25,1173.7,ns,,,,,
+1: "BM_strstr/65536",266029,2682.73,2683.76,ns,,,,,
+1: "BM_strstr/131072",100000,5313.26,5315.31,ns,,,,,
+1: "BM_strstr/262144",64562,10552.8,10556.8,ns,,,,,
+1: "BM_strstr_BigO",,0.0402882,0.0403037,N,,,,,
+1: "BM_strstr_RMS",,0.0158788,0.0158793,,,,,,
+1: "BM_strcat/32768",6717555,104.009,104.049,ns,,,,,
+1: "BM_strcat/65536",3581028,196.908,196.984,ns,,,,,
+1: "BM_strcat/131072",1000000,511.433,511.631,ns,,,,,
+1: "BM_strcat/262144",837661,1057.78,1058.18,ns,,,,,
+1: "BM_strcat_BigO",,0.000223596,0.000223682,NlgN,,,,,
+1: "BM_strcat_RMS",,0.0431319,0.0431318,,,,,,
+1: "BM_strchr/32768",899965,777.953,778.253,ns,,,,,
+1: "BM_strchr/65536",326387,2143.07,2143.89,ns,,,,,
+1: "BM_strchr/131072",162161,4548.66,4550.41,ns,,,,,
+1: "BM_strchr/262144",82029,8531.18,8534.47,ns,,,,,
+1: "BM_strchr_BigO",,0.0328542,0.0328669,N,,,,,
+1: "BM_strchr_RMS",,0.0491538,0.0491531,,,,,,
+1: "BM_strcmp/32768",142742662,4.9057,4.90759,ns,,,,,
+1: "BM_strcmp/65536",142947860,4.90749,4.90938,ns,,,,,
+1: "BM_strcmp/131072",142588868,4.90727,4.90917,ns,,,,,
+1: "BM_strcmp/262144",142937082,4.9068,4.90869,ns,,,,,
+1: "BM_strcmp_BigO",,4.90682,4.90871,(1),,,,,
+1: "BM_strcmp_RMS",,0.000141301,0.000140702,,,,,,
+1: "BM_strcpy/32768",114387784,10.8227,10.8269,ns,,,,,
+1: "BM_strcpy/65536",133057409,10.0221,10.026,ns,,,,,
+1: "BM_strcpy/131072",86765700,8.07899,8.08211,ns,,,,,
+1: "BM_strcpy/262144",107221731,7.06878,7.0715,ns,,,,,
+1: "BM_strcpy_BigO",,8.99814,9.00161,(1),,,,,
+1: "BM_strcpy_RMS",,0.166188,0.166188,,,,,,
+1: "BM_strlen/32768",3451318,201.339,201.417,ns,,,,,
+1: "BM_strlen/65536",1080748,551.24,551.453,ns,,,,,
+1: "BM_strlen/131072",478780,1240.69,1241.17,ns,,,,,
+1: "BM_strlen/262144",136698,3732.56,3734,ns,,,,,
+1: "BM_strlen_BigO",,5.56664e-08,5.56879e-08,N^2,,,,,
+1: "BM_strlen_RMS",,0.1589,0.158901,,,,,,
+ 1/12 Test  #1: string.bench.cpp.c.out ...............   Passed   91.86 sec
+test 2
+      Start  2: algorithm.bench.cpp.c.out
+
+2: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/algorithm.bench.cpp.c.out "--benchmark_format=csv"
+2: Test timeout computed to be: 9.99988e+06
+2: Run on (8 X 3863.38 MHz CPU s)
+2: 2017-05-10 23:59:24
+2: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+2: "BM_search_linear<int>/32768",3,2.76437e+08,2.76542e+08,ns,,,,,
+2: "BM_search_linear<int>/65536",1,1.14737e+09,1.14781e+09,ns,,,,,
+2: "BM_search_linear<int>/131072",1,4.4248e+09,4.42651e+09,ns,,,,,
+2: "BM_search_linear<int>/262144",1,1.78736e+10,1.78805e+10,ns,,,,,
+2: "BM_search_linear<int>_BigO",,0.259972,0.260072,N^2,,,,,
+2: "BM_search_linear<int>_RMS",,0.00441988,0.00441992,,,,,,
+2: "BM_search_linear<char>/32768",2,5.05987e+08,5.0618e+08,ns,,,,,
+2: "BM_search_linear<char>/65536",1,1.93093e+09,1.93167e+09,ns,,,,,
+2: "BM_search_linear<char>/131072",1,7.732e+09,7.73498e+09,ns,,,,,
+2: "BM_search_linear<char>/262144",1,3.13231e+10,3.13351e+10,ns,,,,,
+2: "BM_search_linear<char>_BigO",,0.455454,0.45563,N^2,,,,,
+2: "BM_search_linear<char>_RMS",,0.00484587,0.00484582,,,,,,
+2: "BM_search_binary<int>/32768",644,1.08711e+06,1.08753e+06,ns,,,,,
+2: "BM_search_binary<int>/65536",309,2.47338e+06,2.47433e+06,ns,,,,,
+2: "BM_search_binary<int>/131072",138,4.69504e+06,4.69683e+06,ns,,,,,
+2: "BM_search_binary<int>/262144",73,9.62983e+06,9.63352e+06,ns,,,,,
+2: "BM_search_binary<int>_BigO",,36.5682,36.5822,N,,,,,
+2: "BM_search_binary<int>_RMS",,0.0192964,0.0192974,,,,,,
+2: "BM_search_binary<char>/32768",1000,502750,502944,ns,,,,,
+2: "BM_search_binary<char>/65536",659,1.0585e+06,1.05891e+06,ns,,,,,
+2: "BM_search_binary<char>/131072",311,2.23491e+06,2.23577e+06,ns,,,,,
+2: "BM_search_binary<char>/262144",150,4.6724e+06,4.6742e+06,ns,,,,,
+2: "BM_search_binary<char>_BigO",,0.99345,0.993832,NlgN,,,,,
+2: "BM_search_binary<char>_RMS",,0.00810254,0.00810331,,,,,,
+2: "BM_sort<int>/32768",1,2.18067e+10,2.18151e+10,ns,,,,,
+2: "BM_sort<int>/65536",1,9.15919e+10,9.16267e+10,ns,,,,,
+2: "BM_sort<int>/131072",1,3.82235e+11,3.82378e+11,ns,,,,,
+2: "BM_sort<int>/262144",1,1.57656e+12,1.57715e+12,ns,,,,,
+2: "BM_sort<int>_BigO",,22.8949,22.9035,N^2,,,,,
+2: "BM_sort<int>_RMS",,0.0131898,0.0131899,,,,,,
+2: "BM_sort<char>/32768",1,3.78591e+10,3.78725e+10,ns,,,,,
+2: "BM_sort<char>/65536",1,1.63283e+11,1.6334e+11,ns,,,,,
+2: "BM_sort<char>/131072",1,6.84482e+11,6.84628e+11,ns,,,,,
+2: "BM_sort<char>/262144",1,2.83433e+12,2.83539e+12,ns,,,,,
+2: "BM_sort<char>_BigO",,41.1495,41.1646,N^2,,,,,
+2: "BM_sort<char>_RMS",,0.014904,0.0149544,,,,,,
+ 2/12 Test  #2: algorithm.bench.cpp.c.out ............   Passed  5866.08 sec
+test 3
+      Start  3: math.bench.cpp.c.out
+
+3: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c/math.bench.cpp.c.out "--benchmark_format=csv"
+3: Test timeout computed to be: 9.99988e+06
+3: Run on (8 X 3899.91 MHz CPU s)
+3: 2017-05-11 01:37:10
+3: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+3: "BM_sin<float>/32768",18720900,37.3963,37.4108,ns,,,,,
+3: "BM_sin<float>/65536",18727905,37.3935,37.4079,ns,,,,,
+3: "BM_sin<float>/131072",18718082,37.3869,37.4014,ns,,,,,
+3: "BM_sin<float>/262144",18734772,37.5658,37.5803,ns,,,,,
+3: "BM_sin<float>_BigO",,37.4356,37.4501,(1),,,,,
+3: "BM_sin<float>_RMS",,0.00200982,0.00200967,,,,,,
+3: "BM_cos<float>/32768",18256418,38.3604,38.3753,ns,,,,,
+3: "BM_cos<float>/65536",18247862,38.3532,38.3681,ns,,,,,
+3: "BM_cos<float>/131072",18111837,38.3334,38.3482,ns,,,,,
+3: "BM_cos<float>/262144",18249057,38.3519,38.3667,ns,,,,,
+3: "BM_cos<float>_BigO",,38.3497,38.3646,(1),,,,,
+3: "BM_cos<float>_RMS",,0.000260106,0.000260155,,,,,,
+3: "BM_tan<float>/32768",8470756,81.9443,81.976,ns,,,,,
+3: "BM_tan<float>/65536",8506537,82.3308,82.3626,ns,,,,,
+3: "BM_tan<float>/131072",8446966,82.5093,82.541,ns,,,,,
+3: "BM_tan<float>/262144",8477809,82.6484,82.6804,ns,,,,,
+3: "BM_tan<float>_BigO",,82.3582,82.39,(1),,,,,
+3: "BM_tan<float>_RMS",,0.00320736,0.00320674,,,,,,
+3: "BM_sinh<float>/32768",87714241,7.99515,7.99824,ns,,,,,
+3: "BM_sinh<float>/65536",87563658,7.98997,7.99304,ns,,,,,
+3: "BM_sinh<float>/131072",87754041,7.97843,7.98151,ns,,,,,
+3: "BM_sinh<float>/262144",87746923,7.97664,7.97973,ns,,,,,
+3: "BM_sinh<float>_BigO",,7.98505,7.98813,(1),,,,,
+3: "BM_sinh<float>_RMS",,0.000971628,0.000971209,,,,,,
+3: "BM_cosh<float>/32768",90695962,7.71887,7.72183,ns,,,,,
+3: "BM_cosh<float>/65536",90688320,7.7367,7.73924,ns,,,,,
+3: "BM_cosh<float>/131072",90652335,7.7208,7.72378,ns,,,,,
+3: "BM_cosh<float>/262144",90676792,7.71805,7.72101,ns,,,,,
+3: "BM_cosh<float>_BigO",,7.7236,7.72647,(1),,,,,
+3: "BM_cosh<float>_RMS",,0.000987434,0.000963167,,,,,,
+3: "BM_tanh<float>/32768",226701085,3.09113,3.09233,ns,,,,,
+3: "BM_tanh<float>/65536",226665758,3.09105,3.09225,ns,,,,,
+3: "BM_tanh<float>/131072",226676724,3.0909,3.0921,ns,,,,,
+3: "BM_tanh<float>/262144",226518651,3.08935,3.09054,ns,,,,,
+3: "BM_tanh<float>_BigO",,3.09061,3.0918,(1),,,,,
+3: "BM_tanh<float>_RMS",,0.000237201,0.000237329,,,,,,
+3: "BM_asin<float>/32768",4144,168776,168841,ns,,,,,
+3: "BM_asin<float>/65536",2074,337923,338038,ns,,,,,
+3: "BM_asin<float>/131072",1038,674409,674670,ns,,,,,
+3: "BM_asin<float>/262144",519,1.34976e+06,1.35028e+06,ns,,,,,
+3: "BM_asin<float>_BigO",,5.14861,5.15058,N,,,,,
+3: "BM_asin<float>_RMS",,0.000529515,0.000519889,,,,,,
+3: "BM_acos<float>/32768",4345,160258,160320,ns,,,,,
+3: "BM_acos<float>/65536",2177,320531,320655,ns,,,,,
+3: "BM_acos<float>/131072",1092,640974,641222,ns,,,,,
+3: "BM_acos<float>/262144",545,1.28345e+06,1.28395e+06,ns,,,,,
+3: "BM_acos<float>_BigO",,4.8946,4.89649,N,,,,,
+3: "BM_acos<float>_RMS",,0.000606265,0.000606394,,,,,,
+3: "BM_atan<float>/32768",49582167,14.0814,14.0868,ns,,,,,
+3: "BM_atan<float>/65536",49657042,14.1427,14.1481,ns,,,,,
+3: "BM_atan<float>/131072",49617746,14.1096,14.115,ns,,,,,
+3: "BM_atan<float>/262144",49643755,14.1176,14.1231,ns,,,,,
+3: "BM_atan<float>_BigO",,14.1128,14.1183,(1),,,,,
+3: "BM_atan<float>_RMS",,0.00154905,0.00155009,,,,,,
+3: "BM_exp<float>/32768",69702062,10.05,10.0539,ns,,,,,
+3: "BM_exp<float>/65536",69750660,10.0364,10.0403,ns,,,,,
+3: "BM_exp<float>/131072",69741297,10.0472,10.0511,ns,,,,,
+3: "BM_exp<float>/262144",69720723,10.0369,10.0408,ns,,,,,
+3: "BM_exp<float>_BigO",,10.0426,10.0465,(1),,,,,
+3: "BM_exp<float>_RMS",,0.000603943,0.000604142,,,,,,
+3: "BM_pow<float>/32768",202615,3454.35,3455.67,ns,,,,,
+3: "BM_pow<float>/65536",201894,3466.52,3467.86,ns,,,,,
+3: "BM_pow<float>/131072",202653,3457.63,3458.96,ns,,,,,
+3: "BM_pow<float>/262144",202437,3454.86,3456.2,ns,,,,,
+3: "BM_pow<float>_BigO",,3458.34,3459.67,(1),,,,,
+3: "BM_pow<float>_RMS",,0.00141235,0.00141319,,,,,,
+3: "BM_sqrt<float>/32768",194044036,3.60398,3.60537,ns,,,,,
+3: "BM_sqrt<float>/65536",194060713,3.60584,3.60724,ns,,,,,
+3: "BM_sqrt<float>/131072",194274667,3.60499,3.60639,ns,,,,,
+3: "BM_sqrt<float>/262144",194234110,3.60476,3.60614,ns,,,,,
+3: "BM_sqrt<float>_BigO",,3.60489,3.60629,(1),,,,,
+3: "BM_sqrt<float>_RMS",,0.000184759,0.000184969,,,,,,
+3: "BM_log<float>/32768",27640832,25.3122,25.322,ns,,,,,
+3: "BM_log<float>/65536",27575447,25.248,25.2578,ns,,,,,
+3: "BM_log<float>/131072",27720014,25.4213,25.4311,ns,,,,,
+3: "BM_log<float>/262144",27644233,25.3108,25.3206,ns,,,,,
+3: "BM_log<float>_BigO",,25.3231,25.3329,(1),,,,,
+3: "BM_log<float>_RMS",,0.00246182,0.00246188,,,,,,
+3: "BM_log10<float>/32768",24333571,28.6806,28.6917,ns,,,,,
+3: "BM_log10<float>/65536",24406939,28.6937,28.7047,ns,,,,,
+3: "BM_log10<float>/131072",24394200,28.6416,28.6526,ns,,,,,
+3: "BM_log10<float>/262144",24395470,28.6908,28.7019,ns,,,,,
+3: "BM_log10<float>_BigO",,28.6767,28.6877,(1),,,,,
+3: "BM_log10<float>_RMS",,0.00072679,0.000726402,,,,,,
+3: "BM_ldexp<float>/32768",204947,3415.91,3417.22,ns,,,,,
+3: "BM_ldexp<float>/65536",204965,3452.79,3454.12,ns,,,,,
+3: "BM_ldexp<float>/131072",204973,3414.45,3415.77,ns,,,,,
+3: "BM_ldexp<float>/262144",204487,3416.84,3418.16,ns,,,,,
+3: "BM_ldexp<float>_BigO",,3425,3426.32,(1),,,,,
+3: "BM_ldexp<float>_RMS",,0.00469123,0.00469163,,,,,,
+3: "BM_sin<double>/32768",18907120,37.0213,37.0356,ns,,,,,
+3: "BM_sin<double>/65536",18909465,37.0725,37.0868,ns,,,,,
+3: "BM_sin<double>/131072",18908161,36.988,37.0024,ns,,,,,
+3: "BM_sin<double>/262144",18888261,36.9938,37.0081,ns,,,,,
+3: "BM_sin<double>_BigO",,37.0189,37.0332,(1),,,,,
+3: "BM_sin<double>_RMS",,0.000902657,0.000901481,,,,,,
+3: "BM_cos<double>/32768",18447422,37.939,37.9535,ns,,,,,
+3: "BM_cos<double>/65536",18408172,37.9295,37.9441,ns,,,,,
+3: "BM_cos<double>/131072",18473751,37.9415,37.9561,ns,,,,,
+3: "BM_cos<double>/262144",18487847,37.9104,37.9251,ns,,,,,
+3: "BM_cos<double>_BigO",,37.9301,37.9447,(1),,,,,
+3: "BM_cos<double>_RMS",,0.000321617,0.00032054,,,,,,
+3: "BM_tan<double>/32768",7924871,88.1053,88.1394,ns,,,,,
+3: "BM_tan<double>/65536",7970846,88.1406,88.1746,ns,,,,,
+3: "BM_tan<double>/131072",7945078,87.9882,88.0222,ns,,,,,
+3: "BM_tan<double>/262144",7943312,88.0705,88.1046,ns,,,,,
+3: "BM_tan<double>_BigO",,88.0761,88.1102,(1),,,,,
+3: "BM_tan<double>_RMS",,0.000641587,0.000641552,,,,,,
+3: "BM_sinh<double>/32768",90609239,7.71745,7.72041,ns,,,,,
+3: "BM_sinh<double>/65536",90584958,7.73128,7.73427,ns,,,,,
+3: "BM_sinh<double>/131072",90661485,7.72751,7.73049,ns,,,,,
+3: "BM_sinh<double>/262144",90642389,7.73157,7.73454,ns,,,,,
+3: "BM_sinh<double>_BigO",,7.72695,7.72993,(1),,,,,
+3: "BM_sinh<double>_RMS",,0.000739723,0.000740403,,,,,,
+3: "BM_cosh<double>/32768",90682675,7.71816,7.72115,ns,,,,,
+3: "BM_cosh<double>/65536",90652149,7.72125,7.72424,ns,,,,,
+3: "BM_cosh<double>/131072",90680993,7.72321,7.7262,ns,,,,,
+3: "BM_cosh<double>/262144",90684356,7.72943,7.73242,ns,,,,,
+3: "BM_cosh<double>_BigO",,7.72301,7.726,(1),,,,,
+3: "BM_cosh<double>_RMS",,0.000533516,0.000533616,,,,,,
+3: "BM_tanh<double>/32768",247151648,2.83471,2.83581,ns,,,,,
+3: "BM_tanh<double>/65536",247319585,2.83132,2.83241,ns,,,,,
+3: "BM_tanh<double>/131072",246078768,2.83069,2.83178,ns,,,,,
+3: "BM_tanh<double>/262144",247094233,2.83036,2.83146,ns,,,,,
+3: "BM_tanh<double>_BigO",,2.83177,2.83286,(1),,,,,
+3: "BM_tanh<double>_RMS",,0.000611365,0.000611807,,,,,,
+3: "BM_asin<double>/32768",4151,168803,168869,ns,,,,,
+3: "BM_asin<double>/65536",2070,337513,337628,ns,,,,,
+3: "BM_asin<double>/131072",1037,674548,674808,ns,,,,,
+3: "BM_asin<double>/262144",519,1.34867e+06,1.34919e+06,ns,,,,,
+3: "BM_asin<double>_BigO",,5.14539,5.14737,N,,,,,
+3: "BM_asin<double>_RMS",,0.000333119,0.000324359,,,,,,
+3: "BM_acos<double>/32768",4369,160229,160291,ns,,,,,
+3: "BM_acos<double>/65536",2184,320435,320559,ns,,,,,
+3: "BM_acos<double>/131072",1092,641269,641478,ns,,,,,
+3: "BM_acos<double>/262144",546,1.28388e+06,1.28438e+06,ns,,,,,
+3: "BM_acos<double>_BigO",,4.89617,4.89801,N,,,,,
+3: "BM_acos<double>_RMS",,0.00065008,0.000670865,,,,,,
+3: "BM_atan<double>/32768",52684624,13.3142,13.3193,ns,,,,,
+3: "BM_atan<double>/65536",52313306,13.2962,13.3014,ns,,,,,
+3: "BM_atan<double>/131072",52617945,13.2878,13.2929,ns,,,,,
+3: "BM_atan<double>/262144",52660660,13.3363,13.3414,ns,,,,,
+3: "BM_atan<double>_BigO",,13.3086,13.3138,(1),,,,,
+3: "BM_atan<double>_RMS",,0.00139783,0.00139769,,,,,,
+3: "BM_exp<double>/32768",71405826,9.81846,9.82226,ns,,,,,
+3: "BM_exp<double>/65536",71444908,9.7793,9.78308,ns,,,,,
+3: "BM_exp<double>/131072",71585519,9.80076,9.80455,ns,,,,,
+3: "BM_exp<double>/262144",71561814,9.78397,9.78775,ns,,,,,
+3: "BM_exp<double>_BigO",,9.79562,9.79941,(1),,,,,
+3: "BM_exp<double>_RMS",,0.00157335,0.00157365,,,,,,
+3: "BM_pow<double>/32768",201964,3454.7,3456.03,ns,,,,,
+3: "BM_pow<double>/65536",202484,3457.61,3458.79,ns,,,,,
+3: "BM_pow<double>/131072",202480,3456.64,3457.98,ns,,,,,
+3: "BM_pow<double>/262144",202449,3458.57,3459.9,ns,,,,,
+3: "BM_pow<double>_BigO",,3456.88,3458.18,(1),,,,,
+3: "BM_pow<double>_RMS",,0.000414166,0.00040874,,,,,,
+3: "BM_sqrt<double>/32768",129592228,5.40142,5.40351,ns,,,,,
+3: "BM_sqrt<double>/65536",129591532,5.40302,5.40511,ns,,,,,
+3: "BM_sqrt<double>/131072",129593533,5.40251,5.4046,ns,,,,,
+3: "BM_sqrt<double>/262144",129124566,5.40141,5.40349,ns,,,,,
+3: "BM_sqrt<double>_BigO",,5.40209,5.40418,(1),,,,,
+3: "BM_sqrt<double>_RMS",,0.000129645,0.000129754,,,,,,
+3: "BM_log<double>/32768",27858419,25.1303,25.1401,ns,,,,,
+3: "BM_log<double>/65536",27878105,25.1744,25.1841,ns,,,,,
+3: "BM_log<double>/131072",27748026,25.1414,25.1512,ns,,,,,
+3: "BM_log<double>/262144",27851368,25.178,25.1878,ns,,,,,
+3: "BM_log<double>_BigO",,25.156,25.1658,(1),,,,,
+3: "BM_log<double>_RMS",,0.00081806,0.000818034,,,,,,
+3: "BM_log10<double>/32768",24993359,28.0987,28.1096,ns,,,,,
+3: "BM_log10<double>/65536",24940636,28.0213,28.0322,ns,,,,,
+3: "BM_log10<double>/131072",24919397,28.0625,28.0734,ns,,,,,
+3: "BM_log10<double>/262144",24963871,28.0865,28.0974,ns,,,,,
+3: "BM_log10<double>_BigO",,28.0673,28.0781,(1),,,,,
+3: "BM_log10<double>_RMS",,0.00105249,0.00105254,,,,,,
+3: "BM_ldexp<double>/32768",205019,3414.87,3416.19,ns,,,,,
+3: "BM_ldexp<double>/65536",204866,3414.32,3415.64,ns,,,,,
+3: "BM_ldexp<double>/131072",204889,3416.17,3417.49,ns,,,,,
+3: "BM_ldexp<double>/262144",205016,3415.1,3416.42,ns,,,,,
+3: "BM_ldexp<double>_BigO",,3415.12,3416.44,(1),,,,,
+3: "BM_ldexp<double>_RMS",,0.000195945,0.000196027,,,,,,
+3: "BM_digits10<int>/32768",56528331,12.3453,12.35,ns,,,,,
+3: "BM_digits10<int>/65536",56540047,12.3902,12.395,ns,,,,,
+3: "BM_digits10<int>/131072",56513117,12.3816,12.3864,ns,,,,,
+3: "BM_digits10<int>/262144",56398682,12.3542,12.3589,ns,,,,,
+3: "BM_digits10<int>_BigO",,12.3678,12.3726,(1),,,,,
+3: "BM_digits10<int>_RMS",,0.00150462,0.00150529,,,,,,
+3: "BM_digits10_fast<int>/32768",104413239,6.76107,6.76369,ns,,,,,
+3: "BM_digits10_fast<int>/65536",103401393,6.76356,6.76618,ns,,,,,
+3: "BM_digits10_fast<int>/131072",103755003,6.74764,6.75025,ns,,,,,
+3: "BM_digits10_fast<int>/262144",103522977,6.75448,6.75709,ns,,,,,
+3: "BM_digits10_fast<int>_BigO",,6.75669,6.7593,(1),,,,,
+3: "BM_digits10_fast<int>_RMS",,0.000915892,0.000915921,,,,,,
+3: "BM_log10<int>/32768",24379235,28.7343,28.7454,ns,,,,,
+3: "BM_log10<int>/65536",24333407,28.7444,28.7555,ns,,,,,
+3: "BM_log10<int>/131072",24337923,28.7929,28.804,ns,,,,,
+3: "BM_log10<int>/262144",24332224,28.7534,28.7645,ns,,,,,
+3: "BM_log10<int>_BigO",,28.7562,28.7674,(1),,,,,
+3: "BM_log10<int>_RMS",,0.000772657,0.000772682,,,,,,
+ 3/12 Test  #3: math.bench.cpp.c.out .................   Passed  577.68 sec
+test 4
+      Start  4: sizeof.bench.cpp.out
+
+4: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/sizeof.bench.cpp.out "--benchmark_format=csv"
+4: Test timeout computed to be: 9.99988e+06
+4: 
+4: 24
+4: 24
+4: 80
+4: 48
+4: 56
+4: 48
+4: 56
+ 4/12 Test  #4: sizeof.bench.cpp.out .................   Passed    0.00 sec
+test 5
+      Start  5: string.bench.cpp.out
+
+5: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/string.bench.cpp.out "--benchmark_format=csv"
+5: Test timeout computed to be: 9.99988e+06
+5: Run on (8 X 3901.76 MHz CPU s)
+5: 2017-05-11 01:46:48
+5: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+5: "BM_find/32768",1376706,2865.83,2866.94,ns,,,,,
+5: "BM_find/65536",101237,6942.23,6944.89,ns,,,,,
+5: "BM_find/131072",279660,19936.4,19944,ns,,,,,
+5: "BM_find/262144",128793,47400.5,47418.8,ns,,,,,
+5: "BM_find_BigO",,0.00968718,0.00969091,NlgN,,,,,
+5: "BM_find_RMS",,0.114511,0.114513,,,,,,
+5: "BM_find_no_match/32768",1470836,475.638,475.822,ns,,,,,
+5: "BM_find_no_match/65536",599959,1166.08,1166.53,ns,,,,,
+5: "BM_find_no_match/131072",299864,2337.23,2338.13,ns,,,,,
+5: "BM_find_no_match/262144",140887,4973.56,4975.46,ns,,,,,
+5: "BM_find_no_match_BigO",,0.00105465,0.00105505,NlgN,,,,,
+5: "BM_find_no_match_RMS",,0.0167506,0.0167508,,,,,,
+5: "BM_find_all_match/32768",826552,849.341,849.629,ns,,,,,
+5: "BM_find_all_match/65536",412547,1695.85,1696.5,ns,,,,,
+5: "BM_find_all_match/131072",198443,3527.98,3529.34,ns,,,,,
+5: "BM_find_all_match/262144",77626,9012.05,9015.54,ns,,,,,
+5: "BM_find_all_match_BigO",,0.00184035,0.00184106,NlgN,,,,,
+5: "BM_find_all_match_RMS",,0.0931366,0.0931371,,,,,,
+5: "BM_find_match1/32768",724112,967.71,968.079,ns,,,,,
+5: "BM_find_match1/65536",363879,1928.28,1929.02,ns,,,,,
+5: "BM_find_match1/131072",191691,3599.57,3600.75,ns,,,,,
+5: "BM_find_match1/262144",78985,8861.96,8865.35,ns,,,,,
+5: "BM_find_match1_BigO",,0.00183171,0.0018324,NlgN,,,,,
+5: "BM_find_match1_RMS",,0.0694895,0.069514,,,,,,
+5: "BM_find_match2/32768",718157,973.777,974.151,ns,,,,,
+5: "BM_find_match2/65536",362827,1931.06,1931.81,ns,,,,,
+5: "BM_find_match2/131072",190283,3680.1,3681.53,ns,,,,,
+5: "BM_find_match2/262144",78740,8902.78,8905.49,ns,,,,,
+5: "BM_find_match2_BigO",,0.00184494,0.00184553,NlgN,,,,,
+5: "BM_find_match2_RMS",,0.0617996,0.0617633,,,,,,
+5: "BM_strcat/32768",1038304,535.278,535.476,ns,,,,,
+5: "BM_strcat/65536",542305,1699.57,1700.21,ns,,,,,
+5: "BM_strcat/131072",276245,3352.37,3353.64,ns,,,,,
+5: "BM_strcat/262144",119274,4406.75,4408.42,ns,,,,,
+5: "BM_strcat_BigO",,0.0188842,0.0188914,N,,,,,
+5: "BM_strcat_RMS",,0.226886,0.226887,,,,,,
+ 5/12 Test  #5: string.bench.cpp.out .................   Passed   59.85 sec
+test 6
+      Start  6: accessors.bench.cpp.out
+
+6: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/accessors.bench.cpp.out "--benchmark_format=csv"
+6: Test timeout computed to be: 9.99988e+06
+6: Run on (8 X 3871.22 MHz CPU s)
+6: 2017-05-11 01:47:48
+6: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+6: "BM_advance<std::vector<int>>/32768",82915,8452.93,8456.2,ns,,,,,
+6: "BM_advance<std::vector<int>>/65536",41432,16867.6,16874.2,ns,,,,,
+6: "BM_advance<std::vector<int>>/131072",20743,33782.8,33795.8,ns,,,,,
+6: "BM_advance<std::vector<int>>/262144",10342,67487.9,67514,ns,,,,,
+6: "BM_advance<std::vector<int>>_BigO",,0.257505,0.257604,N,,,,,
+6: "BM_advance<std::vector<int>>_RMS",,0.000612576,0.000611784,,,,,,
+6: "BM_advance<std::list<int>>/32768",1,7.55631e+08,7.55921e+08,ns,,,,,
+6: "BM_advance<std::list<int>>/65536",1,3.0264e+09,3.02757e+09,ns,,,,,
+6: "BM_advance<std::list<int>>/131072",1,1.21461e+10,1.21508e+10,ns,,,,,
+6: "BM_advance<std::list<int>>/262144",1,5.32473e+10,5.32678e+10,ns,,,,,
+6: "BM_advance<std::list<int>>_BigO",,0.770601,0.770898,N^2,,,,,
+6: "BM_advance<std::list<int>>_RMS",,0.0337747,0.0337747,,,,,,
+6: "BM_advance<std::deque<int>>/32768",8459,82746.8,82778.2,ns,,,,,
+6: "BM_advance<std::deque<int>>/65536",4206,166313,166376,ns,,,,,
+6: "BM_advance<std::deque<int>>/131072",2096,332637,332764,ns,,,,,
+6: "BM_advance<std::deque<int>>/262144",1051,665784,666039,ns,,,,,
+6: "BM_advance<std::deque<int>>_BigO",,2.53913,2.5401,N,,,,,
+6: "BM_advance<std::deque<int>>_RMS",,0.000837967,0.000838616,,,,,,
+6: "BM_access<std::vector<int>>/32768",82911,8694.25,8697.59,ns,,,,,
+6: "BM_access<std::vector<int>>/65536",41102,16934.7,16941.2,ns,,,,,
+6: "BM_access<std::vector<int>>/131072",20740,33937.2,33948.6,ns,,,,,
+6: "BM_access<std::vector<int>>/262144",10375,67995.6,68021.8,ns,,,,,
+6: "BM_access<std::vector<int>>_BigO",,0.259319,0.259417,N,,,,,
+6: "BM_access<std::vector<int>>_RMS",,0.00334003,0.00334621,,,,,,
+6: "BM_access<std::list<int>>/32768",1,7.54688e+08,7.5498e+08,ns,,,,,
+6: "BM_access<std::list<int>>/65536",1,3.02051e+09,3.02167e+09,ns,,,,,
+6: "BM_access<std::list<int>>/131072",1,1.2102e+10,1.21067e+10,ns,,,,,
+6: "BM_access<std::list<int>>/262144",1,5.0423e+10,5.04419e+10,ns,,,,,
+6: "BM_access<std::list<int>>_BigO",,0.731915,0.732189,N^2,,,,,
+6: "BM_access<std::list<int>>_RMS",,0.0152326,0.0152283,,,,,,
+6: "BM_access<std::deque<int>>/32768",18448,37992.6,38007.1,ns,,,,,
+6: "BM_access<std::deque<int>>/65536",9227,75892.2,75921.3,ns,,,,,
+6: "BM_access<std::deque<int>>/131072",4613,152056,152114,ns,,,,,
+6: "BM_access<std::deque<int>>/262144",2305,303588,303704,ns,,,,,
+6: "BM_access<std::deque<int>>_BigO",,1.15848,1.15893,N,,,,,
+6: "BM_access<std::deque<int>>_RMS",,0.000837164,0.000837045,,,,,,
+6: "BM_at<std::vector<int>>/32768",82959,8448.78,8452.03,ns,,,,,
+6: "BM_at<std::vector<int>>/65536",41482,16863.4,16870,ns,,,,,
+6: "BM_at<std::vector<int>>/131072",20740,33762.9,33776,ns,,,,,
+6: "BM_at<std::vector<int>>/262144",10376,67455.1,67481.2,ns,,,,,
+6: "BM_at<std::vector<int>>_BigO",,0.257377,0.257477,N,,,,,
+6: "BM_at<std::vector<int>>_RMS",,0.000557351,0.000557322,,,,,,
+6: "BM_at<std::deque<int>>/32768",10328,67484.2,67510.1,ns,,,,,
+6: "BM_at<std::deque<int>>/65536",5189,135151,135203,ns,,,,,
+6: "BM_at<std::deque<int>>/131072",2594,269853,269957,ns,,,,,
+6: "BM_at<std::deque<int>>/262144",1297,540369,540578,ns,,,,,
+6: "BM_at<std::deque<int>>_BigO",,2.06089,2.06169,N,,,,,
+6: "BM_at<std::deque<int>>_RMS",,0.000619175,0.000619325,,,,,,
+6: "BM_assoc_find_random<std::set<int>>/32768",1475,422935,423097,ns,,,,,
+6: "BM_assoc_find_random<std::set<int>>/65536",740,1.18684e+06,1.18729e+06,ns,,,,,
+6: "BM_assoc_find_random<std::set<int>>/131072",285,2.72768e+06,2.72873e+06,ns,,,,,
+6: "BM_assoc_find_random<std::set<int>>/262144",92,7.39101e+06,7.39382e+06,ns,,,,,
+6: "BM_assoc_find_random<std::set<int>>_BigO",,1.4842,1.48477,NlgN,,,,,
+6: "BM_assoc_find_random<std::set<int>>_RMS",,0.144349,0.144346,,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>/32768",871,805102,805411,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>/65536",427,1.63978e+06,1.64041e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>/131072",205,3.41038e+06,3.41168e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>/262144",69,9.14795e+06,9.15148e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>_BigO",,1.8508,1.85152,NlgN,,,,,
+6: "BM_assoc_find_random<std::unordered_set<int>>_RMS",,0.117942,0.117944,,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>/32768",2109,572708,572929,ns,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>/65536",557,1.275e+06,1.27549e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>/131072",244,3.18322e+06,3.18445e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>/262144",85,9.01657e+06,9.02e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>_BigO",,1.794,1.79469,NlgN,,,,,
+6: "BM_assoc_find_random<std::map<int, int>>_RMS",,0.170251,0.170249,,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>/32768",889,799892,800196,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>/65536",425,1.64979e+06,1.65043e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>/131072",206,3.38645e+06,3.38776e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>/262144",74,9.03866e+06,9.04215e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>_BigO",,1.83117,1.83187,NlgN,,,,,
+6: "BM_assoc_find_random<std::unordered_map<int, int>>_RMS",,0.114325,0.114325,,,,,,
+6: "BM_assoc_find_seq<std::set<int>>/32768",500,1.39607e+06,1.39659e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::set<int>>/65536",190,3.6882e+06,3.68963e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::set<int>>/131072",70,9.98525e+06,9.98906e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::set<int>>/262144",28,2.46781e+07,2.46877e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::set<int>>_BigO",,5.01375,5.01569,NlgN,,,,,
+6: "BM_assoc_find_seq<std::set<int>>_RMS",,0.123786,0.123788,,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>/32768",2766,252889,252984,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>/65536",1381,506108,506301,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>/131072",692,1.01337e+06,1.01376e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>/262144",339,2.07255e+06,2.07334e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>_BigO",,7.8624,7.8654,N,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<int>>_RMS",,0.0120047,0.0120045,,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>/32768",492,1.42154e+06,1.42208e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>/65536",188,3.7342e+06,3.73562e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>/131072",70,1.00211e+07,1.00249e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>/262144",28,2.4719e+07,2.47284e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>_BigO",,5.02542,5.02734,NlgN,,,,,
+6: "BM_assoc_find_seq<std::map<int, int>>_RMS",,0.121287,0.121287,,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>/32768",2764,252810,252907,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>/65536",1384,505989,506182,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>/131072",691,1.01259e+06,1.01298e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>/262144",338,2.06648e+06,2.06728e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>_BigO",,7.84374,7.84677,N,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<int, int>>_RMS",,0.0107956,0.0107969,,,,,,
+6: "BM_advance<std::vector<aggregate>>/32768",82889,8515.7,8518.99,ns,,,,,
+6: "BM_advance<std::vector<aggregate>>/65536",41444,16965.2,16971.7,ns,,,,,
+6: "BM_advance<std::vector<aggregate>>/131072",20566,34027.2,34040.3,ns,,,,,
+6: "BM_advance<std::vector<aggregate>>/262144",10374,67523.2,67549,ns,,,,,
+6: "BM_advance<std::vector<aggregate>>_BigO",,0.25805,0.258148,N,,,,,
+6: "BM_advance<std::vector<aggregate>>_RMS",,0.0039593,0.00396176,,,,,,
+6: "BM_advance<std::list<aggregate>>/32768",1,1.02521e+09,1.0256e+09,ns,,,,,
+6: "BM_advance<std::list<aggregate>>/65536",1,4.09014e+09,4.09172e+09,ns,,,,,
+6: "BM_advance<std::list<aggregate>>/131072",1,1.67157e+10,1.67222e+10,ns,,,,,
+6: "BM_advance<std::list<aggregate>>/262144",1,8.89511e+10,8.89853e+10,ns,,,,,
+6: "BM_advance<std::list<aggregate>>_BigO",,1.27424,1.27473,N^2,,,,,
+6: "BM_advance<std::list<aggregate>>_RMS",,0.100089,0.100089,,,,,,
+6: "BM_advance<std::deque<aggregate>>/32768",8508,82273.5,82305.3,ns,,,,,
+6: "BM_advance<std::deque<aggregate>>/65536",4252,164871,164935,ns,,,,,
+6: "BM_advance<std::deque<aggregate>>/131072",1933,334057,334187,ns,,,,,
+6: "BM_advance<std::deque<aggregate>>/262144",1062,658892,659145,ns,,,,,
+6: "BM_advance<std::deque<aggregate>>_BigO",,2.52017,2.52114,N,,,,,
+6: "BM_advance<std::deque<aggregate>>_RMS",,0.00668902,0.00669042,,,,,,
+6: "BM_access<std::vector<aggregate>>/32768",82832,8449.05,8452.29,ns,,,,,
+6: "BM_access<std::vector<aggregate>>/65536",41408,16867.4,16874,ns,,,,,
+6: "BM_access<std::vector<aggregate>>/131072",20749,33761.8,33774.9,ns,,,,,
+6: "BM_access<std::vector<aggregate>>/262144",10380,67449.1,67475.2,ns,,,,,
+6: "BM_access<std::vector<aggregate>>_BigO",,0.257362,0.257461,N,,,,,
+6: "BM_access<std::vector<aggregate>>_RMS",,0.000584482,0.000584455,,,,,,
+6: "BM_access<std::list<aggregate>>/32768",1,1.02508e+09,1.02547e+09,ns,,,,,
+6: "BM_access<std::list<aggregate>>/65536",1,4.07312e+09,4.0747e+09,ns,,,,,
+6: "BM_access<std::list<aggregate>>/131072",1,1.67234e+10,1.67298e+10,ns,,,,,
+6: "BM_access<std::list<aggregate>>/262144",1,8.98917e+10,8.99262e+10,ns,,,,,
+6: "BM_access<std::list<aggregate>>_BigO",,1.28709,1.28758,N^2,,,,,
+6: "BM_access<std::list<aggregate>>_RMS",,0.103413,0.103412,,,,,,
+6: "BM_access<std::deque<aggregate>>/32768",16487,42462,42478.3,ns,,,,,
+6: "BM_access<std::deque<aggregate>>/65536",8234,85017.9,85050.7,ns,,,,,
+6: "BM_access<std::deque<aggregate>>/131072",4123,169996,170061,ns,,,,,
+6: "BM_access<std::deque<aggregate>>/262144",2059,340055,340183,ns,,,,,
+6: "BM_access<std::deque<aggregate>>_BigO",,1.29715,1.29764,N,,,,,
+6: "BM_access<std::deque<aggregate>>_RMS",,0.000163565,0.000160477,,,,,,
+6: "BM_at<std::vector<aggregate>>/32768",82514,8454.4,8457.64,ns,,,,,
+6: "BM_at<std::vector<aggregate>>/65536",41350,16928,16934,ns,,,,,
+6: "BM_at<std::vector<aggregate>>/131072",20709,33753,33766.1,ns,,,,,
+6: "BM_at<std::vector<aggregate>>/262144",10370,67543,67569.1,ns,,,,,
+6: "BM_at<std::vector<aggregate>>_BigO",,0.257664,0.257763,N,,,,,
+6: "BM_at<std::vector<aggregate>>_RMS",,0.000749513,0.00074177,,,,,,
+6: "BM_at<std::deque<aggregate>>/32768",9179,76265,76294.5,ns,,,,,
+6: "BM_at<std::deque<aggregate>>/65536",4593,152402,152461,ns,,,,,
+6: "BM_at<std::deque<aggregate>>/131072",2295,305661,305779,ns,,,,,
+6: "BM_at<std::deque<aggregate>>/262144",1148,610043,610279,ns,,,,,
+6: "BM_at<std::deque<aggregate>>_BigO",,2.32797,2.32887,N,,,,,
+6: "BM_at<std::deque<aggregate>>_RMS",,0.00104265,0.00104288,,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>/32768",2104,489581,489758,ns,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>/65536",743,861215,861548,ns,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>/131072",213,2.95835e+06,2.95947e+06,ns,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>/262144",100,9.84608e+06,9.84985e+06,ns,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>_BigO",,0.000145255,0.000145311,N^2,,,,,
+6: "BM_assoc_find_random<std::set<aggregate>>_RMS",,0.0893968,0.0893955,,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>/32768",793,887401,887741,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>/65536",386,1.80459e+06,1.80529e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>/131072",169,4.13956e+06,4.14114e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>/262144",47,1.37577e+07,1.37629e+07,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>_BigO",,0.000203537,0.000203615,N^2,,,,,
+6: "BM_assoc_find_random<std::unordered_set<aggregate>>_RMS",,0.129555,0.129556,,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>/32768",2021,362593,362734,ns,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>/65536",635,1.35238e+06,1.3529e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>/131072",224,3.06672e+06,3.0678e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>/262144",81,9.05187e+06,9.05532e+06,ns,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>_BigO",,0.000135181,0.000135232,N^2,,,,,
+6: "BM_assoc_find_random<std::map<aggregate, aggregate>>_RMS",,0.161864,0.161857,,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>/32768",771,893805,894150,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>/65536",368,1.88734e+06,1.88807e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>/131072",123,4.81944e+06,4.82126e+06,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>/262144",42,1.51929e+07,1.51987e+07,ns,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>_BigO",,0.000225509,0.000225594,N^2,,,,,
+6: "BM_assoc_find_random<std::unordered_map<aggregate, aggregate>>_RMS",,0.131752,0.131753,,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>/32768",295,2.3747e+06,2.3756e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>/65536",120,5.81132e+06,5.81354e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>/131072",54,1.28717e+07,1.28766e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>/262144",25,2.84877e+07,2.84986e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>_BigO",,5.96278,5.96506,NlgN,,,,,
+6: "BM_assoc_find_seq<std::set<aggregate>>_RMS",,0.0360973,0.036097,,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>/32768",2785,250663,250759,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>/65536",1397,501454,501646,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>/131072",675,1.02995e+06,1.03035e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>/262144",285,2.4199e+06,2.42074e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>_BigO",,0.502692,0.502871,NlgN,,,,,
+6: "BM_assoc_find_seq<std::unordered_set<aggregate>>_RMS",,0.0501338,0.0501145,,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>/32768",436,1.60142e+06,1.60204e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>/65536",180,3.89696e+06,3.89845e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>/131072",66,1.04688e+07,1.04729e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>/262144",26,2.68701e+07,2.68804e+07,ns,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>_BigO",,5.42467,5.42675,NlgN,,,,,
+6: "BM_assoc_find_seq<std::map<aggregate, aggregate>>_RMS",,0.136785,0.136783,,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>/32768",2711,258170,258269,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>/65536",1352,516800,517000,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>/131072",623,1.12058e+06,1.12101e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>/262144",234,3.14225e+06,3.14344e+06,ns,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>_BigO",,0.62975,0.629988,NlgN,,,,,
+6: "BM_assoc_find_seq<std::unordered_map<aggregate, aggregate>>_RMS",,0.144386,0.144385,,,,,,
+ 6/12 Test  #6: accessors.bench.cpp.out ..............   Passed  582.70 sec
+test 7
+      Start  7: algorithm.bench.cpp.out
+
+7: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/algorithm.bench.cpp.out "--benchmark_format=csv"
+7: Test timeout computed to be: 9.99988e+06
+7: Run on (8 X 3831.77 MHz CPU s)
+7: 2017-05-11 01:57:31
+7: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+7: "BM_search_linear<std::vector<int>>/32768",7,1.04014e+08,1.04054e+08,ns,,,,,
+7: "BM_search_linear<std::vector<int>>/65536",2,4.17554e+08,4.17714e+08,ns,,,,,
+7: "BM_search_linear<std::vector<int>>/131072",1,1.68397e+09,1.6846e+09,ns,,,,,
+7: "BM_search_linear<std::vector<int>>/262144",1,6.745e+09,6.74757e+09,ns,,,,,
+7: "BM_search_linear<std::vector<int>>_BigO",,0.0981411,0.0981785,N^2,,,,,
+7: "BM_search_linear<std::vector<int>>_RMS",,0.0010601,0.00106083,,,,,,
+7: "BM_search_linear<std::list<int>>/32768",1,7.73551e+08,7.73845e+08,ns,,,,,
+7: "BM_search_linear<std::list<int>>/65536",1,3.10321e+09,3.10441e+09,ns,,,,,
+7: "BM_search_linear<std::list<int>>/131072",1,1.2406e+10,1.24107e+10,ns,,,,,
+7: "BM_search_linear<std::list<int>>/262144",1,5.29468e+10,5.29672e+10,ns,,,,,
+7: "BM_search_linear<std::list<int>>_BigO",,0.767457,0.767753,N^2,,,,,
+7: "BM_search_linear<std::list<int>>_RMS",,0.0239885,0.0239885,,,,,,
+7: "BM_search_linear<std::deque<int>>/32768",4,1.75041e+08,1.75108e+08,ns,,,,,
+7: "BM_search_linear<std::deque<int>>/65536",1,6.97202e+08,6.97469e+08,ns,,,,,
+7: "BM_search_linear<std::deque<int>>/131072",1,2.78786e+09,2.78893e+09,ns,,,,,
+7: "BM_search_linear<std::deque<int>>/262144",1,1.11814e+10,1.11856e+10,ns,,,,,
+7: "BM_search_linear<std::deque<int>>_BigO",,0.162684,0.162746,N^2,,,,,
+7: "BM_search_linear<std::deque<int>>_RMS",,0.00100204,0.00099977,,,,,,
+7: "BM_search_binary<std::vector<int>>/32768",632,1.10763e+06,1.10805e+06,ns,,,,,
+7: "BM_search_binary<std::vector<int>>/65536",305,2.2913e+06,2.29218e+06,ns,,,,,
+7: "BM_search_binary<std::vector<int>>/131072",147,4.75506e+06,4.75669e+06,ns,,,,,
+7: "BM_search_binary<std::vector<int>>/262144",72,9.75706e+06,9.76083e+06,ns,,,,,
+7: "BM_search_binary<std::vector<int>>_BigO",,2.08538,2.08617,NlgN,,,,,
+7: "BM_search_binary<std::vector<int>>_RMS",,0.0213054,0.021292,,,,,,
+7: "BM_search_binary<std::list<int>>/32768",1,1.5062e+09,1.50679e+09,ns,,,,,
+7: "BM_search_binary<std::list<int>>/65536",1,6.03467e+09,6.037e+09,ns,,,,,
+7: "BM_search_binary<std::list<int>>/131072",1,2.41739e+10,2.41832e+10,ns,,,,,
+7: "BM_search_binary<std::list<int>>/262144",1,1.02568e+11,1.02606e+11,ns,,,,,
+7: "BM_search_binary<std::list<int>>_BigO",,1.48721,1.48777,N^2,,,,,
+7: "BM_search_binary<std::list<int>>_RMS",,0.0218991,0.0218948,,,,,,
+7: "BM_search_binary<std::deque<int>>/32768",412,1.69927e+06,1.69992e+06,ns,,,,,
+7: "BM_search_binary<std::deque<int>>/65536",198,3.52888e+06,3.53023e+06,ns,,,,,
+7: "BM_search_binary<std::deque<int>>/131072",96,7.31223e+06,7.31503e+06,ns,,,,,
+7: "BM_search_binary<std::deque<int>>/262144",46,1.51403e+07,1.51461e+07,ns,,,,,
+7: "BM_search_binary<std::deque<int>>_BigO",,3.22946,3.23071,NlgN,,,,,
+7: "BM_search_binary<std::deque<int>>_RMS",,0.0171003,0.0170987,,,,,,
+7: "BM_sort_std_common<std::vector<int>>/32768",482,1.45646e+06,1.45702e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<int>>/65536",227,3.06486e+06,3.06605e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<int>>/131072",109,6.53199e+06,6.53451e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<int>>/262144",51,1.37549e+07,1.37602e+07,ns,,,,,
+7: "BM_sort_std_common<std::vector<int>>_BigO",,2.9186,2.91973,NlgN,,,,,
+7: "BM_sort_std_common<std::vector<int>>_RMS",,0.0032309,0.00323077,,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>/32768",2555,273850,273955,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>/65536",1201,586985,587208,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>/131072",534,1.25126e+06,1.25174e+06,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>/262144",260,2.71033e+06,2.71137e+06,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>_BigO",,0.571454,0.571673,NlgN,,,,,
+7: "BM_sort_std_ascending<std::vector<int>>_RMS",,0.012292,0.0122927,,,,,,
+7: "BM_sort_std_descending<std::vector<int>>/32768",3127,224084,224170,ns,,,,,
+7: "BM_sort_std_descending<std::vector<int>>/65536",1474,474833,475013,ns,,,,,
+7: "BM_sort_std_descending<std::vector<int>>/131072",698,1.00015e+06,1.00053e+06,ns,,,,,
+7: "BM_sort_std_descending<std::vector<int>>/262144",333,2.09714e+06,2.09794e+06,ns,,,,,
+7: "BM_sort_std_descending<std::vector<int>>_BigO",,0.445628,0.445799,NlgN,,,,,
+7: "BM_sort_std_descending<std::vector<int>>_RMS",,0.00678114,0.00678057,,,,,,
+7: "BM_sort_stable<std::vector<int>>/32768",3315,210184,210265,ns,,,,,
+7: "BM_sort_stable<std::vector<int>>/65536",1490,464483,464661,ns,,,,,
+7: "BM_sort_stable<std::vector<int>>/131072",681,972497,972821,ns,,,,,
+7: "BM_sort_stable<std::vector<int>>/262144",315,2.1347e+06,2.13552e+06,ns,,,,,
+7: "BM_sort_stable<std::vector<int>>_BigO",,0.449056,0.449224,NlgN,,,,,
+7: "BM_sort_stable<std::vector<int>>_RMS",,0.0182479,0.0182687,,,,,,
+7: "BM_search_linear<std::vector<aggregate>>/32768",4,1.80708e+08,1.80777e+08,ns,,,,,
+7: "BM_search_linear<std::vector<aggregate>>/65536",1,7.64712e+08,7.65005e+08,ns,,,,,
+7: "BM_search_linear<std::vector<aggregate>>/131072",1,3.10263e+09,3.10381e+09,ns,,,,,
+7: "BM_search_linear<std::vector<aggregate>>/262144",1,1.24452e+10,1.245e+10,ns,,,,,
+7: "BM_search_linear<std::vector<aggregate>>_BigO",,0.181058,0.181128,N^2,,,,,
+7: "BM_search_linear<std::vector<aggregate>>_RMS",,0.00250417,0.00250512,,,,,,
+7: "BM_search_linear<std::list<aggregate>>/32768",1,9.72207e+08,9.72579e+08,ns,,,,,
+7: "BM_search_linear<std::list<aggregate>>/65536",1,4.11831e+09,4.11989e+09,ns,,,,,
+7: "BM_search_linear<std::list<aggregate>>/131072",1,1.61869e+10,1.61931e+10,ns,,,,,
+7: "BM_search_linear<std::list<aggregate>>/262144",1,8.90362e+10,8.90705e+10,ns,,,,,
+7: "BM_search_linear<std::list<aggregate>>_BigO",,4.97946e-06,4.98138e-06,N^3,,,,,
+7: "BM_search_linear<std::list<aggregate>>_RMS",,0.104467,0.104467,,,,,,
+7: "BM_search_linear<std::deque<aggregate>>/32768",3,2.22085e+08,2.2217e+08,ns,,,,,
+7: "BM_search_linear<std::deque<aggregate>>/65536",1,9.15925e+08,9.16277e+08,ns,,,,,
+7: "BM_search_linear<std::deque<aggregate>>/131072",1,3.69115e+09,3.69254e+09,ns,,,,,
+7: "BM_search_linear<std::deque<aggregate>>/262144",1,1.47789e+10,1.47846e+10,ns,,,,,
+7: "BM_search_linear<std::deque<aggregate>>_BigO",,0.215041,0.215123,N^2,,,,,
+7: "BM_search_linear<std::deque<aggregate>>_RMS",,0.00124487,0.0012452,,,,,,
+7: "BM_search_binary<std::vector<aggregate>>/32768",610,1.14633e+06,1.1467e+06,ns,,,,,
+7: "BM_search_binary<std::vector<aggregate>>/65536",295,2.37307e+06,2.37399e+06,ns,,,,,
+7: "BM_search_binary<std::vector<aggregate>>/131072",143,4.89039e+06,4.89227e+06,ns,,,,,
+7: "BM_search_binary<std::vector<aggregate>>/262144",70,1.00056e+07,1.00095e+07,ns,,,,,
+7: "BM_search_binary<std::vector<aggregate>>_BigO",,37.8773,37.8919,N,,,,,
+7: "BM_search_binary<std::vector<aggregate>>_RMS",,0.0195086,0.0195136,,,,,,
+7: "BM_search_binary<std::list<aggregate>>/32768",1,2.02645e+09,2.02723e+09,ns,,,,,
+7: "BM_search_binary<std::list<aggregate>>/65536",1,8.07652e+09,8.07965e+09,ns,,,,,
+7: "BM_search_binary<std::list<aggregate>>/131072",1,3.31173e+10,3.31301e+10,ns,,,,,
+7: "BM_search_binary<std::list<aggregate>>/262144",1,1.63651e+11,1.63714e+11,ns,,,,,
+7: "BM_search_binary<std::list<aggregate>>_BigO",,2.3529,2.35381,N^2,,,,,
+7: "BM_search_binary<std::list<aggregate>>_RMS",,0.075866,0.0758659,,,,,,
+7: "BM_search_binary<std::deque<aggregate>>/32768",378,1.85274e+06,1.85345e+06,ns,,,,,
+7: "BM_search_binary<std::deque<aggregate>>/65536",182,3.8344e+06,3.83587e+06,ns,,,,,
+7: "BM_search_binary<std::deque<aggregate>>/131072",88,7.92209e+06,7.92515e+06,ns,,,,,
+7: "BM_search_binary<std::deque<aggregate>>/262144",43,1.63036e+07,1.63098e+07,ns,,,,,
+7: "BM_search_binary<std::deque<aggregate>>_BigO",,3.483,3.48433,NlgN,,,,,
+7: "BM_search_binary<std::deque<aggregate>>_RMS",,0.0207413,0.0207432,,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>/32768",456,1.53546e+06,1.53606e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>/65536",215,3.30444e+06,3.30572e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>/131072",101,6.89794e+06,6.90061e+06,ns,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>/262144",46,1.50105e+07,1.50163e+07,ns,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>_BigO",,3.16467,3.16588,NlgN,,,,,
+7: "BM_sort_std_common<std::vector<aggregate>>_RMS",,0.0130044,0.0130023,,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>/32768",2012,355791,355928,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>/65536",960,727859,728138,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>/131072",453,1.55721e+06,1.5578e+06,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>/262144",189,3.68566e+06,3.68704e+06,ns,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>_BigO",,0.762972,0.763259,NlgN,,,,,
+7: "BM_sort_std_ascending<std::vector<aggregate>>_RMS",,0.0576894,0.0576848,,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>/32768",2437,288202,288313,ns,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>/65536",1162,597485,597713,ns,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>/131072",558,1.25428e+06,1.25476e+06,ns,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>/262144",225,3.06802e+06,3.06919e+06,ns,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>_BigO",,0.631396,0.631636,NlgN,,,,,
+7: "BM_sort_std_descending<std::vector<aggregate>>_RMS",,0.0726863,0.0726853,,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>/32768",1479,472475,472656,ns,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>/65536",631,1.08438e+06,1.0848e+06,ns,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>/131072",320,2.14091e+06,2.14173e+06,ns,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>/262144",99,6.0412e+06,6.04354e+06,ns,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>_BigO",,1.21261,1.21308,NlgN,,,,,
+7: "BM_sort_stable<std::vector<aggregate>>_RMS",,0.14035,0.140352,,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>/32768",1749,400008,400162,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>/65536",823,830446,830764,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>/131072",393,1.74511e+06,1.74578e+06,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>/262144",140,3.8984e+06,3.89991e+06,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>_BigO",,0.817286,0.817603,NlgN,,,,,
+7: "BM_sort_std_list_with_vector<std::list<int>>_RMS",,0.0264147,0.0264155,,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>/32768",1507,460703,460879,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>/65536",711,963033,963406,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>/131072",311,2.23713e+06,2.23798e+06,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>/262144",103,5.73443e+06,5.73666e+06,ns,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>_BigO",,1.16479,1.16524,NlgN,,,,,
+7: "BM_sort_std_list_with_vector<std::list<aggregate>>_RMS",,0.109454,0.109457,,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>/32768",388,1.80255e+06,1.80324e+06,ns,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>/65536",189,3.70489e+06,3.70631e+06,ns,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>/131072",93,7.55617e+06,7.5591e+06,ns,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>/262144",45,1.55379e+07,1.55439e+07,ns,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>_BigO",,58.7878,58.8104,N,,,,,
+7: "BM_sort_std_worst_quick<std::vector<int>>_RMS",,0.019228,0.0192269,,,,,,
+ 7/12 Test  #7: algorithm.bench.cpp.out ..............   Passed  676.09 sec
+test 8
+      Start  8: size_metric.bench.cpp.out
+
+8: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/size_metric.bench.cpp.out "--benchmark_format=csv"
+8: Test timeout computed to be: 9.99988e+06
+8: 
+8: Sizeof, std::deque<int>(), 80
+8: Sizeof, std::list<int>(), 24
+8: Sizeof, std::vector<int>(), 24
+8: Sizeof, std::set<int>(), 48
+8: Sizeof, std::unordered_set<int>(), 56
+8: Sizeof, (std::map<int, int>()), 48
+8: Sizeof, (std::unordered_map<int, int>()), 56
+ 8/12 Test  #8: size_metric.bench.cpp.out ............   Passed    0.00 sec
+test 9
+      Start  9: mutators.bench.cpp.out
+
+9: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/mutators.bench.cpp.out "--benchmark_format=csv"
+9: Test timeout computed to be: 9.99988e+06
+9: Run on (8 X 3882.51 MHz CPU s)
+9: 2017-05-11 02:08:47
+9: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+9: "BM_write_seq<std::vector<int>>/32768",131997,5288.12,5290.13,ns,,,,,
+9: "BM_write_seq<std::vector<int>>/65536",66158,10571.5,10575.6,ns,,,,,
+9: "BM_write_seq<std::vector<int>>/131072",29979,22604.1,22612.7,ns,,,,,
+9: "BM_write_seq<std::vector<int>>/262144",15734,42845.7,42862.1,ns,,,,,
+9: "BM_write_seq<std::vector<int>>_BigO",,0.165015,0.165078,N,,,,,
+9: "BM_write_seq<std::vector<int>>_RMS",,0.0268777,0.0268778,,,,,,
+9: "BM_write_seq<std::list<int>>/32768",10187,68705.3,68731.7,ns,,,,,
+9: "BM_write_seq<std::list<int>>/65536",5099,137483,137529,ns,,,,,
+9: "BM_write_seq<std::list<int>>/131072",2550,274744,274850,ns,,,,,
+9: "BM_write_seq<std::list<int>>/262144",1053,670141,670397,ns,,,,,
+9: "BM_write_seq<std::list<int>>_BigO",,0.13833,0.138382,NlgN,,,,,
+9: "BM_write_seq<std::list<int>>_RMS",,0.0668987,0.0669009,,,,,,
+9: "BM_write_seq<std::deque<int>>/32768",48868,14300.8,14306.2,ns,,,,,
+9: "BM_write_seq<std::deque<int>>/65536",24467,28597.5,28608.5,ns,,,,,
+9: "BM_write_seq<std::deque<int>>/131072",12238,57224.5,57246.6,ns,,,,,
+9: "BM_write_seq<std::deque<int>>/262144",6101,114368,114412,ns,,,,,
+9: "BM_write_seq<std::deque<int>>_BigO",,0.436342,0.43651,N,,,,,
+9: "BM_write_seq<std::deque<int>>_RMS",,0.000339514,0.00034114,,,,,,
+9: "BM_push_back<std::vector<int>>/32768",10000,60822.7,60845.7,ns,,,,,
+9: "BM_push_back<std::vector<int>>/65536",7300,97879.9,97916.8,ns,,,,,
+9: "BM_push_back<std::vector<int>>/131072",3707,194348,194421,ns,,,,,
+9: "BM_push_back<std::vector<int>>/262144",1866,386959,387105,ns,,,,,
+9: "BM_push_back<std::vector<int>>_BigO",,1.48267,1.48323,N,,,,,
+9: "BM_push_back<std::vector<int>>_RMS",,0.0334549,0.0334548,,,,,,
+9: "BM_push_back<std::list<int>>/32768",979,707377,707647,ns,,,,,
+9: "BM_push_back<std::list<int>>/65536",859,1.09775e+06,1.09817e+06,ns,,,,,
+9: "BM_push_back<std::list<int>>/131072",431,1.62048e+06,1.62111e+06,ns,,,,,
+9: "BM_push_back<std::list<int>>/262144",215,3.23423e+06,3.23546e+06,ns,,,,,
+9: "BM_push_back<std::list<int>>_BigO",,12.6589,12.6638,N,,,,,
+9: "BM_push_back<std::list<int>>_RMS",,0.122388,0.122388,,,,,,
+9: "BM_push_back<std::deque<int>>/32768",14503,48039.4,48057.8,ns,,,,,
+9: "BM_push_back<std::deque<int>>/65536",7431,96067.8,96104.5,ns,,,,,
+9: "BM_push_back<std::deque<int>>/131072",3632,192371,192444,ns,,,,,
+9: "BM_push_back<std::deque<int>>/262144",1822,384736,384885,ns,,,,,
+9: "BM_push_back<std::deque<int>>_BigO",,1.46755,1.46812,N,,,,,
+9: "BM_push_back<std::deque<int>>_RMS",,0.000343919,0.000345118,,,,,,
+9: "BM_push_back_resize<std::vector<int>>/32768",10000,60347.4,60370.8,ns,,,,,
+9: "BM_push_back_resize<std::vector<int>>/65536",7601,95071.6,95107,ns,,,,,
+9: "BM_push_back_resize<std::vector<int>>/131072",3773,191652,191724,ns,,,,,
+9: "BM_push_back_resize<std::vector<int>>/262144",1883,383443,383590,ns,,,,,
+9: "BM_push_back_resize<std::vector<int>>_BigO",,1.46651,1.46707,N,,,,,
+9: "BM_push_back_resize<std::vector<int>>_RMS",,0.0339197,0.0339211,,,,,,
+9: "BM_push_back_resize<std::list<int>>/32768",1029,707499,707769,ns,,,,,
+9: "BM_push_back_resize<std::list<int>>/65536",491,1.34744e+06,1.34795e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<int>>/131072",247,2.41849e+06,2.4194e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<int>>/262144",117,5.71205e+06,5.71423e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<int>>_BigO",,1.19359,1.19405,NlgN,,,,,
+9: "BM_push_back_resize<std::list<int>>_RMS",,0.0583535,0.0583546,,,,,,
+9: "BM_push_back_resize<std::deque<int>>/32768",14612,48039.7,48058,ns,,,,,
+9: "BM_push_back_resize<std::deque<int>>/65536",7441,95811.4,95847.9,ns,,,,,
+9: "BM_push_back_resize<std::deque<int>>/131072",3631,191760,191833,ns,,,,,
+9: "BM_push_back_resize<std::deque<int>>/262144",1824,383856,384003,ns,,,,,
+9: "BM_push_back_resize<std::deque<int>>_BigO",,1.46397,1.46452,N,,,,,
+9: "BM_push_back_resize<std::deque<int>>_RMS",,0.000590337,0.000590417,,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>/32768",10000,60184.3,60207.6,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>/65536",7609,95227.2,95264.1,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>/131072",3778,191067,191139,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>/262144",1890,381650,381794,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>_BigO",,1.46057,1.46113,N,,,,,
+9: "BM_push_back_vector_reserve<std::vector<int>>_RMS",,0.0340624,0.0340638,,,,,,
+9: "BM_insert_begin<std::vector<int>>/32768",100000,10656.1,10660.2,ns,,,,,
+9: "BM_insert_begin<std::vector<int>>/65536",82003,14263.4,14269,ns,,,,,
+9: "BM_insert_begin<std::vector<int>>/131072",37110,20956.2,20964.3,ns,,,,,
+9: "BM_insert_begin<std::vector<int>>/262144",18925,37466.8,37481.3,ns,,,,,
+9: "BM_insert_begin<std::vector<int>>_BigO",,0.151777,0.151836,N,,,,,
+9: "BM_insert_begin<std::vector<int>>_RMS",,0.181873,0.181873,,,,,,
+9: "BM_insert_begin<std::list<int>>/32768",31558765,19.7979,19.8054,ns,,,,,
+9: "BM_insert_begin<std::list<int>>/65536",54884845,17.1172,17.1237,ns,,,,,
+9: "BM_insert_begin<std::list<int>>/131072",54807783,12.7585,12.7634,ns,,,,,
+9: "BM_insert_begin<std::list<int>>/262144",54945571,12.8297,12.8338,ns,,,,,
+9: "BM_insert_begin<std::list<int>>_BigO",,15.6258,15.6316,(1),,,,,
+9: "BM_insert_begin<std::list<int>>_RMS",,0.191107,0.19112,,,,,,
+9: "BM_insert_begin<std::deque<int>>/32768",282795162,2.46023,2.46117,ns,,,,,
+9: "BM_insert_begin<std::deque<int>>/65536",282986076,2.46183,2.46278,ns,,,,,
+9: "BM_insert_begin<std::deque<int>>/131072",283229692,2.4621,2.46305,ns,,,,,
+9: "BM_insert_begin<std::deque<int>>/262144",282782252,2.46424,2.46502,ns,,,,,
+9: "BM_insert_begin<std::deque<int>>_BigO",,2.4621,2.463,(1),,,,,
+9: "BM_insert_begin<std::deque<int>>_RMS",,0.000579713,0.000555793,,,,,,
+9: "BM_assoc_insert<std::set<int>>/32768",453390713,1.54384,1.54443,ns,,,,,
+9: "BM_assoc_insert<std::set<int>>/65536",453454534,1.5443,1.5449,ns,,,,,
+9: "BM_assoc_insert<std::set<int>>/131072",453549501,1.54369,1.54429,ns,,,,,
+9: "BM_assoc_insert<std::set<int>>/262144",452261911,1.54368,1.54428,ns,,,,,
+9: "BM_assoc_insert<std::set<int>>_BigO",,1.54388,1.54447,(1),,,,,
+9: "BM_assoc_insert<std::set<int>>_RMS",,0.000162,0.000162314,,,,,,
+9: "BM_assoc_insert_random<std::set<int>>/32768",5948093,117.398,117.438,ns,,,,,
+9: "BM_assoc_insert_random<std::set<int>>/65536",5151296,134.662,134.714,ns,,,,,
+9: "BM_assoc_insert_random<std::set<int>>/131072",4234984,164.36,164.423,ns,,,,,
+9: "BM_assoc_insert_random<std::set<int>>/262144",2833944,248.939,249.034,ns,,,,,
+9: "BM_assoc_insert_random<std::set<int>>_BigO",,10.2291,10.2329,lgN,,,,,
+9: "BM_assoc_insert_random<std::set<int>>_RMS",,0.241069,0.241077,,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>/32768",13659797,50.3769,50.3964,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>/65536",11867903,56.0258,56.0475,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>/131072",8258680,80.4114,80.4425,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>/262144",6280266,104.051,104.091,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>_BigO",,4.47164,4.47337,lgN,,,,,
+9: "BM_assoc_insert_seq<std::set<int>>_RMS",,0.227444,0.227444,,,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>/32768",88558823,7.88898,7.89201,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>/65536",88738063,7.8957,7.89876,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>/131072",88739248,7.89034,7.89339,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>/262144",88739732,7.88875,7.8918,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>_BigO",,7.89094,7.89399,(1),,,,,
+9: "BM_assoc_insert<std::unordered_set<int>>_RMS",,0.000356594,0.00035711,,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>/32768",37076175,18.6923,18.6995,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>/65536",36202308,19.0821,19.0895,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>/131072",31319736,21.8041,21.812,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>/262144",19048745,35.7047,35.7185,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>_BigO",,1.46166,1.46221,lgN,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<int>>_RMS",,0.236086,0.236091,,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>/32768",79089734,8.74038,8.74377,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>/65536",77982982,8.75121,8.75459,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>/131072",75522970,8.80578,8.80914,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>/262144",70715733,9.00175,9.00523,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>_BigO",,8.82478,8.82818,(1),,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<int>>_RMS",,0.011914,0.0119142,,,,,,
+9: "BM_assoc_insert<std::map<int, int>>/32768",453234591,1.54333,1.54392,ns,,,,,
+9: "BM_assoc_insert<std::map<int, int>>/65536",453073730,1.54411,1.5447,ns,,,,,
+9: "BM_assoc_insert<std::map<int, int>>/131072",453555907,1.54346,1.54406,ns,,,,,
+9: "BM_assoc_insert<std::map<int, int>>/262144",453526231,1.54306,1.54365,ns,,,,,
+9: "BM_assoc_insert<std::map<int, int>>_BigO",,1.54349,1.54408,(1),,,,,
+9: "BM_assoc_insert<std::map<int, int>>_RMS",,0.000249714,0.000250491,,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>/32768",5926483,117.586,117.632,ns,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>/65536",5133259,135.591,135.643,ns,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>/131072",4170647,166.25,166.315,ns,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>/262144",2838739,244.711,244.805,ns,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>_BigO",,10.205,10.209,lgN,,,,,
+9: "BM_assoc_insert_random<std::map<int, int>>_RMS",,0.229383,0.229383,,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>/32768",13330316,51.3758,51.3957,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>/65536",11632261,57.7664,57.7885,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>/131072",7937380,83.6115,83.6435,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>/262144",6104389,108.251,108.293,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>_BigO",,4.62963,4.63141,lgN,,,,,
+9: "BM_assoc_insert_seq<std::map<int, int>>_RMS",,0.233728,0.233728,,,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>/32768",24651891,28.4037,28.4146,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>/65536",24641739,28.3962,28.4071,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>/131072",24650341,28.4092,28.4202,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>/262144",24595181,28.3902,28.4012,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>_BigO",,28.3998,28.4108,(1),,,,,
+9: "BM_assoc_insert<std::unordered_map<int, int>>_RMS",,0.000254365,0.000254825,,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>/32768",14655638,47.6675,47.6859,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>/65536",13642877,49.04,49.059,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>/131072",11506930,55.6787,55.7002,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>/262144",6562947,91.2795,91.3148,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>_BigO",,3.73786,3.73931,lgN,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<int, int>>_RMS",,0.235646,0.235646,,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>/32768",24400494,28.6288,28.6398,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>/65536",24334026,28.6466,28.6577,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>/131072",24214247,28.7498,28.7609,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>/262144",23817825,29.0382,29.0494,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>_BigO",,28.7658,28.777,(1),,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<int, int>>_RMS",,0.00569699,0.00569691,,,,,,
+9: "BM_write_seq<std::vector<aggregate>>/32768",38515,18161.4,18168.4,ns,,,,,
+9: "BM_write_seq<std::vector<aggregate>>/65536",19275,36299.8,36313.8,ns,,,,,
+9: "BM_write_seq<std::vector<aggregate>>/131072",9643,72539.3,72567.4,ns,,,,,
+9: "BM_write_seq<std::vector<aggregate>>/262144",4802,145840,145896,ns,,,,,
+9: "BM_write_seq<std::vector<aggregate>>_BigO",,0.55565,0.555863,N,,,,,
+9: "BM_write_seq<std::vector<aggregate>>_RMS",,0.00266708,0.00266521,,,,,,
+9: "BM_write_seq<std::list<aggregate>>/32768",8221,87427.7,87461.5,ns,,,,,
+9: "BM_write_seq<std::list<aggregate>>/65536",4060,172482,172549,ns,,,,,
+9: "BM_write_seq<std::list<aggregate>>/131072",1847,377528,377674,ns,,,,,
+9: "BM_write_seq<std::list<aggregate>>/262144",619,1.14232e+06,1.14275e+06,ns,,,,,
+9: "BM_write_seq<std::list<aggregate>>_BigO",,1.70376e-05,1.7044e-05,N^2,,,,,
+9: "BM_write_seq<std::list<aggregate>>_RMS",,0.169118,0.169121,,,,,,
+9: "BM_write_seq<std::deque<aggregate>>/32768",17911,39018.9,39034,ns,,,,,
+9: "BM_write_seq<std::deque<aggregate>>/65536",8971,78061.9,78092.1,ns,,,,,
+9: "BM_write_seq<std::deque<aggregate>>/131072",4488,156071,156132,ns,,,,,
+9: "BM_write_seq<std::deque<aggregate>>/262144",2232,313559,313678,ns,,,,,
+9: "BM_write_seq<std::deque<aggregate>>_BigO",,1.19482,1.19527,N,,,,,
+9: "BM_write_seq<std::deque<aggregate>>_RMS",,0.00236575,0.00236294,,,,,,
+9: "BM_push_back<std::vector<aggregate>>/32768",4061,170717,170782,ns,,,,,
+9: "BM_push_back<std::vector<aggregate>>/65536",2033,341203,341332,ns,,,,,
+9: "BM_push_back<std::vector<aggregate>>/131072",900,726605,726880,ns,,,,,
+9: "BM_push_back<std::vector<aggregate>>/262144",451,1.45531e+06,1.45588e+06,ns,,,,,
+9: "BM_push_back<std::vector<aggregate>>_BigO",,5.5298,5.53193,N,,,,,
+9: "BM_push_back<std::vector<aggregate>>_RMS",,0.0181109,0.0181134,,,,,,
+9: "BM_push_back<std::list<aggregate>>/32768",914,792628,792930,ns,,,,,
+9: "BM_push_back<std::list<aggregate>>/65536",844,1.20974e+06,1.2102e+06,ns,,,,,
+9: "BM_push_back<std::list<aggregate>>/131072",423,1.65829e+06,1.65893e+06,ns,,,,,
+9: "BM_push_back<std::list<aggregate>>/262144",210,3.32853e+06,3.32979e+06,ns,,,,,
+9: "BM_push_back<std::list<aggregate>>_BigO",,13.0951,13.1001,N,,,,,
+9: "BM_push_back<std::list<aggregate>>_RMS",,0.148686,0.148686,,,,,,
+9: "BM_push_back<std::deque<aggregate>>/32768",4600,150584,150641,ns,,,,,
+9: "BM_push_back<std::deque<aggregate>>/65536",2313,301254,301367,ns,,,,,
+9: "BM_push_back<std::deque<aggregate>>/131072",1177,602588,602821,ns,,,,,
+9: "BM_push_back<std::deque<aggregate>>/262144",576,1.20732e+06,1.20771e+06,ns,,,,,
+9: "BM_push_back<std::deque<aggregate>>_BigO",,4.60348,4.60503,N,,,,,
+9: "BM_push_back<std::deque<aggregate>>_RMS",,0.000966611,0.0009336,,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>/32768",4031,171162,171226,ns,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>/65536",2031,341194,341323,ns,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>/131072",898,723255,723527,ns,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>/262144",454,1.43869e+06,1.43924e+06,ns,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>_BigO",,5.47739,5.4795,N,,,,,
+9: "BM_push_back_resize<std::vector<aggregate>>_RMS",,0.0153518,0.0153529,,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>/32768",900,788017,788321,ns,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>/65536",846,1.22096e+06,1.22142e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>/131072",422,1.6665e+06,1.66714e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>/262144",210,3.33149e+06,3.33275e+06,ns,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>_BigO",,13.1218,13.1268,N,,,,,
+9: "BM_push_back_resize<std::list<aggregate>>_RMS",,0.149164,0.149165,,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>/32768",4564,151468,151525,ns,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>/65536",2284,303894,304012,ns,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>/131072",1162,605809,606035,ns,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>/262144",567,1.21301e+06,1.21339e+06,ns,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>_BigO",,4.62666,4.62819,N,,,,,
+9: "BM_push_back_resize<std::deque<aggregate>>_RMS",,0.000828822,0.000821761,,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>/32768",4050,171039,171104,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>/65536",2024,342699,342825,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>/131072",898,727022,727296,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>/262144",452,1.446e+06,1.44656e+06,ns,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>_BigO",,5.50484,5.50695,N,,,,,
+9: "BM_push_back_vector_reserve<std::vector<aggregate>>_RMS",,0.0158342,0.0158379,,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>/32768",31492,28549.9,28560.9,ns,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>/65536",16835,43494.6,43511.4,ns,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>/131072",9029,79821.7,79852.6,ns,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>/262144",4532,155347,155407,ns,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>_BigO",,0.60231,0.602544,N,,,,,
+9: "BM_insert_begin<std::vector<aggregate>>_RMS",,0.065456,0.0654556,,,,,,
+9: "BM_insert_begin<std::list<aggregate>>/32768",28325436,21.259,21.2673,ns,,,,,
+9: "BM_insert_begin<std::list<aggregate>>/65536",28311323,21.2953,21.3032,ns,,,,,
+9: "BM_insert_begin<std::list<aggregate>>/131072",39844456,19.0408,19.0482,ns,,,,,
+9: "BM_insert_begin<std::list<aggregate>>/262144",54018610,16.3425,16.348,ns,,,,,
+9: "BM_insert_begin<std::list<aggregate>>_BigO",,19.4844,19.4917,(1),,,,,
+9: "BM_insert_begin<std::list<aggregate>>_RMS",,0.104227,0.104243,,,,,,
+9: "BM_insert_begin<std::deque<aggregate>>/32768",133768931,5.34346,5.34548,ns,,,,,
+9: "BM_insert_begin<std::deque<aggregate>>/65536",138489980,5.34255,5.34459,ns,,,,,
+9: "BM_insert_begin<std::deque<aggregate>>/131072",134462591,5.33861,5.34065,ns,,,,,
+9: "BM_insert_begin<std::deque<aggregate>>/262144",133533040,5.34516,5.34719,ns,,,,,
+9: "BM_insert_begin<std::deque<aggregate>>_BigO",,5.34245,5.34448,(1),,,,,
+9: "BM_insert_begin<std::deque<aggregate>>_RMS",,0.000449715,0.000449193,,,,,,
+9: "BM_assoc_insert<std::set<aggregate>>/32768",453549616,1.54492,1.54543,ns,,,,,
+9: "BM_assoc_insert<std::set<aggregate>>/65536",453551449,1.54354,1.54413,ns,,,,,
+9: "BM_assoc_insert<std::set<aggregate>>/131072",453371417,1.54487,1.54546,ns,,,,,
+9: "BM_assoc_insert<std::set<aggregate>>/262144",453552008,1.54375,1.54435,ns,,,,,
+9: "BM_assoc_insert<std::set<aggregate>>_BigO",,1.54427,1.54484,(1),,,,,
+9: "BM_assoc_insert<std::set<aggregate>>_RMS",,0.000407171,0.000393795,,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>/32768",5595051,125.507,125.556,ns,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>/65536",4832335,144.39,144.446,ns,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>/131072",3563551,194.311,194.385,ns,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>/262144",2358708,304.592,304.709,ns,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>_BigO",,0.00130266,0.00130316,N,,,,,
+9: "BM_assoc_insert_random<std::set<aggregate>>_RMS",,0.288037,0.288037,,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>/32768",9907886,69.5184,69.5453,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>/65536",7813356,87.418,87.4518,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>/131072",6330843,105.772,105.813,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>/262144",5367872,121.662,121.709,ns,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>_BigO",,5.87706,5.87933,lgN,,,,,
+9: "BM_assoc_insert_seq<std::set<aggregate>>_RMS",,0.135435,0.135435,,,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>/32768",83531278,8.35088,8.35412,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>/65536",84004823,8.34803,8.35126,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>/131072",83829066,8.34591,8.34914,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>/262144",83945057,8.35023,8.35346,ns,,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>_BigO",,8.34876,8.35199,(1),,,,,
+9: "BM_assoc_insert<std::unordered_set<aggregate>>_RMS",,0.000234582,0.000234564,,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>/32768",31107386,22.4773,22.486,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>/65536",29883948,23.0447,23.0535,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>/131072",21664555,31.5648,31.577,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>/262144",8237310,61.7709,61.7948,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>_BigO",,0.000247369,0.000247465,N,,,,,
+9: "BM_assoc_insert_random<std::unordered_set<aggregate>>_RMS",,0.233771,0.23377,,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>/32768",65803190,10.5208,10.5248,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>/65536",64836939,10.5744,10.5785,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>/131072",59104586,11.3756,11.38,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>/262144",46541181,13.7259,13.731,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>_BigO",,0.701511,0.70178,lgN,,,,,
+9: "BM_assoc_insert_seq<std::unordered_set<aggregate>>_RMS",,0.060175,0.0601694,,,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>/32768",452674779,1.54332,1.54391,ns,,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>/65536",453369969,1.54387,1.54447,ns,,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>/131072",453548346,1.54456,1.54515,ns,,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>/262144",453553198,1.54439,1.54498,ns,,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>_BigO",,1.54403,1.54463,(1),,,,,
+9: "BM_assoc_insert<std::map<aggregate, aggregate>>_RMS",,0.000314019,0.000313978,,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>/32768",5455515,127.058,127.107,ns,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>/65536",4463303,157.711,157.772,ns,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>/131072",3000289,225.376,225.463,ns,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>/262144",2139105,335.064,335.194,ns,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>_BigO",,0.00144492,0.00144548,N,,,,,
+9: "BM_assoc_insert_random<std::map<aggregate, aggregate>>_RMS",,0.27525,0.27525,,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>/32768",13135856,52.1661,52.1863,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>/65536",10939126,61.9889,62.0125,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>/131072",7202543,94.0273,94.0637,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>/262144",6013623,108.875,108.917,ns,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>_BigO",,4.87434,4.87622,lgN,,,,,
+9: "BM_assoc_insert_seq<std::map<aggregate, aggregate>>_RMS",,0.224469,0.22447,,,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>/32768",23426456,29.8849,29.8964,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>/65536",23438154,29.8979,29.9094,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>/131072",23418166,29.9361,29.9477,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>/262144",23433514,29.9056,29.9172,ns,,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>_BigO",,29.9061,29.9177,(1),,,,,
+9: "BM_assoc_insert<std::unordered_map<aggregate, aggregate>>_RMS",,0.000630198,0.000630457,,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>/32768",12784590,53.5595,53.58,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>/65536",11232181,60.5045,60.528,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>/131072",6836070,89.4741,89.5088,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>/262144",4299835,151.614,151.672,ns,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>_BigO",,0.000626645,0.000626884,N,,,,,
+9: "BM_assoc_insert_random<std::unordered_map<aggregate, aggregate>>_RMS",,0.230991,0.230993,,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>/32768",22504183,30.9985,31.0105,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>/65536",22226857,31.3643,31.3765,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>/131072",19802025,35.1338,35.1474,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>/262144",17561931,39.5181,39.5329,ns,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>_BigO",,2.0799,2.08069,lgN,,,,,
+9: "BM_assoc_insert_seq<std::unordered_map<aggregate, aggregate>>_RMS",,0.041492,0.0414875,,,,,,
+ 9/12 Test  #9: mutators.bench.cpp.out ...............   Passed  367.97 sec
+test 10
+      Start 10: stringstream.bench.cpp.out
+
+10: Test command: /home/hiraditya/work/std-benchmark/build-gcc/cxx/stringstream.bench.cpp.out "--benchmark_format=csv"
+10: Test timeout computed to be: 9.99988e+06
+10: Run on (8 X 3891.27 MHz CPU s)
+10: 2017-05-11 02:14:55
+10: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+10: "BM_Istream_numbers/32768",181848,3845.81,3847.28,ns,,,,,
+10: "BM_Istream_numbers/65536",181851,3850.69,3852.18,ns,,,,,
+10: "BM_Istream_numbers/131072",181897,3848.99,3850.47,ns,,,,,
+10: "BM_Istream_numbers/262144",181979,3848.4,3849.89,ns,,,,,
+10/12 Test #10: stringstream.bench.cpp.out ...........   Passed    4.52 sec
+test 11
+      Start 11: cxxstring.vs.cstring.bench.cpp.out
+
+11: Test command: /home/hiraditya/work/std-benchmark/build-gcc/c.vs.cxx/cxxstring.vs.cstring.bench.cpp.out "--benchmark_format=csv"
+11: Test timeout computed to be: 9.99988e+06
+11: Run on (8 X 3831.51 MHz CPU s)
+11: 2017-05-11 02:14:59
+11: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+11: "BM_CXXStringFindNoMatch/16",123569179,5.67737,5.67953,ns,,,,,
+11: "BM_CXXStringFindNoMatch/64",100770863,6.95161,6.95428,ns,,,,,
+11: "BM_CXXStringFindNoMatch/512",43725816,15.9872,15.9933,ns,,,,,
+11: "BM_CXXStringFindNoMatch/4096",9013528,77.6159,77.6418,ns,,,,,
+11: "BM_CXXStringFindNoMatch/32768",1252906,558.839,559.053,ns,,,,,
+11: "BM_CXXStringFindNoMatch/131072",246385,2835.04,2836.13,ns,,,,,
+11: "BM_CXXStringFindAllMatch/16",77736829,9.01707,9.02054,ns,,,,,
+11: "BM_CXXStringFindAllMatch/64",71600758,9.77601,9.77979,ns,,,,,
+11: "BM_CXXStringFindAllMatch/512",32218443,21.7031,21.7114,ns,,,,,
+11: "BM_CXXStringFindAllMatch/4096",7410585,94.5,94.5317,ns,,,,,
+11: "BM_CXXStringFindAllMatch/32768",843803,826.603,826.92,ns,,,,,
+11: "BM_CXXStringFindAllMatch/131072",195165,3584.47,3585.86,ns,,,,,
+11: "BM_CXXStringFindMatch1/16",519652,1346.83,1347.35,ns,,,,,
+11: "BM_CXXStringFindMatch1/64",519888,1350.84,1351.37,ns,,,,,
+11: "BM_CXXStringFindMatch1/512",513047,1365.48,1365.94,ns,,,,,
+11: "BM_CXXStringFindMatch1/4096",468065,1493.69,1494.26,ns,,,,,
+11: "BM_CXXStringFindMatch1/32768",321166,2177.63,2178.47,ns,,,,,
+11: "BM_CXXStringFindMatch2/16",517004,1352.66,1353.18,ns,,,,,
+11: "BM_CXXStringFindMatch2/64",515699,1355.4,1355.93,ns,,,,,
+11: "BM_CXXStringFindMatch2/512",509646,1371.11,1371.64,ns,,,,,
+11: "BM_CXXStringFindMatch2/4096",467088,1499.15,1499.65,ns,,,,,
+11: "BM_CXXStringFindMatch2/32768",320739,2181.45,2182.29,ns,,,,,
+11: "BM_CXXStringRegression",6308514,110.996,111.038,ns,,,,,
+11: "BM_CXXStringmemchr/16",247359071,2.8297,2.83079,ns,,,,,
+11: "BM_CXXStringmemchr/64",181079882,3.86262,3.86412,ns,,,,,
+11: "BM_CXXStringmemchr/512",54405643,12.8645,12.8695,ns,,,,,
+11: "BM_CXXStringmemchr/4096",9338742,74.9576,74.9828,ns,,,,,
+11: "BM_CXXStringmemchr/32768",1278454,547.703,547.915,ns,,,,,
+11: "BM_CXXStringmemchr/131072",247225,2830.95,2832.05,ns,,,,,
+11: "BM_CStringmemchr/16",271782749,2.57522,2.57622,ns,,,,,
+11: "BM_CStringmemchr/64",194285845,3.60369,3.60508,ns,,,,,
+11: "BM_CStringmemchr/512",55508791,12.6467,12.651,ns,,,,,
+11: "BM_CStringmemchr/4096",9382047,74.5943,74.6232,ns,,,,,
+11: "BM_CStringmemchr/32768",1286295,543.857,544.068,ns,,,,,
+11: "BM_CStringmemchr/131072",246843,2829.59,2830.68,ns,,,,,
+11: "BM_CStringFindNoMatch/16",159787198,4.37518,4.37687,ns,,,,,
+11: "BM_CStringFindNoMatch/64",67873544,10.2943,10.2982,ns,,,,,
+11: "BM_CStringFindNoMatch/512",26416389,26.5156,26.5244,ns,,,,,
+11: "BM_CStringFindNoMatch/4096",3809101,183.899,183.97,ns,,,,,
+11: "BM_CStringFindNoMatch/32768",587021,1194.57,1195.03,ns,,,,,
+11: "BM_CStringFindNoMatch/131072",134751,5202.15,5204.16,ns,,,,,
+11: "BM_CStringFindAllMatch/16",16195,43209.3,43226,ns,,,,,
+11: "BM_CStringFindAllMatch/64",1412,494734,494897,ns,,,,,
+11: "BM_CStringFindAllMatch/512",1366,512521,512717,ns,,,,,
+11: "BM_CStringFindAllMatch/4096",4477,156436,156496,ns,,,,,
+11: "BM_CStringFindAllMatch/32768",641,1.10359e+06,1.10402e+06,ns,,,,,
+11: "BM_CStringFindAllMatch/131072",14316,48803.6,48822.5,ns,,,,,
+11: "BM_CStringFindMatch1/16",256357,2730.85,2731.9,ns,,,,,
+11: "BM_CStringFindMatch1/64",166334,4216.95,4218.58,ns,,,,,
+11: "BM_CStringFindMatch1/512",24228,28870.9,28880.4,ns,,,,,
+11: "BM_CStringFindMatch1/4096",16547,41940.6,41956.8,ns,,,,,
+11: "BM_CStringFindMatch1/32768",3959,176739,176807,ns,,,,,
+11: "BM_CStringFindMatch2/16",260834,2683.07,2684.11,ns,,,,,
+11: "BM_CStringFindMatch2/64",180121,3906.86,3908.37,ns,,,,,
+11: "BM_CStringFindMatch2/512",22900,33588.4,33599.6,ns,,,,,
+11: "BM_CStringFindMatch2/4096",16707,41757.4,41773.6,ns,,,,,
+11: "BM_CStringFindMatch2/32768",4098,165389,165453,ns,,,,,
+11: "BM_CStringRegression",453543824,1.54383,1.54442,ns,,,,,
+11/12 Test #11: cxxstring.vs.cstring.bench.cpp.out ...   Passed   53.84 sec
+test 12
+      Start 12: memory.bench.cpp.out
+
+12: Test command: /home/hiraditya/work/std-benchmark/build-gcc/compiler.vs.programmer/memory.bench.cpp.out "--benchmark_format=csv"
+12: Test timeout computed to be: 9.99988e+06
+12: Run on (8 X 3816.5 MHz CPU s)
+12: 2017-05-11 02:15:53
+12: name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message
+12: "BM_prog_memcpy/32768",646490,1082.08,1082.49,ns,,,,,
+12: "BM_prog_memcpy/65536",322930,2166.35,2167.18,ns,,,,,
+12: "BM_prog_memcpy/131072",140914,4866.62,4868.48,ns,,,,,
+12: "BM_prog_memcpy/262144",51400,13721.4,13726.6,ns,,,,,
+12: "BM_compiler_memcpy/32768",629274,1108.51,1108.94,ns,,,,,
+12: "BM_compiler_memcpy/65536",317275,2204.66,2205.4,ns,,,,,
+12: "BM_compiler_memcpy/131072",154469,4533.89,4535.63,ns,,,,,
+12: "BM_compiler_memcpy/262144",67929,10948.3,10952.6,ns,,,,,
+12: "BM_memcpy/32768",632979,1106.93,1107.36,ns,,,,,
+12: "BM_memcpy/65536",318031,2202.01,2202.85,ns,,,,,
+12: "BM_memcpy/131072",154611,4526.76,4528.51,ns,,,,,
+12: "BM_memcpy/262144",66309,11005.7,11010,ns,,,,,
+12/12 Test #12: memory.bench.cpp.out .................   Passed   11.52 sec
+
+100% tests passed, 0 tests failed out of 12
+
+Label Time Summary:
+c                         = 6535.62 sec (3 tests)
+c.vs.cxx                  =  53.84 sec (1 test)
+compiler.vs.programmer    =  11.52 sec (1 test)
+cxx                       = 1691.14 sec (7 tests)
+
+Total Test time (real) = 8292.12 sec
