@@ -1,16 +1,33 @@
 \documentclass[10pt]{article}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{hyperref}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{graphviz}
+\usepackage{auto-pst-pdf}
+\usepackage{etoolbox}
+\usepackage{flushend}
+\usepackage{needspace}
+\usepackage{authblk}
+
 
 \begin{document}
 \title{Performance analysis and optimization of C$++$ standard libraries}
-\date{}
 
+\author[1]{Aditya Kumar}
+\author[2]{Sebastian Pop}
+\affil[1]{Samsung Austin R\&D Center}
+\affil[2]{Samsung Austin R\&D Center}
+\affil[ ]{\textit {\{aditya.k7, s.pop}\}@samsung.com}
+
+\date{}
 \maketitle
 
 \section*{Summary}
-C++ programs are widely used in performance critical applications. The standard
-libraries of C++, hence, are expected to be very efficient. However,
+C$++$ programs are widely used in performance critical applications. The standard
+libraries of C$++$, hence, are expected to be very efficient. However,
 experimental results show opportunities for improvements in some of the most
 commonly used data structures and algorithms.
 
