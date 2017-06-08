@@ -94,14 +94,14 @@ void BM_assoc_insert_random(benchmark::State& state) {
   int N = state.range(0);
   using CVT = typename V::value_type;
   using VT = typename remove_const<CVT>::type;
-  std::vector<VT> temp(N);
+  std::vector<VT> temp(N*1000);
   fill_random(temp);
   V v;
   auto it = temp.begin();
   while (state.KeepRunning()) {
     v.insert(*it++);
     if (it == temp.end()) // FIXME: After temp.end insert will just return.
-      it = temp.begin();
+      assert(0);//it = temp.begin();
   }
   state.SetComplexityN(N);
 }
