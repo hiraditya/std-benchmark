@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{hyperref}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{graphviz}
+\usepackage{auto-pst-pdf}
+\usepackage{etoolbox}
+\usepackage{flushend}
+\usepackage{needspace}
+%\usepackage{authblk}
+
+
+\begin{document}
+\title{Performance analysis and optimization of C$++$ standard libraries}
+
+%\author[1]{Aditya Kumar}
+%\author[2]{Sebastian Pop}
+%\affil[1]{Samsung Austin R\&D Center}
+%\affil[2]{Samsung Austin R\&D Center}
+%\affil[ ]{\textit {\{aditya.k7, s.pop}\}@samsung.com}
+
+\date{}
+\maketitle
+
+\section*{Summary}
+C$++$ programs are widely used in performance critical applications. The standard
+libraries of C$++$, hence, are expected to be very efficient. However,
+experimental results show opportunities for improvements in some of the most
+commonly used data structures and algorithms.
+
+We will present the performance analysis work on libc$++$ and libstdc$++$ and
+the changes we did to these libraries and to the LLVM compiler to optimize the
+code using them. This includes our contributions to standard library algorithms
+like string::find, libc$++$::basic\_streambuf::xsgetn, and libc$++$::locale. We
+improved these suboptimal algorithms, particularly string::find which improved
+by more than 10x. Similarly, we enabled the inlining of constructor and
+destructor of libc$++$::string. We will present a systematic analysis of
+function attributes and the places where we added missing attributes. We will
+present a comparative analysis of libc$++$ vs. libstdc$++$ vs. Microsoft's C++
+standard library on commonly used data structures and algorithms based on our
+std-benchmark (https://github.com/hiraditya/std-benchmark), that we started
+developing to help analyze standard C$++$ libraries. We will discuss the
+performance issues with libc$++$::stringstream and libc$++$::sort that we are
+currently working on. We will also present the lessons learned as a result of
+analyzing C$++$ standard libraries, for example:
+\begin{enumerate}
+\item Iterator based algorithms can lose information and hence, can result in
+  suboptimal performance.  This is exemplified in the implementation of
+  std::rotate where we can just exchange few pointers should the underlying
+  container is a doubly linked list e.g., std::list.
+\item The C++ programming language has a limitation that the constructor and
+  destructor cannot be const qualified which could have facilitated useful
+  compiler optimizations like removing the destructor of a const std::string
+  when the string is small enough to be kept on the stack.
+\end{enumerate}
+
+Keywords: C++, performance analysis, benchmarking libraries, compiler
+optimization, LLVM, libstc$++$, libc$++$
+\\
+\\
+Reference to previous talks: \url{http://sched.co/A8J7}, \url{http://sched.co/8Yzk}
+
+\end{document}
