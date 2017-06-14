@@ -32,15 +32,15 @@ opportunities for improvements in some of the most commonly used data structures
 and algorithms.
 
 We will present the performance analysis work on widely used system libraries
-like libc$++$, libstdc$++$, zlib, libziparchive (Android core), and the changes
-we did to these libraries and to the GCC/LLVM compiler to optimize them. This
-includes our contributions to standard library algorithms like string::find,
-libc$++$::basic\_streambuf::xsgetn, and libc$++$::locale. We improved these
-suboptimal algorithms, particularly string::find which improved by more than
-10x. Similarly, we enabled the inlining of constructor and destructor of
-libc$++$::string. We also improved the hottest algorithms in zlib and
-libziparchive by several factors. We will highlight useful optimization tricks
-that we used as part of optimizing these libraries.
+like libc$++$, libstdc$++$, zlib, libziparchive (Android core), the improvements
+we did to these libraries and to the GCC and LLVM compilers to optimize
+them. This includes our contributions to standard library algorithms like
+string::find, libc$++$::basic\_streambuf::xsgetn, and libc$++$::locale. We
+improved these suboptimal algorithms, particularly string::find which improved
+by more than 10x. Similarly, we enabled the inlining of constructor and
+destructor of libc$++$::string. We also improved some of the hottest algorithms
+in zlib and libziparchive by several factors. We will highlight useful
+optimization tricks that we used as part of optimizing these libraries.
 
 We will present a systematic analysis of C++ standard libraries which enabled us
 to expose differences in their design as well as their dynamic behavior. We will
@@ -70,5 +70,4 @@ optimization, GCC, LLVM, libstc$++$, libc$++$
 \\
 \\
 Reference to previous talks: \url{http://sched.co/A8J7}, \url{http://sched.co/8Yzk}
-
 \end{document}

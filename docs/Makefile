@@ -7,7 +7,7 @@ $(paper).pdf: $(paper).tex Bibliography.bib
 	pdflatex -shell-escape $(paper)
 
 abstract:
-	pdflatex -shell-escape abstract
+	pdflatex -shell-escape abstract-cppcon
 
 $(slides).pdf: $(slides).tex
 	pdflatex -shell-escape $(slides)
