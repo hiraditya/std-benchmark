@@ -1,0 +1,20 @@
+- Going into a description of how you discovered the issues and tools that you used to profile the problem would be really helpful.
+
+- What led you to look at this issue?
+  Performance analysis of benchmarks
+
+- How did you know that there was a potential speed gain to be had?
+  Optimizing for locality
+
+- How to effectively use tools to determine where to optimize or how to optimize?
+  Valgrind, ltrace, linux perf (Basic tutorial of each of these)
+
+- Don't be afraid to go into detail.
+
+- Remember that, as a tutorial, people will be using your slides as an outline for how they can use your methodology in their own code.
+- If there's not enough content for them to do it on their own, a tutorial that just says "there was a problem and I fixed it" isn't going to be very helpful.
+- I'd hazard a guess and say that 99% of the people you'll be in front of won't have any experience with compiler internals or GLIBC internals.
+- That's why I'd move the focus away from the specific GLIBC internals and towards optimization in general.
+    Carve out general code from the examples
+
+- I think that there's some extremely valuable information here that you can share with the audience, but you don't want them to get lost because they don't know GLIBC.
