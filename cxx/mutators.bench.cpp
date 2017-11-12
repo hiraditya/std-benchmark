@@ -1,4 +1,4 @@
-#include "benchmark/benchmark_api.h"
+#include "benchmark/benchmark.h"
 #include "test_configs.h"
 #include "test_utils.h"
 

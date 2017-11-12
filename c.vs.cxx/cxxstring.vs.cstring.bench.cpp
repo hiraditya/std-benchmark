@@ -10,7 +10,7 @@
 #include <cstring>
 
 #include "test_utils.h"
-#include "benchmark/benchmark_api.h"
+#include "benchmark/benchmark.h"
 
 constexpr std::size_t MAX_STRING_LEN = 8 << 14;
 constexpr std::size_t MIN_STRING_LEN = 16;
