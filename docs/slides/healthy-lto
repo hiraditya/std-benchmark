@@ -1,0 +1,18 @@
+In the middle of ThinLTO and FatLTO there is a room for a 'healthy' LTO which will collapse IR of
+closely related modules (think call graph edges, or profile information), and then use the parallel link step just like thinLTO.
+So the pass pipeline would look like the following:
+1. clang -> llvm IR
+2. ld -flto=healthy *.o (bitcode files), ld invokes the libLTO
+3. combine a set of closely related llvm IRs based on some cost metric** -> llvm IR (# of modules will reduce)
+4. parallel codegenb step -> *.o
+5. ld *.o -> a.out
+
+** Useful cost metrics:
+1. Call graph edges, more interfering modules can be merged
+2. Based on profile information, 'hot' modules can be merged to improve locality, hot modules can be compiled with -O3 and cold modules can be compiled with Os
+
+Advantages:
+1. code size small because of smaller GOT and PLT
+2. Improved locality
+3. Compile time still reasonable because of parallel codegen, compile time may actually improve if we collape tiny modules
+4. Potential perf gains
