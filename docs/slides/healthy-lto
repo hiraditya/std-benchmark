@@ -12,7 +12,7 @@ So the pass pipeline would look like the following:
 2. Based on profile information, 'hot' modules can be merged to improve locality, hot modules can be compiled with -O3 and cold modules can be compiled with Os
 
 Advantages:
-1. code size small because of smaller GOT and PLT
+1. code size small because of smaller GOT and PLT, more internalized symbols, more DCE etc.
 2. Improved locality
 3. Compile time still reasonable because of parallel codegen, compile time may actually improve if we collape tiny modules
 4. Potential perf gains
